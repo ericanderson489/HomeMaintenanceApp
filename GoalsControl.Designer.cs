@@ -1,6 +1,6 @@
 ﻿namespace HomeMaintenanceApp
 {
-    partial class TasksControl
+    partial class GoalsControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            addTaskButton = new Button();
+            addGoalsButton = new Button();
             SuspendLayout();
             // 
-            // addTaskButton
+            // addGoalsButton
             // 
-            addTaskButton.AutoSize = true;
-            addTaskButton.BackColor = SystemColors.ActiveCaptionText;
-            addTaskButton.FlatStyle = FlatStyle.Popup;
-            addTaskButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            addTaskButton.ForeColor = SystemColors.ButtonHighlight;
-            addTaskButton.Location = new Point(329, 3);
-            addTaskButton.Name = "addTaskButton";
-            addTaskButton.Size = new Size(100, 38);
-            addTaskButton.TabIndex = 0;
-            addTaskButton.Text = "Add Task";
-            addTaskButton.UseVisualStyleBackColor = false;
+            addGoalsButton.AutoSize = true;
+            addGoalsButton.BackColor = SystemColors.ActiveCaptionText;
+            addGoalsButton.FlatStyle = FlatStyle.Popup;
+            addGoalsButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            addGoalsButton.ForeColor = SystemColors.ButtonHighlight;
+            addGoalsButton.Location = new Point(326, 1);
+            addGoalsButton.Name = "addGoalsButton";
+            addGoalsButton.Size = new Size(107, 40);
+            addGoalsButton.TabIndex = 0;
+            addGoalsButton.Text = "Add Goal";
+            addGoalsButton.UseVisualStyleBackColor = false;
             // 
-            // TasksControl
+            // GoalsControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
-            Controls.Add(addTaskButton);
-            Name = "TasksControl";
+            Controls.Add(addGoalsButton);
+            Name = "GoalsControl";
             Size = new Size(432, 450);
             ResumeLayout(false);
             PerformLayout();
@@ -59,6 +59,6 @@
 
         #endregion
 
-        private Button addTaskButton;
+        private Button addGoalsButton;
     }
 }

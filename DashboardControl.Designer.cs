@@ -75,7 +75,7 @@
             completedLabel.AutoSize = true;
             completedLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             completedLabel.ForeColor = SystemColors.ButtonHighlight;
-            completedLabel.Location = new Point(244, 21);
+            completedLabel.Location = new Point(237, 21);
             completedLabel.Name = "completedLabel";
             completedLabel.Size = new Size(158, 28);
             completedLabel.TabIndex = 3;
@@ -92,7 +92,7 @@
             Controls.Add(upcomingLabel);
             Controls.Add(tasksLabel);
             Name = "DashboardControl";
-            Size = new Size(426, 382);
+            Size = new Size(432, 450);
             ResumeLayout(false);
             PerformLayout();
         }
