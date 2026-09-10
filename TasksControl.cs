@@ -14,7 +14,7 @@ namespace HomeMaintenanceApp
     {
         public TasksControl()
         {
-            InitializeComponent();
+            InitializeComponent(); //tesdt
         }
     }
 }
