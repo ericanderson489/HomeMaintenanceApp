@@ -62,7 +62,7 @@
             Controls.Add(completedGoalsLabel);
             Controls.Add(completedTasksLabel);
             Name = "HistoryControl";
-            Size = new Size(432, 450);
+            Size = new Size(671, 450);
             ResumeLayout(false);
             PerformLayout();
         }

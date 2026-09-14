@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace HomeMaintenanceApp
 {
-    public partial class CalendarControl : UserControl
+    public partial class LoginControl : UserControl
     {
-        public CalendarControl()
+        public LoginControl()
         {
             InitializeComponent();
-        }
-
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

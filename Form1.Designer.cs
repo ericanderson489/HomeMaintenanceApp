@@ -161,7 +161,7 @@
             mainPanel.Dock = DockStyle.Fill;
             mainPanel.Location = new Point(134, 0);
             mainPanel.Name = "mainPanel";
-            mainPanel.Size = new Size(432, 450);
+            mainPanel.Size = new Size(671, 450);
             mainPanel.TabIndex = 1;
             mainPanel.Paint += mainPanel_Paint;
             // 
@@ -169,7 +169,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(566, 450);
+            ClientSize = new Size(805, 450);
             Controls.Add(mainPanel);
             Controls.Add(sidePanel);
             Icon = (Icon)resources.GetObject("$this.Icon");
