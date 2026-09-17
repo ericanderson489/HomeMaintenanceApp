@@ -2,30 +2,40 @@ namespace HomeMaintenanceApp
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        public MainForm() : this(new UI.PreviewTaskSource()) { }
+
+        public MainForm(UI.ITaskPresentationSource taskSource)
         {
+            this.taskSource = taskSource ?? throw new ArgumentNullException(nameof(taskSource));
             InitializeComponent();
+            ApplyWorkshopStyle();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            ShowPage(new DashboardControl()); //loads dashboard on launch
+            Navigate(true); //loads dashboard on launch
         }
 
         private void ShowPage(UserControl page)
         {
-            mainPanel.Controls.Clear();
+            // Dispose outgoing pages so navigation does not retain controls and handles.
+            while (mainPanel.Controls.Count > 0)
+            {
+                var previous = mainPanel.Controls[0];
+                mainPanel.Controls.Remove(previous);
+                previous.Dispose();
+            }
             page.Dock = DockStyle.Fill;
             mainPanel.Controls.Add(page);
         }
         private void dashBoardButton_Click(object sender, EventArgs e)
         {
-            ShowPage(new DashboardControl());
+            Navigate(true);
         }
 
         private void tasksButton_Click(object sender, EventArgs e)
         {
-            ShowPage(new TasksControl());
+            Navigate(false);
         }
 
         private void goalsButton_Click(object sender, EventArgs e)
