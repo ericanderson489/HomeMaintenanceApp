@@ -16,5 +16,30 @@ namespace HomeMaintenanceApp
         {
             InitializeComponent();
         }
+        public event EventHandler? LoginSuccessful;
+        private void usernameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void passwordTextextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void createAccountButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            LoginSuccessful?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

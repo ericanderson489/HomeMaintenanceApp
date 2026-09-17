@@ -2,17 +2,36 @@ namespace HomeMaintenanceApp
 {
     public partial class MainForm : Form
     {
+        private Size mainWindowSize; //this saves client size window, is used to adjust size after login
         public MainForm()
         {
             InitializeComponent();
+            mainWindowSize = ClientSize; // this is where the client size window is saved
+            ShowLogin(); // login window is shown on start up
         }
-
+        private void Login_LoginSuccessful(object? sender, EventArgs e)
+        {
+            sidePanel.Visible = true; // once login is clicked the sidepanel returns
+            ClientSize = mainWindowSize; // client size window returns to normal
+            ShowPage(new DashboardControl()); // dashboard is shown in the main panel
+        }
+        private void ShowLogin()
+        {
+            sidePanel.Visible = false;
+            LoginControl login = new LoginControl();
+            ClientSize = login.Size; // Starts client window to login window size
+            login.Dock = DockStyle.Fill;
+            
+            login.LoginSuccessful += Login_LoginSuccessful;
+            mainPanel.Controls.Clear();
+            mainPanel.Controls.Add(login);
+        }
         private void MainForm_Load(object sender, EventArgs e)
         {
-            ShowPage(new DashboardControl()); //loads dashboard on launch
+            //ShowPage(new DashboardControl()); // ignore this for now....
         }
 
-        private void ShowPage(UserControl page)
+        private void ShowPage(UserControl page) // function for loading each page onto the main panel
         {
             mainPanel.Controls.Clear();
             page.Dock = DockStyle.Fill;
