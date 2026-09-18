@@ -32,8 +32,9 @@
 			label1 = new Label();
 			LoginLabel = new Label();
 			PasswordLabel = new Label();
-			textBox1 = new TextBox();
+			passwordTextBox = new TextBox();
 			loginButton = new Button();
+			currentAccountLabel = new Label();
 			SuspendLayout();
 			// 
 			// UsernameTextbox
@@ -75,12 +76,12 @@
 			PasswordLabel.TabIndex = 4;
 			PasswordLabel.Text = "Password";
 			// 
-			// textBox1
+			// passwordTextBox
 			// 
-			textBox1.Location = new Point(213, 274);
-			textBox1.Name = "textBox1";
-			textBox1.Size = new Size(181, 27);
-			textBox1.TabIndex = 5;
+			passwordTextBox.Location = new Point(213, 274);
+			passwordTextBox.Name = "passwordTextBox";
+			passwordTextBox.Size = new Size(181, 27);
+			passwordTextBox.TabIndex = 5;
 			// 
 			// loginButton
 			// 
@@ -98,13 +99,25 @@
 			loginButton.UseVisualStyleBackColor = false;
 			loginButton.Click += loginButton_Click;
 			// 
+			// currentAccountLabel
+			// 
+			currentAccountLabel.AutoSize = true;
+			currentAccountLabel.Font = new Font("Segoe UI", 12F);
+			currentAccountLabel.ForeColor = Color.GhostWhite;
+			currentAccountLabel.Location = new Point(37, 40);
+			currentAccountLabel.Name = "currentAccountLabel";
+			currentAccountLabel.Size = new Size(158, 28);
+			currentAccountLabel.TabIndex = 7;
+			currentAccountLabel.Text = "Current Account:";
+			// 
 			// LoginControl
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = SystemColors.ActiveCaptionText;
+			Controls.Add(currentAccountLabel);
 			Controls.Add(loginButton);
-			Controls.Add(textBox1);
+			Controls.Add(passwordTextBox);
 			Controls.Add(PasswordLabel);
 			Controls.Add(LoginLabel);
 			Controls.Add(label1);
@@ -122,7 +135,8 @@
 		private Label label1;
 		private Label LoginLabel;
 		private Label PasswordLabel;
-		private TextBox textBox1;
+		private TextBox passwordTextBox;
 		private Button loginButton;
+		private Label currentAccountLabel;
 	}
 }

@@ -15,7 +15,6 @@ namespace HomeMaintenanceApp
 
 		public Account() //An empty place holder constructor
 		{
-			m_balance = 0;
 			m_userName = "JohnSmith";
 			m_firstName = "John";
 			m_lastName = "Smith";
@@ -33,10 +32,9 @@ namespace HomeMaintenanceApp
 		public void CopyFrom(Account account) //copies information from one account to another.
 		{
 			m_userName = account.m_userName;
-			m_balance = account.m_balance;
+			m_password = account.m_password;
 			m_firstName = account.m_firstName;
 			m_lastName = account.m_lastName;
-			m_password = account.m_password;
 		}
 
 		public string GetAccountFullName() //Gets the full account name.

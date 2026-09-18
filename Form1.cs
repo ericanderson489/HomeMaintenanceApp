@@ -5,7 +5,6 @@ namespace HomeMaintenanceApp
 		public MainForm()
 		{
 			InitializeComponent();
-			AccountFileReading accountFile = new AccountFileReading(); //Initializes 
 		}
 
 		private void MainForm_Load(object sender, EventArgs e)

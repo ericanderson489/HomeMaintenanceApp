@@ -10,7 +10,7 @@ namespace HomeMaintenanceApp
 	{
 		public string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SavedAccounts.txt");
 
-		public List<Account> accountsInFile = new List<Account>();
+		List<Account> accountsInFile = new List<Account>();
 
 		public AccountFileReading()
 		{
@@ -27,7 +27,12 @@ namespace HomeMaintenanceApp
 			}
 		}
 
-		public void FullRewrite(List<Account> accounts) //Rewrites the file containing all saved accounts 
+		public List<Account> GetAccountList() 
+		{
+			return accountsInFile;
+		}
+
+		void FullRewrite(List<Account> accounts) //Rewrites the file containing all saved accounts 
 		{
 			List<string> lines = new List<string>();
 
