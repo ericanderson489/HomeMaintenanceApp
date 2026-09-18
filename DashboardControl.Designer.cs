@@ -32,6 +32,7 @@
             upcomingLabel = new Label();
             goalsLabel = new Label();
             completedLabel = new Label();
+            label1 = new Label();
             SuspendLayout();
             // 
             // tasksLabel
@@ -39,7 +40,7 @@
             tasksLabel.AutoSize = true;
             tasksLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tasksLabel.ForeColor = SystemColors.ButtonHighlight;
-            tasksLabel.Location = new Point(27, 21);
+            tasksLabel.Location = new Point(27, 63);
             tasksLabel.Name = "tasksLabel";
             tasksLabel.Size = new Size(96, 28);
             tasksLabel.TabIndex = 0;
@@ -51,7 +52,7 @@
             upcomingLabel.AutoSize = true;
             upcomingLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             upcomingLabel.ForeColor = SystemColors.ButtonHighlight;
-            upcomingLabel.Location = new Point(27, 142);
+            upcomingLabel.Location = new Point(27, 178);
             upcomingLabel.Name = "upcomingLabel";
             upcomingLabel.Size = new Size(153, 28);
             upcomingLabel.TabIndex = 1;
@@ -63,7 +64,7 @@
             goalsLabel.AutoSize = true;
             goalsLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             goalsLabel.ForeColor = SystemColors.ButtonHighlight;
-            goalsLabel.Location = new Point(27, 274);
+            goalsLabel.Location = new Point(27, 313);
             goalsLabel.Name = "goalsLabel";
             goalsLabel.Size = new Size(61, 28);
             goalsLabel.TabIndex = 2;
@@ -75,24 +76,37 @@
             completedLabel.AutoSize = true;
             completedLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             completedLabel.ForeColor = SystemColors.ButtonHighlight;
-            completedLabel.Location = new Point(237, 21);
+            completedLabel.Location = new Point(412, 63);
             completedLabel.Name = "completedLabel";
             completedLabel.Size = new Size(158, 28);
             completedLabel.TabIndex = 3;
             completedLabel.Text = "Tasks Completed";
             completedLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.ButtonHighlight;
+            label1.Location = new Point(224, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(185, 41);
+            label1.TabIndex = 4;
+            label1.Text = "Hello Person";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // DashboardControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
+            Controls.Add(label1);
             Controls.Add(completedLabel);
             Controls.Add(goalsLabel);
             Controls.Add(upcomingLabel);
             Controls.Add(tasksLabel);
             Name = "DashboardControl";
-            Size = new Size(432, 450);
+            Size = new Size(671, 450);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -103,5 +117,6 @@
         private Label upcomingLabel;
         private Label goalsLabel;
         private Label completedLabel;
+        private Label label1;
     }
 }

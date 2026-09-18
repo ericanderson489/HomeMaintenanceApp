@@ -16,5 +16,17 @@ namespace HomeMaintenanceApp
         {
             InitializeComponent();
         }
+
+        private void ShowPage(UserControl page)
+        {
+            tasksControlPanel.Controls.Clear();
+            page.Dock = DockStyle.Fill;
+            tasksControlPanel.Controls.Add(page);
+        }
+
+        private void addTaskButton_Click(object sender, EventArgs e)
+        {
+            ShowPage(new MaintenanceTaskControl());
+        }
     }
 }
