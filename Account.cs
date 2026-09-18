@@ -8,11 +8,12 @@ namespace HomeMaintenanceApp
 {
 	internal class Account
 	{
+		//List<Tasks> tasks = new List<Tasks>(); //Just in case we have a list of tasks tied to each account
 		private int m_balance;
 		private string m_firstName, m_lastName;
 		private string m_password = "";
 
-		public Account() //An empty place holder constructor - JD
+		public Account() //An empty place holder constructor
 		{
 			m_balance = 0;
 			m_firstName = "John";
@@ -20,7 +21,7 @@ namespace HomeMaintenanceApp
 			m_password = "password";
 		}
 
-		public Account(string FN, string LN, int startingBalance, string password) //Constucts Account - JD
+		public Account(string FN, string LN, int startingBalance, string password) //Constucts Account
 		{
 			this.m_balance = startingBalance;
 			this.m_firstName = FN;
@@ -28,7 +29,7 @@ namespace HomeMaintenanceApp
 			this.m_password = password;
 		}
 
-		public void CopyFrom(Account account) //copies information from one account to another. - JD
+		public void CopyFrom(Account account) //copies information from one account to another.
 		{
 			m_balance = account.m_balance;
 			m_firstName = account.m_firstName;
@@ -36,18 +37,18 @@ namespace HomeMaintenanceApp
 			m_password = account.m_password;
 		}
 
-		public string GetAccountName() //Gets the full account name. - JD
+		public string GetAccountName() //Gets the full account name.
 		{
 			string name = (m_firstName + " " + m_lastName);
 
 			return name;
 		}
 
-		public int GetAccountBalanceInt() //Returns an account balance as an integer - JD
+		public int GetAccountBalanceInt() //Returns an account balance as an integer
 		{
 			return m_balance;
 		}
-		public string GetAccountBalanceString() //Returns an account balance as a string with a dollar sign in frot of it - JD
+		public string GetAccountBalanceString() //Returns an account balance as a string with a dollar sign in frot of it
 		{
 			string balance = "$" + m_balance.ToString();
 			return balance;
