@@ -6,15 +6,25 @@ using System.Threading.Tasks;
 
 namespace HomeMaintenanceApp
 {
-	internal class FileReading
+	internal class AccountFileReading
 	{
 		public string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SavedAccounts.txt");
 
-		public List<string> accountsInFile = new List<string>();
+		public List<Account> accountsInFile = new List<Account>();
 
-		public FileReading()
+		public AccountFileReading()
 		{
-			accountsInFile = File.ReadAllLines(path).ToList();
+			List<string> fileLines = new List<string>();
+			fileLines = File.ReadAllLines(path).ToList();
+
+			foreach (string line in fileLines) //Iterates through the account file and contructs a list of each account contained within.
+			{
+				string[] accountPart = line.Split(' ');
+
+				Account account = new Account(accountPart[0], accountPart[1], accountPart[2], accountPart[3]);
+
+				accountsInFile.Add(account);
+			}
 		}
 
 		public void FullRewrite(List<Account> accounts) //Rewrites the file containing all saved accounts 

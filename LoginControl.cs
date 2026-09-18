@@ -26,5 +26,10 @@ namespace HomeMaintenanceApp
 		{
 
 		}
+
+		private void loginButton_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }
