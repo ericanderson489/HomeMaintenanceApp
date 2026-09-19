@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HomeMaintenanceApp
 {
-    internal class Profile
+    public class Profile
     {
         private string m_username;
         private string m_password;
@@ -31,10 +31,15 @@ namespace HomeMaintenanceApp
         public List<Tasks> GetTaskList() { return m_taskList; }
         public void SetTaskList(List<Tasks> taskList) {  m_taskList = taskList; }
 
-        // Add Tasks. Does it need to check against what is already there to prevent duplicates?
+        // Add Tasks. 
         public void AddTask(string name, string description, string type, DateTime time)
         {
             Tasks newTask = new Tasks(name, description, type, time);
+            m_taskList.Add(newTask);
+        }
+
+        public void AddTask(Tasks newTask)
+        {
             m_taskList.Add(newTask);
         }
 
@@ -57,22 +62,24 @@ namespace HomeMaintenanceApp
         }
 
         // Edit Tasks. Returns bool so if task not found, prompts user that task is not in list.
-        public bool EditTask(string name, string description, string type, DateTime time)
+        public void EditTask(string name, string description, string type, DateTime time)
         {
-            bool isFound = false;
-
             foreach (var task in GetTaskList())
             {
-                if (name.ToLower().TrimEnd() == task.GetName().ToLower().TrimEnd())
+                if (name.ToLower().Trim() == task.GetName().ToLower().Trim())
                 {
-                    GetTaskList().Remove(task);
-                    GetTaskList().Add(new Tasks(name, description, type, time));
-                    isFound = true;
-                    return isFound;
+                    task.SetName(name);
+                    task.SetDescription(description);
+                    task.SetType(type);
+                    task.SetDate(time);
                 }
             }
+        }
 
-            return isFound;
+        // Print tasks (may be useful in list boxes?)
+        public string DisplayTask(Tasks task)
+        {
+            return $"{task.GetName()}: {task.GetDescription()}. Due: {task.GetDate()}";
         }
     }
 }

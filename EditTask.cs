@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,25 +10,24 @@ using System.Windows.Forms;
 
 namespace HomeMaintenanceApp
 {
-    public partial class MaintenanceTaskControl : UserControl
+    public partial class EditTask : UserControl
     {
         private Profile? m_profile;
-        public MaintenanceTaskControl()
+        public EditTask()
         {
             InitializeComponent();
         }
 
-        public MaintenanceTaskControl(Profile profile) : this()
+        public EditTask(Profile profile) : this()
         {
             m_profile = profile;
+            dateTimePicker1.Enabled = false;
+            descriptionBox.Enabled = false;
+            taskTypeBox.Enabled = false;
+            doneTaskButton.Enabled = false;
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        private void taskTypeLabel_Click(object sender, EventArgs e) // Ignore this
         {
 
         }
@@ -67,10 +65,9 @@ namespace HomeMaintenanceApp
             string type = taskTypeBox.Text;
             DateTime date = selectedDate;
 
-            // Adding task to list
-            Tasks newTask = new Tasks(name, desc, type, date);
-            m_profile.AddTask(newTask);
-            MessageBox.Show("Task added successfully!");
+            // Edit task
+            m_profile.EditTask(name, desc, type, selectedDate);
+            MessageBox.Show("Task edited successfully!");
 
             // Reset fields to default
             taskTitleBox.Text = "";
@@ -79,14 +76,29 @@ namespace HomeMaintenanceApp
             dateTimePicker1.Value = DateTime.Today;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e) // Description Box!
+        private void CheckIfValid_Click(object sender, EventArgs e)
         {
+            bool isValid = false;
+            foreach (var task in m_profile.GetTaskList())
+            {
+                if (task.GetName().ToLower().Trim() == taskTitleBox.Text.ToLower().Trim())
+                {
+                    isValid = true;
+                }
+            }
 
-        }
-
-        private void closeButton_Click(object sender, EventArgs e)
-        {
-            
+            if (isValid)
+            {
+                dateTimePicker1.Enabled = true;
+                descriptionBox.Enabled = true;
+                taskTypeBox.Enabled = true;
+                doneTaskButton.Enabled = true;
+                MessageBox.Show("Task found! Continue to edit.");
+            }
+            else
+            {
+                MessageBox.Show("No task with that name in profile!");
+            }
         }
     }
 }

@@ -15,7 +15,6 @@ namespace HomeMaintenanceApp
     public enum Status
     {
         Pending,
-        WIP,
         Complete
     }
 
@@ -27,14 +26,14 @@ namespace HomeMaintenanceApp
         Quarterly,
         Annually,
     }
-    internal class Tasks
+    public class Tasks
     {
         private string m_name;
         private string m_description;
         private string m_type;
         // To be implemented in a future build when UI is established
         // private Frequency m_frequency;
-        // private Status m_status;
+        private Status m_status;
         private DateTime m_dueDate;
 
         public Tasks (string name, string description, string type, DateTime dueDate)
@@ -43,6 +42,7 @@ namespace HomeMaintenanceApp
             m_description = description;
             m_type = type;
             m_dueDate = dueDate;
+            m_status = Status.Pending;
         }
 
         // Set and Get methods for Tasks objects
@@ -55,8 +55,13 @@ namespace HomeMaintenanceApp
         public string GetTaskType() { return m_type; }
         public void SetType(string type) { m_type = type; }
 
-        public Frequency GetFrequency() { return m_frequency; }
-        public void SetFrequency(Frequency frequency) { m_frequency = frequency; }
+        public DateTime GetDate() {  return m_dueDate; }
+        public void SetDate(DateTime date) { m_dueDate = date; }
+
+        // To be implemented in future build
+
+        //public Frequency GetFrequency() { return m_frequency; }
+        //public void SetFrequency(Frequency frequency) { m_frequency = frequency; }
 
         public Status GetStatus() { return m_status; }
         public void SetStatus(Status status) { m_status = status; }

@@ -12,9 +12,15 @@ namespace HomeMaintenanceApp
 {
     public partial class TasksControl : UserControl
     {
+        private Profile? m_profile;
         public TasksControl()
         {
             InitializeComponent();
+        }
+
+        public TasksControl(Profile profile) : this()
+        {
+            m_profile = profile;
         }
 
         private void ShowPage(UserControl page)
@@ -26,7 +32,22 @@ namespace HomeMaintenanceApp
 
         private void addTaskButton_Click(object sender, EventArgs e)
         {
-            ShowPage(new MaintenanceTaskControl());
+            ShowPage(new MaintenanceTaskControl(m_profile));
+        }
+
+        private void editTask_Click(object sender, EventArgs e)
+        {
+            ShowPage(new EditTask(m_profile));
+        }
+
+        private void flowPanelPriorityTasks_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void CompleteTask_Click(object sender, EventArgs e)
+        {
+            ShowPage(new CompleteTaskControl(m_profile));
         }
     }
 }

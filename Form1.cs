@@ -2,9 +2,12 @@ namespace HomeMaintenanceApp
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        private readonly Profile m_profile;
+        public MainForm(Profile profile)
         {
             InitializeComponent();
+
+            m_profile = profile;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -25,7 +28,7 @@ namespace HomeMaintenanceApp
 
         private void tasksButton_Click(object sender, EventArgs e)
         {
-            ShowPage(new TasksControl());
+            ShowPage(new TasksControl(m_profile));
         }
 
         private void goalsButton_Click(object sender, EventArgs e)
