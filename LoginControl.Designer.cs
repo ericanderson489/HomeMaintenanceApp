@@ -43,9 +43,10 @@
             loginButton.BackColor = SystemColors.ActiveCaptionText;
             loginButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             loginButton.ForeColor = SystemColors.ButtonHighlight;
-            loginButton.Location = new Point(268, 412);
+            loginButton.Location = new Point(234, 309);
+            loginButton.Margin = new Padding(3, 2, 3, 2);
             loginButton.Name = "loginButton";
-            loginButton.Size = new Size(94, 38);
+            loginButton.Size = new Size(82, 31);
             loginButton.TabIndex = 0;
             loginButton.Text = "Login";
             loginButton.UseVisualStyleBackColor = false;
@@ -57,9 +58,10 @@
             cancelButton.BackColor = SystemColors.ActiveCaptionText;
             cancelButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cancelButton.ForeColor = SystemColors.ButtonHighlight;
-            cancelButton.Location = new Point(0, 412);
+            cancelButton.Location = new Point(0, 309);
+            cancelButton.Margin = new Padding(3, 2, 3, 2);
             cancelButton.Name = "cancelButton";
-            cancelButton.Size = new Size(94, 38);
+            cancelButton.Size = new Size(82, 31);
             cancelButton.TabIndex = 1;
             cancelButton.Text = "Cancel";
             cancelButton.UseVisualStyleBackColor = false;
@@ -70,9 +72,9 @@
             usernameLabel.AutoSize = true;
             usernameLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             usernameLabel.ForeColor = SystemColors.ButtonHighlight;
-            usernameLabel.Location = new Point(3, 45);
+            usernameLabel.Location = new Point(3, 34);
             usernameLabel.Name = "usernameLabel";
-            usernameLabel.Size = new Size(99, 28);
+            usernameLabel.Size = new Size(81, 21);
             usernameLabel.TabIndex = 2;
             usernameLabel.Text = "Username";
             // 
@@ -81,9 +83,9 @@
             passwordLabel.AutoSize = true;
             passwordLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             passwordLabel.ForeColor = SystemColors.ButtonHighlight;
-            passwordLabel.Location = new Point(3, 150);
+            passwordLabel.Location = new Point(3, 112);
             passwordLabel.Name = "passwordLabel";
-            passwordLabel.Size = new Size(93, 28);
+            passwordLabel.Size = new Size(76, 21);
             passwordLabel.TabIndex = 3;
             passwordLabel.Text = "Password";
             // 
@@ -92,9 +94,10 @@
             usernameTextBox.BackColor = SystemColors.ActiveCaptionText;
             usernameTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             usernameTextBox.ForeColor = SystemColors.ControlLightLight;
-            usernameTextBox.Location = new Point(3, 76);
+            usernameTextBox.Location = new Point(3, 57);
+            usernameTextBox.Margin = new Padding(3, 2, 3, 2);
             usernameTextBox.Name = "usernameTextBox";
-            usernameTextBox.Size = new Size(356, 34);
+            usernameTextBox.Size = new Size(312, 29);
             usernameTextBox.TabIndex = 4;
             usernameTextBox.TextChanged += usernameTextBox_TextChanged;
             // 
@@ -103,9 +106,10 @@
             passwordTextextBox.BackColor = SystemColors.ActiveCaptionText;
             passwordTextextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             passwordTextextBox.ForeColor = SystemColors.ControlLightLight;
-            passwordTextextBox.Location = new Point(3, 181);
+            passwordTextextBox.Location = new Point(4, 135);
+            passwordTextextBox.Margin = new Padding(3, 2, 3, 2);
             passwordTextextBox.Name = "passwordTextextBox";
-            passwordTextextBox.Size = new Size(356, 34);
+            passwordTextextBox.Size = new Size(312, 29);
             passwordTextextBox.TabIndex = 5;
             passwordTextextBox.TextChanged += passwordTextextBox_TextChanged;
             // 
@@ -115,9 +119,10 @@
             createAccountButton.BackColor = SystemColors.ActiveCaptionText;
             createAccountButton.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             createAccountButton.ForeColor = SystemColors.ButtonHighlight;
-            createAccountButton.Location = new Point(46, 253);
+            createAccountButton.Location = new Point(40, 190);
+            createAccountButton.Margin = new Padding(3, 2, 3, 2);
             createAccountButton.Name = "createAccountButton";
-            createAccountButton.Size = new Size(249, 38);
+            createAccountButton.Size = new Size(218, 28);
             createAccountButton.TabIndex = 6;
             createAccountButton.Text = "Don't have an account? Create one";
             createAccountButton.UseVisualStyleBackColor = false;
@@ -125,7 +130,7 @@
             // 
             // LoginControl
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
             Controls.Add(createAccountButton);
@@ -135,8 +140,9 @@
             Controls.Add(usernameLabel);
             Controls.Add(cancelButton);
             Controls.Add(loginButton);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "LoginControl";
-            Size = new Size(376, 450);
+            Size = new Size(325, 346);
             ResumeLayout(false);
             PerformLayout();
         }
