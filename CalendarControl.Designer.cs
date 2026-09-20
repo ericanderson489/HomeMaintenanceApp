@@ -31,47 +31,6 @@
             panel1 = new Panel();
             September = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
-            label49 = new Label();
-            label48 = new Label();
-            label47 = new Label();
-            label46 = new Label();
-            label45 = new Label();
-            label44 = new Label();
-            label43 = new Label();
-            label42 = new Label();
-            label41 = new Label();
-            label40 = new Label();
-            label39 = new Label();
-            label38 = new Label();
-            label37 = new Label();
-            label36 = new Label();
-            label35 = new Label();
-            label34 = new Label();
-            label33 = new Label();
-            label32 = new Label();
-            label31 = new Label();
-            label30 = new Label();
-            label29 = new Label();
-            label28 = new Label();
-            label27 = new Label();
-            label26 = new Label();
-            label25 = new Label();
-            label24 = new Label();
-            label23 = new Label();
-            label22 = new Label();
-            label21 = new Label();
-            label20 = new Label();
-            label19 = new Label();
-            label18 = new Label();
-            label17 = new Label();
-            label16 = new Label();
-            label15 = new Label();
-            label14 = new Label();
-            label13 = new Label();
-            label12 = new Label();
-            label11 = new Label();
-            label10 = new Label();
-            label9 = new Label();
             label7 = new Label();
             label6 = new Label();
             label5 = new Label();
@@ -79,7 +38,48 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            label8 = new Label();
+            daybutton1 = new Button();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            button4 = new Button();
+            button5 = new Button();
+            button6 = new Button();
+            button7 = new Button();
+            button8 = new Button();
+            button9 = new Button();
+            button10 = new Button();
+            button11 = new Button();
+            button12 = new Button();
+            button13 = new Button();
+            button14 = new Button();
+            button15 = new Button();
+            button16 = new Button();
+            button17 = new Button();
+            button18 = new Button();
+            button19 = new Button();
+            button20 = new Button();
+            button21 = new Button();
+            button22 = new Button();
+            button23 = new Button();
+            button24 = new Button();
+            button25 = new Button();
+            button26 = new Button();
+            button27 = new Button();
+            button28 = new Button();
+            button29 = new Button();
+            button30 = new Button();
+            button31 = new Button();
+            button32 = new Button();
+            button33 = new Button();
+            button34 = new Button();
+            button35 = new Button();
+            button36 = new Button();
+            button37 = new Button();
+            button38 = new Button();
+            button39 = new Button();
+            button40 = new Button();
+            button41 = new Button();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -89,16 +89,17 @@
             panel1.Controls.Add(September);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(671, 55);
+            panel1.Size = new Size(587, 41);
             panel1.TabIndex = 1;
             // 
             // September
             // 
             September.AutoSize = true;
-            September.Location = new Point(45, 23);
+            September.Location = new Point(39, 17);
             September.Name = "September";
-            September.Size = new Size(50, 20);
+            September.Size = new Size(38, 15);
             September.TabIndex = 0;
             September.Text = "label1";
             // 
@@ -112,47 +113,47 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.2857151F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.2857151F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.2857151F));
-            tableLayoutPanel1.Controls.Add(label49, 6, 6);
-            tableLayoutPanel1.Controls.Add(label48, 5, 6);
-            tableLayoutPanel1.Controls.Add(label47, 4, 6);
-            tableLayoutPanel1.Controls.Add(label46, 3, 6);
-            tableLayoutPanel1.Controls.Add(label45, 2, 6);
-            tableLayoutPanel1.Controls.Add(label44, 1, 6);
-            tableLayoutPanel1.Controls.Add(label43, 0, 6);
-            tableLayoutPanel1.Controls.Add(label42, 6, 5);
-            tableLayoutPanel1.Controls.Add(label41, 5, 5);
-            tableLayoutPanel1.Controls.Add(label40, 4, 5);
-            tableLayoutPanel1.Controls.Add(label39, 3, 5);
-            tableLayoutPanel1.Controls.Add(label38, 2, 5);
-            tableLayoutPanel1.Controls.Add(label37, 1, 5);
-            tableLayoutPanel1.Controls.Add(label36, 0, 5);
-            tableLayoutPanel1.Controls.Add(label35, 6, 4);
-            tableLayoutPanel1.Controls.Add(label34, 5, 4);
-            tableLayoutPanel1.Controls.Add(label33, 4, 4);
-            tableLayoutPanel1.Controls.Add(label32, 3, 4);
-            tableLayoutPanel1.Controls.Add(label31, 2, 4);
-            tableLayoutPanel1.Controls.Add(label30, 1, 4);
-            tableLayoutPanel1.Controls.Add(label29, 0, 4);
-            tableLayoutPanel1.Controls.Add(label28, 6, 3);
-            tableLayoutPanel1.Controls.Add(label27, 5, 3);
-            tableLayoutPanel1.Controls.Add(label26, 4, 3);
-            tableLayoutPanel1.Controls.Add(label25, 3, 3);
-            tableLayoutPanel1.Controls.Add(label24, 2, 3);
-            tableLayoutPanel1.Controls.Add(label23, 1, 3);
-            tableLayoutPanel1.Controls.Add(label22, 0, 3);
-            tableLayoutPanel1.Controls.Add(label21, 6, 2);
-            tableLayoutPanel1.Controls.Add(label20, 5, 2);
-            tableLayoutPanel1.Controls.Add(label19, 4, 2);
-            tableLayoutPanel1.Controls.Add(label18, 3, 2);
-            tableLayoutPanel1.Controls.Add(label17, 2, 2);
-            tableLayoutPanel1.Controls.Add(label16, 1, 2);
-            tableLayoutPanel1.Controls.Add(label15, 0, 2);
-            tableLayoutPanel1.Controls.Add(label14, 6, 1);
-            tableLayoutPanel1.Controls.Add(label13, 5, 1);
-            tableLayoutPanel1.Controls.Add(label12, 4, 1);
-            tableLayoutPanel1.Controls.Add(label11, 3, 1);
-            tableLayoutPanel1.Controls.Add(label10, 2, 1);
-            tableLayoutPanel1.Controls.Add(label9, 1, 1);
+            tableLayoutPanel1.Controls.Add(button41, 6, 6);
+            tableLayoutPanel1.Controls.Add(button40, 5, 6);
+            tableLayoutPanel1.Controls.Add(button39, 4, 6);
+            tableLayoutPanel1.Controls.Add(button38, 3, 6);
+            tableLayoutPanel1.Controls.Add(button37, 2, 6);
+            tableLayoutPanel1.Controls.Add(button36, 1, 6);
+            tableLayoutPanel1.Controls.Add(button35, 0, 6);
+            tableLayoutPanel1.Controls.Add(button34, 6, 5);
+            tableLayoutPanel1.Controls.Add(button33, 5, 5);
+            tableLayoutPanel1.Controls.Add(button32, 4, 5);
+            tableLayoutPanel1.Controls.Add(button31, 3, 5);
+            tableLayoutPanel1.Controls.Add(button30, 2, 5);
+            tableLayoutPanel1.Controls.Add(button29, 1, 5);
+            tableLayoutPanel1.Controls.Add(button28, 0, 5);
+            tableLayoutPanel1.Controls.Add(button27, 6, 4);
+            tableLayoutPanel1.Controls.Add(button26, 5, 4);
+            tableLayoutPanel1.Controls.Add(button25, 4, 4);
+            tableLayoutPanel1.Controls.Add(button24, 3, 4);
+            tableLayoutPanel1.Controls.Add(button23, 2, 4);
+            tableLayoutPanel1.Controls.Add(button22, 1, 4);
+            tableLayoutPanel1.Controls.Add(button21, 0, 4);
+            tableLayoutPanel1.Controls.Add(button20, 6, 3);
+            tableLayoutPanel1.Controls.Add(button19, 5, 3);
+            tableLayoutPanel1.Controls.Add(button18, 4, 3);
+            tableLayoutPanel1.Controls.Add(button17, 3, 3);
+            tableLayoutPanel1.Controls.Add(button16, 2, 3);
+            tableLayoutPanel1.Controls.Add(button15, 1, 3);
+            tableLayoutPanel1.Controls.Add(button14, 0, 3);
+            tableLayoutPanel1.Controls.Add(button13, 6, 2);
+            tableLayoutPanel1.Controls.Add(button12, 5, 2);
+            tableLayoutPanel1.Controls.Add(button11, 4, 2);
+            tableLayoutPanel1.Controls.Add(button10, 3, 2);
+            tableLayoutPanel1.Controls.Add(button9, 2, 2);
+            tableLayoutPanel1.Controls.Add(button8, 1, 2);
+            tableLayoutPanel1.Controls.Add(button7, 0, 2);
+            tableLayoutPanel1.Controls.Add(button6, 6, 1);
+            tableLayoutPanel1.Controls.Add(button5, 5, 1);
+            tableLayoutPanel1.Controls.Add(button4, 4, 1);
+            tableLayoutPanel1.Controls.Add(button3, 3, 1);
+            tableLayoutPanel1.Controls.Add(button2, 2, 1);
+            tableLayoutPanel1.Controls.Add(button1, 1, 1);
             tableLayoutPanel1.Controls.Add(label7, 6, 0);
             tableLayoutPanel1.Controls.Add(label6, 5, 0);
             tableLayoutPanel1.Controls.Add(label5, 4, 0);
@@ -160,603 +161,30 @@
             tableLayoutPanel1.Controls.Add(label3, 2, 0);
             tableLayoutPanel1.Controls.Add(label2, 1, 0);
             tableLayoutPanel1.Controls.Add(label1, 0, 0);
-            tableLayoutPanel1.Controls.Add(label8, 0, 1);
+            tableLayoutPanel1.Controls.Add(daybutton1, 0, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 55);
+            tableLayoutPanel1.Location = new Point(0, 41);
+            tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 7;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 45F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 34F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
-            tableLayoutPanel1.Size = new Size(671, 395);
+            tableLayoutPanel1.Size = new Size(587, 297);
             tableLayoutPanel1.TabIndex = 2;
-            // 
-            // label49
-            // 
-            label49.AutoSize = true;
-            label49.BackColor = SystemColors.ActiveCaptionText;
-            label49.Dock = DockStyle.Fill;
-            label49.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label49.ForeColor = SystemColors.ButtonHighlight;
-            label49.Location = new Point(573, 335);
-            label49.Name = "label49";
-            label49.Size = new Size(95, 60);
-            label49.TabIndex = 48;
-            label49.Text = "30";
-            label49.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label48
-            // 
-            label48.AutoSize = true;
-            label48.BackColor = SystemColors.ActiveCaptionText;
-            label48.Dock = DockStyle.Fill;
-            label48.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label48.ForeColor = SystemColors.ButtonHighlight;
-            label48.Location = new Point(478, 335);
-            label48.Name = "label48";
-            label48.Size = new Size(89, 60);
-            label48.TabIndex = 47;
-            label48.Text = "30";
-            label48.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label47
-            // 
-            label47.AutoSize = true;
-            label47.BackColor = SystemColors.ActiveCaptionText;
-            label47.Dock = DockStyle.Fill;
-            label47.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label47.ForeColor = SystemColors.ButtonHighlight;
-            label47.Location = new Point(383, 335);
-            label47.Name = "label47";
-            label47.Size = new Size(89, 60);
-            label47.TabIndex = 46;
-            label47.Text = "30";
-            label47.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label46
-            // 
-            label46.AutoSize = true;
-            label46.BackColor = SystemColors.ActiveCaptionText;
-            label46.Dock = DockStyle.Fill;
-            label46.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label46.ForeColor = SystemColors.ButtonHighlight;
-            label46.Location = new Point(288, 335);
-            label46.Name = "label46";
-            label46.Size = new Size(89, 60);
-            label46.TabIndex = 45;
-            label46.Text = "30";
-            label46.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label45
-            // 
-            label45.AutoSize = true;
-            label45.BackColor = SystemColors.ActiveCaptionText;
-            label45.Dock = DockStyle.Fill;
-            label45.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label45.ForeColor = SystemColors.ButtonHighlight;
-            label45.Location = new Point(193, 335);
-            label45.Name = "label45";
-            label45.Size = new Size(89, 60);
-            label45.TabIndex = 44;
-            label45.Text = "30";
-            label45.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label44
-            // 
-            label44.AutoSize = true;
-            label44.BackColor = SystemColors.ActiveCaptionText;
-            label44.Dock = DockStyle.Fill;
-            label44.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label44.ForeColor = SystemColors.ButtonHighlight;
-            label44.Location = new Point(98, 335);
-            label44.Name = "label44";
-            label44.Size = new Size(89, 60);
-            label44.TabIndex = 43;
-            label44.Text = "30";
-            label44.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label43
-            // 
-            label43.AutoSize = true;
-            label43.BackColor = SystemColors.ActiveCaptionText;
-            label43.Dock = DockStyle.Fill;
-            label43.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label43.ForeColor = SystemColors.ButtonHighlight;
-            label43.Location = new Point(3, 335);
-            label43.Name = "label43";
-            label43.Size = new Size(89, 60);
-            label43.TabIndex = 42;
-            label43.Text = "30";
-            label43.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label42
-            // 
-            label42.AutoSize = true;
-            label42.BackColor = SystemColors.ActiveCaptionText;
-            label42.Dock = DockStyle.Fill;
-            label42.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label42.ForeColor = SystemColors.ButtonHighlight;
-            label42.Location = new Point(573, 277);
-            label42.Name = "label42";
-            label42.Size = new Size(95, 58);
-            label42.TabIndex = 41;
-            label42.Text = "30";
-            label42.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label41
-            // 
-            label41.AutoSize = true;
-            label41.BackColor = SystemColors.ActiveCaptionText;
-            label41.Dock = DockStyle.Fill;
-            label41.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label41.ForeColor = SystemColors.ButtonHighlight;
-            label41.Location = new Point(478, 277);
-            label41.Name = "label41";
-            label41.Size = new Size(89, 58);
-            label41.TabIndex = 40;
-            label41.Text = "30";
-            label41.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label40
-            // 
-            label40.AutoSize = true;
-            label40.BackColor = SystemColors.ActiveCaptionText;
-            label40.Dock = DockStyle.Fill;
-            label40.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label40.ForeColor = SystemColors.ButtonHighlight;
-            label40.Location = new Point(383, 277);
-            label40.Name = "label40";
-            label40.Size = new Size(89, 58);
-            label40.TabIndex = 39;
-            label40.Text = "30";
-            label40.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label39
-            // 
-            label39.AutoSize = true;
-            label39.BackColor = SystemColors.ActiveCaptionText;
-            label39.Dock = DockStyle.Fill;
-            label39.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label39.ForeColor = SystemColors.ButtonHighlight;
-            label39.Location = new Point(288, 277);
-            label39.Name = "label39";
-            label39.Size = new Size(89, 58);
-            label39.TabIndex = 38;
-            label39.Text = "30";
-            label39.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label38
-            // 
-            label38.AutoSize = true;
-            label38.BackColor = SystemColors.ActiveCaptionText;
-            label38.Dock = DockStyle.Fill;
-            label38.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label38.ForeColor = SystemColors.ButtonHighlight;
-            label38.Location = new Point(193, 277);
-            label38.Name = "label38";
-            label38.Size = new Size(89, 58);
-            label38.TabIndex = 37;
-            label38.Text = "30";
-            label38.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label37
-            // 
-            label37.AutoSize = true;
-            label37.BackColor = SystemColors.ActiveCaptionText;
-            label37.Dock = DockStyle.Fill;
-            label37.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label37.ForeColor = SystemColors.ButtonHighlight;
-            label37.Location = new Point(98, 277);
-            label37.Name = "label37";
-            label37.Size = new Size(89, 58);
-            label37.TabIndex = 36;
-            label37.Text = "30";
-            label37.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label36
-            // 
-            label36.AutoSize = true;
-            label36.BackColor = SystemColors.ActiveCaptionText;
-            label36.Dock = DockStyle.Fill;
-            label36.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label36.ForeColor = SystemColors.ButtonHighlight;
-            label36.Location = new Point(3, 277);
-            label36.Name = "label36";
-            label36.Size = new Size(89, 58);
-            label36.TabIndex = 35;
-            label36.Text = "30";
-            label36.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label35
-            // 
-            label35.AutoSize = true;
-            label35.BackColor = SystemColors.ActiveCaptionText;
-            label35.Dock = DockStyle.Fill;
-            label35.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label35.ForeColor = SystemColors.ButtonHighlight;
-            label35.Location = new Point(573, 219);
-            label35.Name = "label35";
-            label35.Size = new Size(95, 58);
-            label35.TabIndex = 34;
-            label35.Text = "30";
-            label35.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label34
-            // 
-            label34.AutoSize = true;
-            label34.BackColor = SystemColors.ActiveCaptionText;
-            label34.Dock = DockStyle.Fill;
-            label34.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label34.ForeColor = SystemColors.ButtonHighlight;
-            label34.Location = new Point(478, 219);
-            label34.Name = "label34";
-            label34.Size = new Size(89, 58);
-            label34.TabIndex = 33;
-            label34.Text = "30";
-            label34.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label33
-            // 
-            label33.AutoSize = true;
-            label33.BackColor = SystemColors.ActiveCaptionText;
-            label33.Dock = DockStyle.Fill;
-            label33.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label33.ForeColor = SystemColors.ButtonHighlight;
-            label33.Location = new Point(383, 219);
-            label33.Name = "label33";
-            label33.Size = new Size(89, 58);
-            label33.TabIndex = 32;
-            label33.Text = "30";
-            label33.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label32
-            // 
-            label32.AutoSize = true;
-            label32.BackColor = SystemColors.ActiveCaptionText;
-            label32.Dock = DockStyle.Fill;
-            label32.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label32.ForeColor = SystemColors.ButtonHighlight;
-            label32.Location = new Point(288, 219);
-            label32.Name = "label32";
-            label32.Size = new Size(89, 58);
-            label32.TabIndex = 31;
-            label32.Text = "30";
-            label32.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label31
-            // 
-            label31.AutoSize = true;
-            label31.BackColor = SystemColors.ActiveCaptionText;
-            label31.Dock = DockStyle.Fill;
-            label31.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label31.ForeColor = SystemColors.ButtonHighlight;
-            label31.Location = new Point(193, 219);
-            label31.Name = "label31";
-            label31.Size = new Size(89, 58);
-            label31.TabIndex = 30;
-            label31.Text = "22";
-            label31.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label30
-            // 
-            label30.AutoSize = true;
-            label30.BackColor = SystemColors.ActiveCaptionText;
-            label30.Dock = DockStyle.Fill;
-            label30.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label30.ForeColor = SystemColors.ButtonHighlight;
-            label30.Location = new Point(98, 219);
-            label30.Name = "label30";
-            label30.Size = new Size(89, 58);
-            label30.TabIndex = 29;
-            label30.Text = "21";
-            label30.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label29
-            // 
-            label29.AutoSize = true;
-            label29.BackColor = SystemColors.ActiveCaptionText;
-            label29.Dock = DockStyle.Fill;
-            label29.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label29.ForeColor = SystemColors.ButtonHighlight;
-            label29.Location = new Point(3, 219);
-            label29.Name = "label29";
-            label29.Size = new Size(89, 58);
-            label29.TabIndex = 28;
-            label29.Text = "20";
-            label29.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label28
-            // 
-            label28.AutoSize = true;
-            label28.BackColor = SystemColors.ActiveCaptionText;
-            label28.Dock = DockStyle.Fill;
-            label28.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label28.ForeColor = SystemColors.ButtonHighlight;
-            label28.Location = new Point(573, 161);
-            label28.Name = "label28";
-            label28.Size = new Size(95, 58);
-            label28.TabIndex = 27;
-            label28.Text = "19";
-            label28.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label27
-            // 
-            label27.AutoSize = true;
-            label27.BackColor = SystemColors.ActiveCaptionText;
-            label27.Dock = DockStyle.Fill;
-            label27.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label27.ForeColor = SystemColors.ButtonHighlight;
-            label27.Location = new Point(478, 161);
-            label27.Name = "label27";
-            label27.Size = new Size(89, 58);
-            label27.TabIndex = 26;
-            label27.Text = "18";
-            label27.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label26
-            // 
-            label26.AutoSize = true;
-            label26.BackColor = SystemColors.ActiveCaptionText;
-            label26.Dock = DockStyle.Fill;
-            label26.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label26.ForeColor = SystemColors.ButtonHighlight;
-            label26.Location = new Point(383, 161);
-            label26.Name = "label26";
-            label26.Size = new Size(89, 58);
-            label26.TabIndex = 25;
-            label26.Text = "17";
-            label26.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label25
-            // 
-            label25.AutoSize = true;
-            label25.BackColor = SystemColors.ActiveCaptionText;
-            label25.Dock = DockStyle.Fill;
-            label25.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label25.ForeColor = SystemColors.ButtonHighlight;
-            label25.Location = new Point(288, 161);
-            label25.Name = "label25";
-            label25.Size = new Size(89, 58);
-            label25.TabIndex = 24;
-            label25.Text = "16";
-            label25.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label24
-            // 
-            label24.AutoSize = true;
-            label24.BackColor = SystemColors.ActiveCaptionText;
-            label24.Dock = DockStyle.Fill;
-            label24.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label24.ForeColor = SystemColors.ButtonHighlight;
-            label24.Location = new Point(193, 161);
-            label24.Name = "label24";
-            label24.Size = new Size(89, 58);
-            label24.TabIndex = 23;
-            label24.Text = "15";
-            label24.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label23
-            // 
-            label23.AutoSize = true;
-            label23.BackColor = SystemColors.ActiveCaptionText;
-            label23.Dock = DockStyle.Fill;
-            label23.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label23.ForeColor = SystemColors.ButtonHighlight;
-            label23.Location = new Point(98, 161);
-            label23.Name = "label23";
-            label23.Size = new Size(89, 58);
-            label23.TabIndex = 22;
-            label23.Text = "14";
-            label23.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label22
-            // 
-            label22.AutoSize = true;
-            label22.BackColor = SystemColors.ActiveCaptionText;
-            label22.Dock = DockStyle.Fill;
-            label22.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label22.ForeColor = SystemColors.ButtonHighlight;
-            label22.Location = new Point(3, 161);
-            label22.Name = "label22";
-            label22.Size = new Size(89, 58);
-            label22.TabIndex = 21;
-            label22.Text = "13";
-            label22.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.BackColor = SystemColors.ActiveCaptionText;
-            label21.Dock = DockStyle.Fill;
-            label21.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label21.ForeColor = SystemColors.ButtonHighlight;
-            label21.Location = new Point(573, 103);
-            label21.Name = "label21";
-            label21.Size = new Size(95, 58);
-            label21.TabIndex = 20;
-            label21.Text = "12";
-            label21.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.BackColor = SystemColors.ActiveCaptionText;
-            label20.Dock = DockStyle.Fill;
-            label20.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label20.ForeColor = SystemColors.ButtonHighlight;
-            label20.Location = new Point(478, 103);
-            label20.Name = "label20";
-            label20.Size = new Size(89, 58);
-            label20.TabIndex = 19;
-            label20.Text = "11";
-            label20.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.BackColor = SystemColors.ActiveCaptionText;
-            label19.Dock = DockStyle.Fill;
-            label19.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label19.ForeColor = SystemColors.ButtonHighlight;
-            label19.Location = new Point(383, 103);
-            label19.Name = "label19";
-            label19.Size = new Size(89, 58);
-            label19.TabIndex = 18;
-            label19.Text = "10";
-            label19.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.BackColor = SystemColors.ActiveCaptionText;
-            label18.Dock = DockStyle.Fill;
-            label18.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label18.ForeColor = SystemColors.ButtonHighlight;
-            label18.Location = new Point(288, 103);
-            label18.Name = "label18";
-            label18.Size = new Size(89, 58);
-            label18.TabIndex = 17;
-            label18.Text = "9";
-            label18.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.BackColor = SystemColors.ActiveCaptionText;
-            label17.Dock = DockStyle.Fill;
-            label17.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label17.ForeColor = SystemColors.ButtonHighlight;
-            label17.Location = new Point(193, 103);
-            label17.Name = "label17";
-            label17.Size = new Size(89, 58);
-            label17.TabIndex = 16;
-            label17.Text = "8";
-            label17.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.BackColor = SystemColors.ActiveCaptionText;
-            label16.Dock = DockStyle.Fill;
-            label16.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label16.ForeColor = SystemColors.ButtonHighlight;
-            label16.Location = new Point(98, 103);
-            label16.Name = "label16";
-            label16.Size = new Size(89, 58);
-            label16.TabIndex = 15;
-            label16.Text = "7";
-            label16.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.BackColor = SystemColors.ActiveCaptionText;
-            label15.Dock = DockStyle.Fill;
-            label15.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label15.ForeColor = SystemColors.ButtonHighlight;
-            label15.Location = new Point(3, 103);
-            label15.Name = "label15";
-            label15.Size = new Size(89, 58);
-            label15.TabIndex = 14;
-            label15.Text = "6";
-            label15.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.BackColor = SystemColors.ActiveCaptionText;
-            label14.Dock = DockStyle.Fill;
-            label14.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label14.ForeColor = SystemColors.ButtonHighlight;
-            label14.Location = new Point(573, 45);
-            label14.Name = "label14";
-            label14.Size = new Size(95, 58);
-            label14.TabIndex = 13;
-            label14.Text = "5";
-            label14.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.BackColor = SystemColors.ActiveCaptionText;
-            label13.Dock = DockStyle.Fill;
-            label13.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label13.ForeColor = SystemColors.ButtonHighlight;
-            label13.Location = new Point(478, 45);
-            label13.Name = "label13";
-            label13.Size = new Size(89, 58);
-            label13.TabIndex = 12;
-            label13.Text = "4";
-            label13.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.BackColor = SystemColors.ActiveCaptionText;
-            label12.Dock = DockStyle.Fill;
-            label12.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label12.ForeColor = SystemColors.ButtonHighlight;
-            label12.Location = new Point(383, 45);
-            label12.Name = "label12";
-            label12.Size = new Size(89, 58);
-            label12.TabIndex = 11;
-            label12.Text = "3";
-            label12.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.BackColor = SystemColors.ActiveCaptionText;
-            label11.Dock = DockStyle.Fill;
-            label11.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label11.ForeColor = SystemColors.ButtonHighlight;
-            label11.Location = new Point(288, 45);
-            label11.Name = "label11";
-            label11.Size = new Size(89, 58);
-            label11.TabIndex = 10;
-            label11.Text = "2";
-            label11.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.BackColor = SystemColors.ActiveCaptionText;
-            label10.Dock = DockStyle.Fill;
-            label10.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label10.ForeColor = SystemColors.ButtonHighlight;
-            label10.Location = new Point(193, 45);
-            label10.Name = "label10";
-            label10.Size = new Size(89, 58);
-            label10.TabIndex = 9;
-            label10.Text = "1";
-            label10.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.BackColor = SystemColors.ActiveCaptionText;
-            label9.Dock = DockStyle.Fill;
-            label9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.ForeColor = SystemColors.ButtonHighlight;
-            label9.Location = new Point(98, 45);
-            label9.Name = "label9";
-            label9.Size = new Size(89, 58);
-            label9.TabIndex = 8;
-            label9.Text = "31";
-            label9.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Dock = DockStyle.Fill;
             label7.ForeColor = SystemColors.ButtonHighlight;
-            label7.Location = new Point(573, 0);
+            label7.Location = new Point(501, 0);
             label7.Name = "label7";
-            label7.Size = new Size(95, 45);
+            label7.Size = new Size(83, 34);
             label7.TabIndex = 6;
             label7.Text = "Saturday";
             label7.TextAlign = ContentAlignment.MiddleCenter;
@@ -766,9 +194,9 @@
             label6.AutoSize = true;
             label6.Dock = DockStyle.Fill;
             label6.ForeColor = SystemColors.ButtonHighlight;
-            label6.Location = new Point(478, 0);
+            label6.Location = new Point(418, 0);
             label6.Name = "label6";
-            label6.Size = new Size(89, 45);
+            label6.Size = new Size(77, 34);
             label6.TabIndex = 5;
             label6.Text = "Friday";
             label6.TextAlign = ContentAlignment.MiddleCenter;
@@ -778,9 +206,9 @@
             label5.AutoSize = true;
             label5.Dock = DockStyle.Fill;
             label5.ForeColor = SystemColors.ButtonHighlight;
-            label5.Location = new Point(383, 0);
+            label5.Location = new Point(335, 0);
             label5.Name = "label5";
-            label5.Size = new Size(89, 45);
+            label5.Size = new Size(77, 34);
             label5.TabIndex = 4;
             label5.Text = "Thursday";
             label5.TextAlign = ContentAlignment.MiddleCenter;
@@ -790,9 +218,9 @@
             label4.AutoSize = true;
             label4.Dock = DockStyle.Fill;
             label4.ForeColor = SystemColors.ButtonHighlight;
-            label4.Location = new Point(288, 0);
+            label4.Location = new Point(252, 0);
             label4.Name = "label4";
-            label4.Size = new Size(89, 45);
+            label4.Size = new Size(77, 34);
             label4.TabIndex = 3;
             label4.Text = "Wednesday";
             label4.TextAlign = ContentAlignment.MiddleCenter;
@@ -803,9 +231,9 @@
             label3.AutoSize = true;
             label3.Dock = DockStyle.Fill;
             label3.ForeColor = SystemColors.ButtonHighlight;
-            label3.Location = new Point(193, 0);
+            label3.Location = new Point(169, 0);
             label3.Name = "label3";
-            label3.Size = new Size(89, 45);
+            label3.Size = new Size(77, 34);
             label3.TabIndex = 2;
             label3.Text = "Tuesday";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -816,9 +244,9 @@
             label2.Dock = DockStyle.Fill;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(98, 0);
+            label2.Location = new Point(86, 0);
             label2.Name = "label2";
-            label2.Size = new Size(89, 45);
+            label2.Size = new Size(77, 34);
             label2.TabIndex = 1;
             label2.Text = "Monday";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -830,34 +258,651 @@
             label1.ForeColor = SystemColors.ButtonHighlight;
             label1.Location = new Point(3, 0);
             label1.Name = "label1";
-            label1.Size = new Size(89, 45);
+            label1.Size = new Size(77, 34);
             label1.TabIndex = 0;
             label1.Text = "Sunday";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label8
+            // daybutton1
             // 
-            label8.AutoSize = true;
-            label8.BackColor = SystemColors.ActiveCaptionText;
-            label8.Dock = DockStyle.Fill;
-            label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.ForeColor = SystemColors.ButtonHighlight;
-            label8.Location = new Point(3, 45);
-            label8.Name = "label8";
-            label8.Size = new Size(89, 58);
-            label8.TabIndex = 7;
-            label8.Text = "30";
-            label8.TextAlign = ContentAlignment.MiddleCenter;
+            daybutton1.AllowDrop = true;
+            daybutton1.BackColor = SystemColors.ActiveCaptionText;
+            daybutton1.BackgroundImageLayout = ImageLayout.None;
+            daybutton1.Dock = DockStyle.Fill;
+            daybutton1.FlatStyle = FlatStyle.Flat;
+            daybutton1.ForeColor = SystemColors.ButtonHighlight;
+            daybutton1.Location = new Point(3, 37);
+            daybutton1.Name = "daybutton1";
+            daybutton1.Size = new Size(77, 37);
+            daybutton1.TabIndex = 7;
+            daybutton1.Text = "30";
+            daybutton1.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            button1.AllowDrop = true;
+            button1.BackColor = SystemColors.ActiveCaptionText;
+            button1.BackgroundImageLayout = ImageLayout.None;
+            button1.Dock = DockStyle.Fill;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.ForeColor = SystemColors.ButtonHighlight;
+            button1.Location = new Point(86, 37);
+            button1.Name = "button1";
+            button1.Size = new Size(77, 37);
+            button1.TabIndex = 8;
+            button1.Text = "31";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            button2.AllowDrop = true;
+            button2.BackColor = SystemColors.ActiveCaptionText;
+            button2.BackgroundImageLayout = ImageLayout.None;
+            button2.Dock = DockStyle.Fill;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.ForeColor = SystemColors.ButtonHighlight;
+            button2.Location = new Point(169, 37);
+            button2.Name = "button2";
+            button2.Size = new Size(77, 37);
+            button2.TabIndex = 9;
+            button2.Text = "1";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            button3.AllowDrop = true;
+            button3.BackColor = SystemColors.ActiveCaptionText;
+            button3.BackgroundImageLayout = ImageLayout.None;
+            button3.Dock = DockStyle.Fill;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.ForeColor = SystemColors.ButtonHighlight;
+            button3.Location = new Point(252, 37);
+            button3.Name = "button3";
+            button3.Size = new Size(77, 37);
+            button3.TabIndex = 10;
+            button3.Text = "2";
+            button3.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            button4.AllowDrop = true;
+            button4.BackColor = SystemColors.ActiveCaptionText;
+            button4.BackgroundImageLayout = ImageLayout.None;
+            button4.Dock = DockStyle.Fill;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.ForeColor = SystemColors.ButtonHighlight;
+            button4.Location = new Point(335, 37);
+            button4.Name = "button4";
+            button4.Size = new Size(77, 37);
+            button4.TabIndex = 11;
+            button4.Text = "30";
+            button4.UseVisualStyleBackColor = false;
+            // 
+            // button5
+            // 
+            button5.AllowDrop = true;
+            button5.BackColor = SystemColors.ActiveCaptionText;
+            button5.BackgroundImageLayout = ImageLayout.None;
+            button5.Dock = DockStyle.Fill;
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.ForeColor = SystemColors.ButtonHighlight;
+            button5.Location = new Point(418, 37);
+            button5.Name = "button5";
+            button5.Size = new Size(77, 37);
+            button5.TabIndex = 12;
+            button5.Text = "30";
+            button5.UseVisualStyleBackColor = false;
+            // 
+            // button6
+            // 
+            button6.AllowDrop = true;
+            button6.BackColor = SystemColors.ActiveCaptionText;
+            button6.BackgroundImageLayout = ImageLayout.None;
+            button6.Dock = DockStyle.Fill;
+            button6.FlatStyle = FlatStyle.Flat;
+            button6.ForeColor = SystemColors.ButtonHighlight;
+            button6.Location = new Point(501, 37);
+            button6.Name = "button6";
+            button6.Size = new Size(83, 37);
+            button6.TabIndex = 13;
+            button6.Text = "30";
+            button6.UseVisualStyleBackColor = false;
+            // 
+            // button7
+            // 
+            button7.AllowDrop = true;
+            button7.BackColor = SystemColors.ActiveCaptionText;
+            button7.BackgroundImageLayout = ImageLayout.None;
+            button7.Dock = DockStyle.Fill;
+            button7.FlatStyle = FlatStyle.Flat;
+            button7.ForeColor = SystemColors.ButtonHighlight;
+            button7.Location = new Point(3, 80);
+            button7.Name = "button7";
+            button7.Size = new Size(77, 37);
+            button7.TabIndex = 14;
+            button7.Text = "30";
+            button7.UseVisualStyleBackColor = false;
+            // 
+            // button8
+            // 
+            button8.AllowDrop = true;
+            button8.BackColor = SystemColors.ActiveCaptionText;
+            button8.BackgroundImageLayout = ImageLayout.None;
+            button8.Dock = DockStyle.Fill;
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.ForeColor = SystemColors.ButtonHighlight;
+            button8.Location = new Point(86, 80);
+            button8.Name = "button8";
+            button8.Size = new Size(77, 37);
+            button8.TabIndex = 15;
+            button8.Text = "30";
+            button8.UseVisualStyleBackColor = false;
+            // 
+            // button9
+            // 
+            button9.AllowDrop = true;
+            button9.BackColor = SystemColors.ActiveCaptionText;
+            button9.BackgroundImageLayout = ImageLayout.None;
+            button9.Dock = DockStyle.Fill;
+            button9.FlatStyle = FlatStyle.Flat;
+            button9.ForeColor = SystemColors.ButtonHighlight;
+            button9.Location = new Point(169, 80);
+            button9.Name = "button9";
+            button9.Size = new Size(77, 37);
+            button9.TabIndex = 16;
+            button9.Text = "30";
+            button9.UseVisualStyleBackColor = false;
+            // 
+            // button10
+            // 
+            button10.AllowDrop = true;
+            button10.BackColor = SystemColors.ActiveCaptionText;
+            button10.BackgroundImageLayout = ImageLayout.None;
+            button10.Dock = DockStyle.Fill;
+            button10.FlatStyle = FlatStyle.Flat;
+            button10.ForeColor = SystemColors.ButtonHighlight;
+            button10.Location = new Point(252, 80);
+            button10.Name = "button10";
+            button10.Size = new Size(77, 37);
+            button10.TabIndex = 17;
+            button10.Text = "30";
+            button10.UseVisualStyleBackColor = false;
+            // 
+            // button11
+            // 
+            button11.AllowDrop = true;
+            button11.BackColor = SystemColors.ActiveCaptionText;
+            button11.BackgroundImageLayout = ImageLayout.None;
+            button11.Dock = DockStyle.Fill;
+            button11.FlatStyle = FlatStyle.Flat;
+            button11.ForeColor = SystemColors.ButtonHighlight;
+            button11.Location = new Point(335, 80);
+            button11.Name = "button11";
+            button11.Size = new Size(77, 37);
+            button11.TabIndex = 18;
+            button11.Text = "30";
+            button11.UseVisualStyleBackColor = false;
+            // 
+            // button12
+            // 
+            button12.AllowDrop = true;
+            button12.BackColor = SystemColors.ActiveCaptionText;
+            button12.BackgroundImageLayout = ImageLayout.None;
+            button12.Dock = DockStyle.Fill;
+            button12.FlatStyle = FlatStyle.Flat;
+            button12.ForeColor = SystemColors.ButtonHighlight;
+            button12.Location = new Point(418, 80);
+            button12.Name = "button12";
+            button12.Size = new Size(77, 37);
+            button12.TabIndex = 19;
+            button12.Text = "30";
+            button12.UseVisualStyleBackColor = false;
+            // 
+            // button13
+            // 
+            button13.AllowDrop = true;
+            button13.BackColor = SystemColors.ActiveCaptionText;
+            button13.BackgroundImageLayout = ImageLayout.None;
+            button13.Dock = DockStyle.Fill;
+            button13.FlatStyle = FlatStyle.Flat;
+            button13.ForeColor = SystemColors.ButtonHighlight;
+            button13.Location = new Point(501, 80);
+            button13.Name = "button13";
+            button13.Size = new Size(83, 37);
+            button13.TabIndex = 20;
+            button13.Text = "30";
+            button13.UseVisualStyleBackColor = false;
+            // 
+            // button14
+            // 
+            button14.AllowDrop = true;
+            button14.BackColor = SystemColors.ActiveCaptionText;
+            button14.BackgroundImageLayout = ImageLayout.None;
+            button14.Dock = DockStyle.Fill;
+            button14.FlatStyle = FlatStyle.Flat;
+            button14.ForeColor = SystemColors.ButtonHighlight;
+            button14.Location = new Point(3, 123);
+            button14.Name = "button14";
+            button14.Size = new Size(77, 37);
+            button14.TabIndex = 21;
+            button14.Text = "30";
+            button14.UseVisualStyleBackColor = false;
+            // 
+            // button15
+            // 
+            button15.AllowDrop = true;
+            button15.BackColor = SystemColors.ActiveCaptionText;
+            button15.BackgroundImageLayout = ImageLayout.None;
+            button15.Dock = DockStyle.Fill;
+            button15.FlatStyle = FlatStyle.Flat;
+            button15.ForeColor = SystemColors.ButtonHighlight;
+            button15.Location = new Point(86, 123);
+            button15.Name = "button15";
+            button15.Size = new Size(77, 37);
+            button15.TabIndex = 22;
+            button15.Text = "30";
+            button15.UseVisualStyleBackColor = false;
+            // 
+            // button16
+            // 
+            button16.AllowDrop = true;
+            button16.BackColor = SystemColors.ActiveCaptionText;
+            button16.BackgroundImageLayout = ImageLayout.None;
+            button16.Dock = DockStyle.Fill;
+            button16.FlatStyle = FlatStyle.Flat;
+            button16.ForeColor = SystemColors.ButtonHighlight;
+            button16.Location = new Point(169, 123);
+            button16.Name = "button16";
+            button16.Size = new Size(77, 37);
+            button16.TabIndex = 23;
+            button16.Text = "30";
+            button16.UseVisualStyleBackColor = false;
+            // 
+            // button17
+            // 
+            button17.AllowDrop = true;
+            button17.BackColor = SystemColors.ActiveCaptionText;
+            button17.BackgroundImageLayout = ImageLayout.None;
+            button17.Dock = DockStyle.Fill;
+            button17.FlatStyle = FlatStyle.Flat;
+            button17.ForeColor = SystemColors.ButtonHighlight;
+            button17.Location = new Point(252, 123);
+            button17.Name = "button17";
+            button17.Size = new Size(77, 37);
+            button17.TabIndex = 24;
+            button17.Text = "30";
+            button17.UseVisualStyleBackColor = false;
+            // 
+            // button18
+            // 
+            button18.AllowDrop = true;
+            button18.BackColor = SystemColors.ActiveCaptionText;
+            button18.BackgroundImageLayout = ImageLayout.None;
+            button18.Dock = DockStyle.Fill;
+            button18.FlatStyle = FlatStyle.Flat;
+            button18.ForeColor = SystemColors.ButtonHighlight;
+            button18.Location = new Point(335, 123);
+            button18.Name = "button18";
+            button18.Size = new Size(77, 37);
+            button18.TabIndex = 25;
+            button18.Text = "30";
+            button18.UseVisualStyleBackColor = false;
+            // 
+            // button19
+            // 
+            button19.AllowDrop = true;
+            button19.BackColor = SystemColors.ActiveCaptionText;
+            button19.BackgroundImageLayout = ImageLayout.None;
+            button19.Dock = DockStyle.Fill;
+            button19.FlatStyle = FlatStyle.Flat;
+            button19.ForeColor = SystemColors.ButtonHighlight;
+            button19.Location = new Point(418, 123);
+            button19.Name = "button19";
+            button19.Size = new Size(77, 37);
+            button19.TabIndex = 26;
+            button19.Text = "30";
+            button19.UseVisualStyleBackColor = false;
+            // 
+            // button20
+            // 
+            button20.AllowDrop = true;
+            button20.BackColor = SystemColors.ActiveCaptionText;
+            button20.BackgroundImageLayout = ImageLayout.None;
+            button20.Dock = DockStyle.Fill;
+            button20.FlatStyle = FlatStyle.Flat;
+            button20.ForeColor = SystemColors.ButtonHighlight;
+            button20.Location = new Point(501, 123);
+            button20.Name = "button20";
+            button20.Size = new Size(83, 37);
+            button20.TabIndex = 27;
+            button20.Text = "30";
+            button20.UseVisualStyleBackColor = false;
+            // 
+            // button21
+            // 
+            button21.AllowDrop = true;
+            button21.BackColor = SystemColors.ActiveCaptionText;
+            button21.BackgroundImageLayout = ImageLayout.None;
+            button21.Dock = DockStyle.Fill;
+            button21.FlatStyle = FlatStyle.Flat;
+            button21.ForeColor = SystemColors.ButtonHighlight;
+            button21.Location = new Point(3, 166);
+            button21.Name = "button21";
+            button21.Size = new Size(77, 37);
+            button21.TabIndex = 28;
+            button21.Text = "30";
+            button21.UseVisualStyleBackColor = false;
+            // 
+            // button22
+            // 
+            button22.AllowDrop = true;
+            button22.BackColor = SystemColors.ActiveCaptionText;
+            button22.BackgroundImageLayout = ImageLayout.None;
+            button22.Dock = DockStyle.Fill;
+            button22.FlatStyle = FlatStyle.Flat;
+            button22.ForeColor = SystemColors.ButtonHighlight;
+            button22.Location = new Point(86, 166);
+            button22.Name = "button22";
+            button22.Size = new Size(77, 37);
+            button22.TabIndex = 29;
+            button22.Text = "30";
+            button22.UseVisualStyleBackColor = false;
+            // 
+            // button23
+            // 
+            button23.AllowDrop = true;
+            button23.BackColor = SystemColors.ActiveCaptionText;
+            button23.BackgroundImageLayout = ImageLayout.None;
+            button23.Dock = DockStyle.Fill;
+            button23.FlatStyle = FlatStyle.Flat;
+            button23.ForeColor = SystemColors.ButtonHighlight;
+            button23.Location = new Point(169, 166);
+            button23.Name = "button23";
+            button23.Size = new Size(77, 37);
+            button23.TabIndex = 30;
+            button23.Text = "30";
+            button23.UseVisualStyleBackColor = false;
+            // 
+            // button24
+            // 
+            button24.AllowDrop = true;
+            button24.BackColor = SystemColors.ActiveCaptionText;
+            button24.BackgroundImageLayout = ImageLayout.None;
+            button24.Dock = DockStyle.Fill;
+            button24.FlatStyle = FlatStyle.Flat;
+            button24.ForeColor = SystemColors.ButtonHighlight;
+            button24.Location = new Point(252, 166);
+            button24.Name = "button24";
+            button24.Size = new Size(77, 37);
+            button24.TabIndex = 31;
+            button24.Text = "30";
+            button24.UseVisualStyleBackColor = false;
+            // 
+            // button25
+            // 
+            button25.AllowDrop = true;
+            button25.BackColor = SystemColors.ActiveCaptionText;
+            button25.BackgroundImageLayout = ImageLayout.None;
+            button25.Dock = DockStyle.Fill;
+            button25.FlatStyle = FlatStyle.Flat;
+            button25.ForeColor = SystemColors.ButtonHighlight;
+            button25.Location = new Point(335, 166);
+            button25.Name = "button25";
+            button25.Size = new Size(77, 37);
+            button25.TabIndex = 32;
+            button25.Text = "30";
+            button25.UseVisualStyleBackColor = false;
+            // 
+            // button26
+            // 
+            button26.AllowDrop = true;
+            button26.BackColor = SystemColors.ActiveCaptionText;
+            button26.BackgroundImageLayout = ImageLayout.None;
+            button26.Dock = DockStyle.Fill;
+            button26.FlatStyle = FlatStyle.Flat;
+            button26.ForeColor = SystemColors.ButtonHighlight;
+            button26.Location = new Point(418, 166);
+            button26.Name = "button26";
+            button26.Size = new Size(77, 37);
+            button26.TabIndex = 33;
+            button26.Text = "30";
+            button26.UseVisualStyleBackColor = false;
+            // 
+            // button27
+            // 
+            button27.AllowDrop = true;
+            button27.BackColor = SystemColors.ActiveCaptionText;
+            button27.BackgroundImageLayout = ImageLayout.None;
+            button27.Dock = DockStyle.Fill;
+            button27.FlatStyle = FlatStyle.Flat;
+            button27.ForeColor = SystemColors.ButtonHighlight;
+            button27.Location = new Point(501, 166);
+            button27.Name = "button27";
+            button27.Size = new Size(83, 37);
+            button27.TabIndex = 34;
+            button27.Text = "30";
+            button27.UseVisualStyleBackColor = false;
+            // 
+            // button28
+            // 
+            button28.AllowDrop = true;
+            button28.BackColor = SystemColors.ActiveCaptionText;
+            button28.BackgroundImageLayout = ImageLayout.None;
+            button28.Dock = DockStyle.Fill;
+            button28.FlatStyle = FlatStyle.Flat;
+            button28.ForeColor = SystemColors.ButtonHighlight;
+            button28.Location = new Point(3, 209);
+            button28.Name = "button28";
+            button28.Size = new Size(77, 37);
+            button28.TabIndex = 35;
+            button28.Text = "30";
+            button28.UseVisualStyleBackColor = false;
+            // 
+            // button29
+            // 
+            button29.AllowDrop = true;
+            button29.BackColor = SystemColors.ActiveCaptionText;
+            button29.BackgroundImageLayout = ImageLayout.None;
+            button29.Dock = DockStyle.Fill;
+            button29.FlatStyle = FlatStyle.Flat;
+            button29.ForeColor = SystemColors.ButtonHighlight;
+            button29.Location = new Point(86, 209);
+            button29.Name = "button29";
+            button29.Size = new Size(77, 37);
+            button29.TabIndex = 36;
+            button29.Text = "30";
+            button29.UseVisualStyleBackColor = false;
+            // 
+            // button30
+            // 
+            button30.AllowDrop = true;
+            button30.BackColor = SystemColors.ActiveCaptionText;
+            button30.BackgroundImageLayout = ImageLayout.None;
+            button30.Dock = DockStyle.Fill;
+            button30.FlatStyle = FlatStyle.Flat;
+            button30.ForeColor = SystemColors.ButtonHighlight;
+            button30.Location = new Point(169, 209);
+            button30.Name = "button30";
+            button30.Size = new Size(77, 37);
+            button30.TabIndex = 37;
+            button30.Text = "30";
+            button30.UseVisualStyleBackColor = false;
+            // 
+            // button31
+            // 
+            button31.AllowDrop = true;
+            button31.BackColor = SystemColors.ActiveCaptionText;
+            button31.BackgroundImageLayout = ImageLayout.None;
+            button31.Dock = DockStyle.Fill;
+            button31.FlatStyle = FlatStyle.Flat;
+            button31.ForeColor = SystemColors.ButtonHighlight;
+            button31.Location = new Point(252, 209);
+            button31.Name = "button31";
+            button31.Size = new Size(77, 37);
+            button31.TabIndex = 38;
+            button31.Text = "30";
+            button31.UseVisualStyleBackColor = false;
+            // 
+            // button32
+            // 
+            button32.AllowDrop = true;
+            button32.BackColor = SystemColors.ActiveCaptionText;
+            button32.BackgroundImageLayout = ImageLayout.None;
+            button32.Dock = DockStyle.Fill;
+            button32.FlatStyle = FlatStyle.Flat;
+            button32.ForeColor = SystemColors.ButtonHighlight;
+            button32.Location = new Point(335, 209);
+            button32.Name = "button32";
+            button32.Size = new Size(77, 37);
+            button32.TabIndex = 39;
+            button32.Text = "30";
+            button32.UseVisualStyleBackColor = false;
+            // 
+            // button33
+            // 
+            button33.AllowDrop = true;
+            button33.BackColor = SystemColors.ActiveCaptionText;
+            button33.BackgroundImageLayout = ImageLayout.None;
+            button33.Dock = DockStyle.Fill;
+            button33.FlatStyle = FlatStyle.Flat;
+            button33.ForeColor = SystemColors.ButtonHighlight;
+            button33.Location = new Point(418, 209);
+            button33.Name = "button33";
+            button33.Size = new Size(77, 37);
+            button33.TabIndex = 40;
+            button33.Text = "30";
+            button33.UseVisualStyleBackColor = false;
+            // 
+            // button34
+            // 
+            button34.AllowDrop = true;
+            button34.BackColor = SystemColors.ActiveCaptionText;
+            button34.BackgroundImageLayout = ImageLayout.None;
+            button34.Dock = DockStyle.Fill;
+            button34.FlatStyle = FlatStyle.Flat;
+            button34.ForeColor = SystemColors.ButtonHighlight;
+            button34.Location = new Point(501, 209);
+            button34.Name = "button34";
+            button34.Size = new Size(83, 37);
+            button34.TabIndex = 41;
+            button34.Text = "30";
+            button34.UseVisualStyleBackColor = false;
+            // 
+            // button35
+            // 
+            button35.AllowDrop = true;
+            button35.BackColor = SystemColors.ActiveCaptionText;
+            button35.BackgroundImageLayout = ImageLayout.None;
+            button35.Dock = DockStyle.Fill;
+            button35.FlatStyle = FlatStyle.Flat;
+            button35.ForeColor = SystemColors.ButtonHighlight;
+            button35.Location = new Point(3, 252);
+            button35.Name = "button35";
+            button35.Size = new Size(77, 42);
+            button35.TabIndex = 42;
+            button35.Text = "30";
+            button35.UseVisualStyleBackColor = false;
+            // 
+            // button36
+            // 
+            button36.AllowDrop = true;
+            button36.BackColor = SystemColors.ActiveCaptionText;
+            button36.BackgroundImageLayout = ImageLayout.None;
+            button36.Dock = DockStyle.Fill;
+            button36.FlatStyle = FlatStyle.Flat;
+            button36.ForeColor = SystemColors.ButtonHighlight;
+            button36.Location = new Point(86, 252);
+            button36.Name = "button36";
+            button36.Size = new Size(77, 42);
+            button36.TabIndex = 43;
+            button36.Text = "30";
+            button36.UseVisualStyleBackColor = false;
+            // 
+            // button37
+            // 
+            button37.AllowDrop = true;
+            button37.BackColor = SystemColors.ActiveCaptionText;
+            button37.BackgroundImageLayout = ImageLayout.None;
+            button37.Dock = DockStyle.Fill;
+            button37.FlatStyle = FlatStyle.Flat;
+            button37.ForeColor = SystemColors.ButtonHighlight;
+            button37.Location = new Point(169, 252);
+            button37.Name = "button37";
+            button37.Size = new Size(77, 42);
+            button37.TabIndex = 44;
+            button37.Text = "30";
+            button37.UseVisualStyleBackColor = false;
+            // 
+            // button38
+            // 
+            button38.AllowDrop = true;
+            button38.BackColor = SystemColors.ActiveCaptionText;
+            button38.BackgroundImageLayout = ImageLayout.None;
+            button38.Dock = DockStyle.Fill;
+            button38.FlatStyle = FlatStyle.Flat;
+            button38.ForeColor = SystemColors.ButtonHighlight;
+            button38.Location = new Point(252, 252);
+            button38.Name = "button38";
+            button38.Size = new Size(77, 42);
+            button38.TabIndex = 45;
+            button38.Text = "30";
+            button38.UseVisualStyleBackColor = false;
+            // 
+            // button39
+            // 
+            button39.AllowDrop = true;
+            button39.BackColor = SystemColors.ActiveCaptionText;
+            button39.BackgroundImageLayout = ImageLayout.None;
+            button39.Dock = DockStyle.Fill;
+            button39.FlatStyle = FlatStyle.Flat;
+            button39.ForeColor = SystemColors.ButtonHighlight;
+            button39.Location = new Point(335, 252);
+            button39.Name = "button39";
+            button39.Size = new Size(77, 42);
+            button39.TabIndex = 46;
+            button39.Text = "30";
+            button39.UseVisualStyleBackColor = false;
+            // 
+            // button40
+            // 
+            button40.AllowDrop = true;
+            button40.BackColor = SystemColors.ActiveCaptionText;
+            button40.BackgroundImageLayout = ImageLayout.None;
+            button40.Dock = DockStyle.Fill;
+            button40.FlatStyle = FlatStyle.Flat;
+            button40.ForeColor = SystemColors.ButtonHighlight;
+            button40.Location = new Point(418, 252);
+            button40.Name = "button40";
+            button40.Size = new Size(77, 42);
+            button40.TabIndex = 47;
+            button40.Text = "30";
+            button40.UseVisualStyleBackColor = false;
+            // 
+            // button41
+            // 
+            button41.AllowDrop = true;
+            button41.BackColor = SystemColors.ActiveCaptionText;
+            button41.BackgroundImageLayout = ImageLayout.None;
+            button41.Dock = DockStyle.Fill;
+            button41.FlatStyle = FlatStyle.Flat;
+            button41.ForeColor = SystemColors.ButtonHighlight;
+            button41.Location = new Point(501, 252);
+            button41.Name = "button41";
+            button41.Size = new Size(83, 42);
+            button41.TabIndex = 48;
+            button41.Text = "30";
+            button41.UseVisualStyleBackColor = false;
             // 
             // CalendarControl
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
             Controls.Add(tableLayoutPanel1);
             Controls.Add(panel1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "CalendarControl";
-            Size = new Size(671, 450);
+            Size = new Size(587, 338);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
@@ -876,47 +921,47 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private Label label41;
-        private Label label40;
-        private Label label39;
-        private Label label38;
-        private Label label37;
-        private Label label36;
-        private Label label35;
-        private Label label34;
-        private Label label33;
-        private Label label32;
-        private Label label31;
-        private Label label30;
-        private Label label29;
-        private Label label28;
-        private Label label27;
-        private Label label26;
-        private Label label25;
-        private Label label24;
-        private Label label23;
-        private Label label22;
-        private Label label21;
-        private Label label20;
-        private Label label19;
-        private Label label18;
-        private Label label17;
-        private Label label16;
-        private Label label15;
-        private Label label14;
-        private Label label13;
-        private Label label12;
-        private Label label11;
-        private Label label10;
-        private Label label9;
-        private Label label8;
-        private Label label45;
-        private Label label44;
-        private Label label43;
-        private Label label42;
-        private Label label49;
-        private Label label48;
-        private Label label47;
-        private Label label46;
+        private Button daybutton1;
+        private Button button41;
+        private Button button40;
+        private Button button39;
+        private Button button38;
+        private Button button37;
+        private Button button36;
+        private Button button35;
+        private Button button34;
+        private Button button33;
+        private Button button32;
+        private Button button31;
+        private Button button30;
+        private Button button29;
+        private Button button28;
+        private Button button27;
+        private Button button26;
+        private Button button25;
+        private Button button24;
+        private Button button23;
+        private Button button22;
+        private Button button21;
+        private Button button20;
+        private Button button19;
+        private Button button18;
+        private Button button17;
+        private Button button16;
+        private Button button15;
+        private Button button14;
+        private Button button13;
+        private Button button12;
+        private Button button11;
+        private Button button10;
+        private Button button9;
+        private Button button8;
+        private Button button7;
+        private Button button6;
+        private Button button5;
+        private Button button4;
+        private Button button3;
+        private Button button2;
+        private Button button1;
     }
 }
