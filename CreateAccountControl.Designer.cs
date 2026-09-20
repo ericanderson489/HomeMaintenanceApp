@@ -35,6 +35,8 @@
             passwordTextBox = new TextBox();
             createAccountButton = new Button();
             cancelCreateButton = new Button();
+            createAccountPanel = new Panel();
+            createAccountPanel.SuspendLayout();
             SuspendLayout();
             // 
             // createAccountLabel
@@ -124,23 +126,33 @@
             cancelCreateButton.UseVisualStyleBackColor = false;
             cancelCreateButton.Click += cancelCreateButton_Click;
             // 
+            // createAccountPanel
+            // 
+            createAccountPanel.Controls.Add(cancelCreateButton);
+            createAccountPanel.Controls.Add(createAccountButton);
+            createAccountPanel.Controls.Add(passwordTextBox);
+            createAccountPanel.Controls.Add(usernameTextBox);
+            createAccountPanel.Controls.Add(lnameTextBox);
+            createAccountPanel.Controls.Add(fnameTextBox);
+            createAccountPanel.Controls.Add(createAccountLabel);
+            createAccountPanel.Dock = DockStyle.Fill;
+            createAccountPanel.Location = new Point(0, 0);
+            createAccountPanel.Name = "createAccountPanel";
+            createAccountPanel.Size = new Size(325, 346);
+            createAccountPanel.TabIndex = 7;
+            // 
             // CreateAccountControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
-            Controls.Add(cancelCreateButton);
-            Controls.Add(createAccountButton);
-            Controls.Add(passwordTextBox);
-            Controls.Add(usernameTextBox);
-            Controls.Add(lnameTextBox);
-            Controls.Add(fnameTextBox);
-            Controls.Add(createAccountLabel);
+            Controls.Add(createAccountPanel);
             Name = "CreateAccountControl";
             Size = new Size(325, 346);
             Load += CreateAccountControl_Load;
+            createAccountPanel.ResumeLayout(false);
+            createAccountPanel.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -152,5 +164,6 @@
         private TextBox passwordTextBox;
         private Button createAccountButton;
         private Button cancelCreateButton;
+        private Panel createAccountPanel;
     }
 }

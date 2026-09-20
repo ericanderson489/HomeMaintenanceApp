@@ -28,7 +28,7 @@ namespace HomeMaintenanceApp
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //ShowPage(new DashboardControl()); // ignore this for now....
+            
         }
 
         private void ShowPage(UserControl page) // function for loading each page onto the main panel

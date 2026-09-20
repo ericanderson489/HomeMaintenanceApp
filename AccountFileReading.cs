@@ -35,6 +35,21 @@ namespace HomeMaintenanceApp
         {
             return accountsInFile;
         }
+        public void AddAcount(Account account)
+        {
+            accountsInFile.Add(account);
+            SaveAccount();
+        }
+        public void SaveAccount()
+        {
+            List<string> lines = new List<string>();
+
+            foreach (Account account in accountsInFile)
+            {
+                lines.Add(account.GiveFileString());
+            }
+            File.WriteAllLines(path, lines);
+        }
 
         void FullRewrite(List<Account> accounts) //Rewrites the file containing all saved accounts 
         {

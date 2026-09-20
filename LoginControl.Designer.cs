@@ -35,6 +35,8 @@
             usernameTextBox = new TextBox();
             passwordTextextBox = new TextBox();
             createAccountButton = new Button();
+            mainPanelLogin = new Panel();
+            mainPanelLogin.SuspendLayout();
             SuspendLayout();
             // 
             // loginButton
@@ -128,23 +130,33 @@
             createAccountButton.UseVisualStyleBackColor = false;
             createAccountButton.Click += createAccountButton_Click;
             // 
+            // mainPanelLogin
+            // 
+            mainPanelLogin.Controls.Add(createAccountButton);
+            mainPanelLogin.Controls.Add(passwordTextextBox);
+            mainPanelLogin.Controls.Add(usernameTextBox);
+            mainPanelLogin.Controls.Add(passwordLabel);
+            mainPanelLogin.Controls.Add(usernameLabel);
+            mainPanelLogin.Controls.Add(cancelButton);
+            mainPanelLogin.Controls.Add(loginButton);
+            mainPanelLogin.Dock = DockStyle.Fill;
+            mainPanelLogin.Location = new Point(0, 0);
+            mainPanelLogin.Name = "mainPanelLogin";
+            mainPanelLogin.Size = new Size(325, 346);
+            mainPanelLogin.TabIndex = 7;
+            // 
             // LoginControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
-            Controls.Add(createAccountButton);
-            Controls.Add(passwordTextextBox);
-            Controls.Add(usernameTextBox);
-            Controls.Add(passwordLabel);
-            Controls.Add(usernameLabel);
-            Controls.Add(cancelButton);
-            Controls.Add(loginButton);
+            Controls.Add(mainPanelLogin);
             Margin = new Padding(3, 2, 3, 2);
             Name = "LoginControl";
             Size = new Size(325, 346);
+            mainPanelLogin.ResumeLayout(false);
+            mainPanelLogin.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -156,5 +168,6 @@
         private TextBox usernameTextBox;
         private TextBox passwordTextextBox;
         private Button createAccountButton;
+        private Panel mainPanelLogin;
     }
 }

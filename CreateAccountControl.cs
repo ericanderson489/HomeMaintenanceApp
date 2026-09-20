@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +17,8 @@ namespace HomeMaintenanceApp
         {
             InitializeComponent();
         }
+        public event EventHandler? AccountCreated;
+        public event EventHandler? AccountCanceled;
 
         private void fnameTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -45,12 +48,28 @@ namespace HomeMaintenanceApp
                 string.IsNullOrWhiteSpace(passwordTextBox.Text)) {
                 MessageBox.Show("Please fill out all fields");
             }
-            AccountFileManager accountFile = new AccountFileManager(); 
+            AccountFileReading accountFile = new AccountFileReading(); 
+            foreach (Account account in accountFile.GetAccountList())
+            {
+                if (account.GetAccountUserName() == usernameTextBox.Text)
+                {
+                    MessageBox.Show("That username already exists");
+                    return;
+                }
+            }
+            Account newAccount = new Account(
+                usernameTextBox.Text,
+                passwordTextBox.Text, 
+                fnameTextBox.Text, 
+                lnameTextBox.Text);
+            accountFile.AddAcount(newAccount);
+            MessageBox.Show("Account created!");
+            AccountCreated?.Invoke(this, EventArgs.Empty);
         }
 
         private void cancelCreateButton_Click(object sender, EventArgs e)
         {
-
+            AccountCanceled?.Invoke(this, EventArgs.Empty);
         }
 
         private void CreateAccountControl_Load(object sender, EventArgs e)
