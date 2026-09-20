@@ -86,6 +86,7 @@
             taskTitleBox.Size = new Size(364, 29);
             taskTitleBox.TabIndex = 3;
             taskTitleBox.Text = "<Type Task Title Here>";
+            taskTitleBox.TextChanged += taskTitleBox_TextChanged;
             // 
             // dateTimePicker1
             // 

@@ -41,5 +41,10 @@ namespace HomeMaintenanceApp
         {
 
         }
+
+        private void taskTitleBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
