@@ -43,5 +43,27 @@ namespace HomeMaintenanceApp
 
 			File.WriteAllLines(path, lines);
 		}
+
+		public void RewriteAccount(Account selectedAccount)
+		{
+			int accountIndex = accountsInFile.FindIndex(account =>
+				account.GetAccountUserName() == selectedAccount.GetAccountUserName()
+				&& account.GetAccountPassword() == selectedAccount.GetAccountPassword()
+			);
+
+			if (accountIndex == -1)
+			{
+				return;
+			}
+
+			List<string> lines = File.ReadAllLines(path).ToList();
+
+			lines[accountIndex] = selectedAccount.GiveFileString();
+
+			File.WriteAllLines(path, lines);
+
+			// Update the object stored in the list as well
+			accountsInFile[accountIndex] = selectedAccount;
+		}
 	}
 }
