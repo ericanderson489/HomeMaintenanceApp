@@ -33,7 +33,9 @@ namespace HomeMaintenanceApp
         private void Createaccount_AccountCreated(object? sender, EventArgs e)
         {
             if (sender is CreateAccountControl createAccount)
-            {   
+            {
+                accountFile = new AccountFileReading();
+                
                 Controls.Remove(createAccount);
                 createAccount.Dispose();
             }
@@ -44,10 +46,12 @@ namespace HomeMaintenanceApp
             {
                 Controls.Remove(createAccount);
                 createAccount.Dispose();
+                
             }
         }
         private void loginButton_Click(object sender, EventArgs e)
         {
+            accountFile = new AccountFileReading();
             if (string.IsNullOrWhiteSpace(usernameTextBox.Text) ||
                 string.IsNullOrWhiteSpace(passwordTextextBox.Text))
             {

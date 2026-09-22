@@ -38,8 +38,7 @@
             addGoalsButton.FlatStyle = FlatStyle.Popup;
             addGoalsButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             addGoalsButton.ForeColor = SystemColors.ButtonHighlight;
-            addGoalsButton.Location = new Point(490, 2);
-            addGoalsButton.Margin = new Padding(3, 2, 3, 2);
+            addGoalsButton.Location = new Point(326, 1);
             addGoalsButton.Name = "addGoalsButton";
             addGoalsButton.Size = new Size(94, 31);
             addGoalsButton.TabIndex = 0;

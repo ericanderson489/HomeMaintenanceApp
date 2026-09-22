@@ -20,28 +20,10 @@ namespace HomeMaintenanceApp
         public event EventHandler? AccountCreated;
         public event EventHandler? AccountCanceled;
 
-        private void fnameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lnameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void usernameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void passwordTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void createAccountButton_Click(object sender, EventArgs e)
-        {
+        {// This checks to see if there are any fields with white space
             if (string.IsNullOrWhiteSpace(fnameTextBox.Text) || 
                 string.IsNullOrWhiteSpace(lnameTextBox.Text) ||
                 string.IsNullOrWhiteSpace(usernameTextBox.Text) ||
@@ -63,6 +45,7 @@ namespace HomeMaintenanceApp
                 fnameTextBox.Text, 
                 lnameTextBox.Text);
             accountFile.AddAcount(newAccount);
+            
             MessageBox.Show("Account created!");
             AccountCreated?.Invoke(this, EventArgs.Empty);
         }
@@ -71,10 +54,11 @@ namespace HomeMaintenanceApp
         {
             AccountCanceled?.Invoke(this, EventArgs.Empty);
         }
-
-        private void CreateAccountControl_Load(object sender, EventArgs e)
-        {
-
-        }
+        // Everything below this line is just label
+        private void CreateAccountControl_Load(object sender, EventArgs e){}
+        private void fnameTextBox_TextChanged(object sender, EventArgs e){}
+        private void lnameTextBox_TextChanged(object sender, EventArgs e){}
+        private void usernameTextBox_TextChanged(object sender, EventArgs e){}
+        private void passwordTextBox_TextChanged(object sender, EventArgs e){}
     }
 }
