@@ -13,15 +13,15 @@ namespace HomeMaintenanceApp
         List<Account> accountsInFile = new List<Account>();
 
         public AccountFileReading()
-        {
-            if (!File.Exists(path)) { // Added this line here to create file path in case it does not already exist
+        {   // Added this line here to create file path in case it does not already exist - EA
+            if (!File.Exists(path)) { 
                 File.WriteAllText(path, "");
             }
 
             List<string> fileLines = new List<string>();
             fileLines = File.ReadAllLines(path).ToList();
-
-            foreach (string line in fileLines) //Iterates through the account file and contructs a list of each account contained within.
+            //Iterates through the account file and contructs a list of each account contained within. - EA
+            foreach (string line in fileLines) 
             {
                 string[] accountPart = line.Split(' ');
 
