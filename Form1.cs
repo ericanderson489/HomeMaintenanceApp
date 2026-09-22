@@ -5,7 +5,7 @@ namespace HomeMaintenanceApp
         private Size mainWindowSize; //this saves client size window, is used to adjust size after login
         public MainForm()
         {
-            InitializeComponent();
+            InitializeComponent(); // The component is initialized
             mainWindowSize = ClientSize; // this is where the client size window is saved
             ShowLogin(); // login window is shown on start up
         }
@@ -15,16 +15,16 @@ namespace HomeMaintenanceApp
             ClientSize = mainWindowSize; // client size window returns to normal
             ShowPage(new DashboardControl()); // dashboard is shown in the main panel
         }
-        private void ShowLogin()
-        {
-            sidePanel.Visible = false;
-            LoginControl login = new LoginControl();
+        public void ShowLogin()
+        { // The reason i do not use ShowPage() here is because the client window size is different
+            sidePanel.Visible = false; // Side panel is hidden, the log in page is docked to the main panel
+            LoginControl login = new LoginControl(); // New page created
             ClientSize = login.Size; // Starts client window to login window size
-            login.Dock = DockStyle.Fill;
+            login.Dock = DockStyle.Fill; // This is where it is docked
             
-            login.LoginSuccessful += Login_LoginSuccessful;
-            mainPanel.Controls.Clear();
-            mainPanel.Controls.Add(login);
+            login.LoginSuccessful += Login_LoginSuccessful; // Adds event login successful
+            mainPanel.Controls.Clear(); // Clears the main panel
+            mainPanel.Controls.Add(login); // Login page is added
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -33,8 +33,8 @@ namespace HomeMaintenanceApp
 
         private void ShowPage(UserControl page) // function for loading each page onto the main panel
         {
-            mainPanel.Controls.Clear();
-            page.Dock = DockStyle.Fill;
+            mainPanel.Controls.Clear(); // Clears the new panel
+            page.Dock = DockStyle.Fill; // It docks the new page to the panel
             mainPanel.Controls.Add(page);
         }
         private void dashBoardButton_Click(object sender, EventArgs e)
