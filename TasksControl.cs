@@ -28,5 +28,15 @@ namespace HomeMaintenanceApp
         {
             ShowPage(new MaintenanceTaskControl());
         }
+
+        private void editTaskButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void completeTaskButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
