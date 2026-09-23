@@ -44,7 +44,12 @@ namespace HomeMaintenanceApp
         }
         private void MainForm_Load(object sender, EventArgs e){}
         private void dashBoardButton_Click(object sender, EventArgs e){ShowDashboard();}
-        private void tasksButton_Click(object sender, EventArgs e){ShowPage(new TasksControl());}
+        private void tasksButton_Click(object sender, EventArgs e){
+            if (currentAccount != null)
+            {// Brings account info over to tasks, may have to do this for the rest of them. or just use JSON. He's a good guy
+                ShowPage(new TasksControl(currentAccount));
+            }
+        }
         private void goalsButton_Click(object sender, EventArgs e){ShowPage(new GoalsControl());}
         private void calendarButton_Click(object sender, EventArgs e){ShowPage(new CalendarControl());}
         private void historyButton_Click(object sender, EventArgs e){ShowPage(new HistoryControl());}

@@ -31,6 +31,7 @@
             completedTaskTitleLabel = new Label();
             completedTitleTextBox = new TextBox();
             Check = new Button();
+            taskNameDropdown = new ComboBox();
             SuspendLayout();
             // 
             // completedTaskTitleLabel
@@ -43,6 +44,7 @@
             completedTaskTitleLabel.Size = new Size(72, 21);
             completedTaskTitleLabel.TabIndex = 0;
             completedTaskTitleLabel.Text = "Task Title";
+            completedTaskTitleLabel.Click += completedTaskTitleLabel_Click;
             // 
             // completedTitleTextBox
             // 
@@ -50,6 +52,7 @@
             completedTitleTextBox.Name = "completedTitleTextBox";
             completedTitleTextBox.Size = new Size(100, 23);
             completedTitleTextBox.TabIndex = 1;
+            completedTitleTextBox.TextChanged += completedTitleTextBox_TextChanged;
             // 
             // Check
             // 
@@ -65,11 +68,20 @@
             Check.UseVisualStyleBackColor = false;
             Check.Click += Check_Click;
             // 
+            // taskNameDropdown
+            // 
+            taskNameDropdown.FormattingEnabled = true;
+            taskNameDropdown.Location = new Point(3, 91);
+            taskNameDropdown.Name = "taskNameDropdown";
+            taskNameDropdown.Size = new Size(121, 23);
+            taskNameDropdown.TabIndex = 3;
+            // 
             // CompletedTasksControl1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
+            Controls.Add(taskNameDropdown);
             Controls.Add(Check);
             Controls.Add(completedTitleTextBox);
             Controls.Add(completedTaskTitleLabel);
@@ -84,5 +96,6 @@
         private Label completedTaskTitleLabel;
         private TextBox completedTitleTextBox;
         private Button Check;
+        private ComboBox taskNameDropdown;
     }
 }

@@ -34,8 +34,8 @@
             flowPanelPriorityTasks = new FlowLayoutPanel();
             recurringTasksPanel = new FlowLayoutPanel();
             tasksControlPanel = new Panel();
-            completeTaskButton = new Button();
             editTaskButton = new Button();
+            completeTaskButton = new Button();
             tasksControlPanel.SuspendLayout();
             SuspendLayout();
             // 
@@ -109,23 +109,7 @@
             tasksControlPanel.Name = "tasksControlPanel";
             tasksControlPanel.Size = new Size(587, 338);
             tasksControlPanel.TabIndex = 5;
-            // 
-            // completeTaskButton
-            // 
-            completeTaskButton.Anchor = AnchorStyles.Right;
-            completeTaskButton.AutoSize = true;
-            completeTaskButton.BackColor = SystemColors.ActiveCaptionText;
-            completeTaskButton.FlatStyle = FlatStyle.Popup;
-            completeTaskButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            completeTaskButton.ForeColor = SystemColors.ButtonHighlight;
-            completeTaskButton.Location = new Point(464, 70);
-            completeTaskButton.Margin = new Padding(3, 2, 3, 2);
-            completeTaskButton.Name = "completeTaskButton";
-            completeTaskButton.Size = new Size(120, 31);
-            completeTaskButton.TabIndex = 5;
-            completeTaskButton.Text = "Complete Task";
-            completeTaskButton.UseVisualStyleBackColor = false;
-            completeTaskButton.Click += completeTaskButton_Click;
+            tasksControlPanel.Paint += tasksControlPanel_Paint;
             // 
             // editTaskButton
             // 
@@ -143,6 +127,23 @@
             editTaskButton.Text = "Edit Task";
             editTaskButton.UseVisualStyleBackColor = false;
             editTaskButton.Click += editTaskButton_Click;
+            // 
+            // completeTaskButton
+            // 
+            completeTaskButton.Anchor = AnchorStyles.Right;
+            completeTaskButton.AutoSize = true;
+            completeTaskButton.BackColor = SystemColors.ActiveCaptionText;
+            completeTaskButton.FlatStyle = FlatStyle.Popup;
+            completeTaskButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            completeTaskButton.ForeColor = SystemColors.ButtonHighlight;
+            completeTaskButton.Location = new Point(464, 70);
+            completeTaskButton.Margin = new Padding(3, 2, 3, 2);
+            completeTaskButton.Name = "completeTaskButton";
+            completeTaskButton.Size = new Size(120, 31);
+            completeTaskButton.TabIndex = 5;
+            completeTaskButton.Text = "Complete Task";
+            completeTaskButton.UseVisualStyleBackColor = false;
+            completeTaskButton.Click += completeTaskButton_Click;
             // 
             // TasksControl
             // 

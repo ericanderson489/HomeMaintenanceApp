@@ -12,60 +12,66 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace HomeMaintenanceApp
 {
-    public partial class CompletedTasksControl1 : UserControl
+    internal partial class CompletedTasksControl1 : UserControl
     {
         private Account? m_account;
-        private List<string> taskName = new List<string>();
+        private List<string> taskNames = new List<string>();
+
         public CompletedTasksControl1()
         {
             InitializeComponent();
-        }
-
-        private void Check_Click(object sender, EventArgs e)
-        {
-            // Task to complete name
-            string toComplete = TaskNameDropdown.SelectedValue.ToString();
-
-            if (!string.IsNullOrEmpty(toComplete))
-            {
-                foreach (var task in m_account.GetTaskList())
-                {
-                    if (task.GetName() == toComplete)
-                    {
-                        // Completes task
-                        task.SetStatus(Status.Complete);
-                        MessageBox.Show("Task marked as complete.");
-
-                        // Selects completed task to remove and removes it
-                        var selectedItem = (string)TaskNameDropdown.SelectedItem;
-                        taskName.Remove(selectedItem);
-
-                        // Resets the dropdown
-                        TaskNameDropdown.DataSource = null;
-                        TaskNameDropdown.DataSource = taskName;
-
-                        break;
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("No task to complete yet!");
-            }
         }
         internal CompletedTasksControl1(Account account) : this()
         {
             m_account = account;
 
-            // Initialize list of task names for combo box
-            for (int i = 0; i < m_account.GetTaskList().Count; i++)
+            // Add incomplete tasks to drop down
+            foreach (Tasks task in m_account.GetTaskList())
             {
-                taskName.Add(m_account.GetTaskAt(i).GetName());
+                if (task.GetStatus() != Status.Complete)
+                {
+                    taskNames.Add(task.GetName());
+                }
+            }
+            // Displays tasks in combobox 
+            taskNameDropdown.DataSource = taskNames;
+        }
+        private void Check_Click(object sender, EventArgs e)
+        {
+            // Make sure an account and task have been selected
+            if (m_account == null || taskNameDropdown.SelectedItem == null)
+            {
+                MessageBox.Show("No task to complete yet!");
+                return;
             }
 
-            // Set combo box data source to task names
-            TaskNameDropdown.DataSource = taskName;
+            string taskToComplete = taskNameDropdown.SelectedItem.ToString()!;
+
+            // Find the selected task
+            foreach (Tasks task in m_account.GetTaskList())
+            {
+                if (task.GetName() == taskToComplete)
+                {
+                    // Mark the task as complete
+                    task.SetStatus(Status.Complete);
+
+                    MessageBox.Show("Task marked as complete.");
+
+                    // Remove the completed task from the dropdown
+                    taskNames.Remove(taskToComplete);
+
+                    // Refresh the ComboBox with the remaining tasks
+                    taskNameDropdown.DataSource = null;
+                    taskNameDropdown.DataSource = taskNames;
+
+                    return;
+                }
+            }
+
+            MessageBox.Show("Task could not be found.");
         }
+        private void completedTitleTextBox_TextChanged(object sender, EventArgs e){}
+        private void completedTaskTitleLabel_Click(object sender, EventArgs e){}
     }
 }
 

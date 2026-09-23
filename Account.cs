@@ -52,27 +52,58 @@ namespace HomeMaintenanceApp
         public string GiveFileString() //Returns a string that is used in file-rewriting - JD
         {
             return ($"{m_userName} {m_password} {m_firstName} {m_lastName}");
+
         }
-        // Returns all tasks in the account
+        // Returns the complete task list for this account
         public List<Tasks> GetTaskList()
         {
             return m_taskList;
         }
-        // Returns total number of tasks tied to account
+        // Returns one task at a specific position in the list
+        public Tasks GetTaskAt(int index)
+        {
+            return m_taskList[index];
+        }
+        // Returns the number of tasks belonging to this account
         public int GetTaskCount()
         {
             return m_taskList.Count;
         }
-        // Creates new task and adds it to the account
-        public void AddTask(string name, string description, string type, DateTime time)
-        {
-            Tasks newTask = new Tasks(name, description, type, time);
-            m_taskList.Add(newTask);
-        }
-        // Adds task object
+        // Adds an existing task to this account
         public void AddTask(Tasks newTask)
         {
             m_taskList.Add(newTask);
+        }
+        // Creates and adds a new task to this account
+        public void AddTask(
+            string name,
+            string description,
+            string type,
+            DateTime dueDate)
+        {
+            Tasks newTask = new Tasks(name, description, type, dueDate);
+            m_taskList.Add(newTask);
+        }
+        // Edits an existing task
+        public bool EditTask(
+            string name,
+            string description,
+            string type,
+            DateTime dueDate)
+        {
+            foreach (Tasks task in m_taskList)
+            {
+                if (task.GetName().Equals(
+                    name.Trim(),
+                    StringComparison.OrdinalIgnoreCase))
+                {
+                    task.SetDescription(description);
+                    task.SetType(type);
+                    task.SetDate(dueDate);
+                    return true;
+                }
+            }
+            return false;
         }
         // Deletes specific task
         public bool DeleteTask(string taskName)
@@ -84,27 +115,6 @@ namespace HomeMaintenanceApp
                     StringComparison.OrdinalIgnoreCase))
                 {
                     m_taskList.RemoveAt(i);
-                    return true;
-                }
-            }
-            return false;
-        }
-        // Finds existing task and updates it
-        public bool EditTask(
-            string name,
-            string description,
-            string type,
-            DateTime time)
-        {
-            foreach (Tasks task in m_taskList)
-            {
-                if (task.GetName().Equals(
-                    name.Trim(),
-                    StringComparison.OrdinalIgnoreCase))
-                {
-                    task.SetDescription(description);
-                    task.SetType(type);
-                    task.SetDate(time);
                     return true;
                 }
             }

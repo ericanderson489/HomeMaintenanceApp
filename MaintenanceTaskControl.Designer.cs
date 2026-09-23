@@ -38,6 +38,7 @@
             taskTypeLabel = new Label();
             closeButton = new Button();
             doneTaskButton = new Button();
+            tasktypetextBox = new TextBox();
             maintenanceTaskPanel.SuspendLayout();
             SuspendLayout();
             // 
@@ -118,6 +119,7 @@
             // 
             // maintenanceTaskPanel
             // 
+            maintenanceTaskPanel.Controls.Add(tasktypetextBox);
             maintenanceTaskPanel.Controls.Add(taskTypeLabel);
             maintenanceTaskPanel.Controls.Add(closeButton);
             maintenanceTaskPanel.Controls.Add(doneTaskButton);
@@ -177,6 +179,14 @@
             doneTaskButton.UseVisualStyleBackColor = false;
             doneTaskButton.Click += doneTaskButton_Click;
             // 
+            // tasktypetextBox
+            // 
+            tasktypetextBox.Location = new Point(3, 262);
+            tasktypetextBox.Name = "tasktypetextBox";
+            tasktypetextBox.Size = new Size(150, 23);
+            tasktypetextBox.TabIndex = 9;
+            tasktypetextBox.TextChanged += tasktypetextBox_TextChanged;
+            // 
             // MaintenanceTaskControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -203,5 +213,6 @@
         private Button doneTaskButton;
         private Button closeButton;
         private Label taskTypeLabel;
+        private TextBox tasktypetextBox;
     }
 }
