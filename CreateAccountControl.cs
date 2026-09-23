@@ -11,50 +11,47 @@ using System.Windows.Forms;
 
 namespace HomeMaintenanceApp
 {
-    public partial class CreateAccountControl : UserControl
+    internal partial class CreateAccountControl : UserControl
     {
+        internal event EventHandler? AccountCreated;
+        internal event EventHandler? AccountCanceled;
         public CreateAccountControl()
         {
             InitializeComponent();
         }
-        public event EventHandler? AccountCreated;
-        public event EventHandler? AccountCanceled;
-
-        
-
         private void createAccountButton_Click(object sender, EventArgs e)
-        {// This checks to see if there are any fields with white space
+        {// Checks to see if every field has something 
             if (string.IsNullOrWhiteSpace(fnameTextBox.Text) || 
                 string.IsNullOrWhiteSpace(lnameTextBox.Text) ||
                 string.IsNullOrWhiteSpace(usernameTextBox.Text) ||
                 string.IsNullOrWhiteSpace(passwordTextBox.Text)) {
                 MessageBox.Show("Please fill out all fields");
+                return; 
             }
             AccountFileReading accountFile = new AccountFileReading(); 
             foreach (Account account in accountFile.GetAccountList())
-            {
+            {// This checks for any duplicate usernames in the account list
                 if (account.GetAccountUserName() == usernameTextBox.Text)
                 {
                     MessageBox.Show("That username already exists");
                     return;
                 }
-            }
+            } // The new account is created using entered text from fields 
             Account newAccount = new Account(
                 usernameTextBox.Text,
                 passwordTextBox.Text, 
                 fnameTextBox.Text, 
                 lnameTextBox.Text);
-            accountFile.AddAcount(newAccount);
+            accountFile.AddAccount(newAccount);
             
             MessageBox.Show("Account created!");
             AccountCreated?.Invoke(this, EventArgs.Empty);
         }
-
         private void cancelCreateButton_Click(object sender, EventArgs e)
-        {
+        {// Brings you back to the log in page
             AccountCanceled?.Invoke(this, EventArgs.Empty);
         }
-        // Everything below this line is just label
+        // Everything below this line can be ignored for now
         private void CreateAccountControl_Load(object sender, EventArgs e){}
         private void fnameTextBox_TextChanged(object sender, EventArgs e){}
         private void lnameTextBox_TextChanged(object sender, EventArgs e){}

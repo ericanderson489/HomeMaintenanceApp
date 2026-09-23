@@ -44,9 +44,9 @@
             createAccountLabel.AutoSize = true;
             createAccountLabel.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             createAccountLabel.ForeColor = SystemColors.ControlLightLight;
-            createAccountLabel.Location = new Point(66, 19);
+            createAccountLabel.Location = new Point(58, 14);
             createAccountLabel.Name = "createAccountLabel";
-            createAccountLabel.Size = new Size(257, 37);
+            createAccountLabel.Size = new Size(203, 30);
             createAccountLabel.TabIndex = 0;
             createAccountLabel.Text = "Create Your Account";
             // 
@@ -55,10 +55,9 @@
             fnameTextBox.BackColor = SystemColors.ActiveCaptionText;
             fnameTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             fnameTextBox.ForeColor = SystemColors.ControlLight;
-            fnameTextBox.Location = new Point(66, 119);
-            fnameTextBox.Margin = new Padding(3, 4, 3, 4);
+            fnameTextBox.Location = new Point(58, 89);
             fnameTextBox.Name = "fnameTextBox";
-            fnameTextBox.Size = new Size(231, 34);
+            fnameTextBox.Size = new Size(203, 29);
             fnameTextBox.TabIndex = 1;
             fnameTextBox.Text = "First Name";
             fnameTextBox.TextChanged += fnameTextBox_TextChanged;
@@ -68,10 +67,9 @@
             lnameTextBox.BackColor = SystemColors.ActiveCaptionText;
             lnameTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lnameTextBox.ForeColor = SystemColors.ControlLight;
-            lnameTextBox.Location = new Point(66, 179);
-            lnameTextBox.Margin = new Padding(3, 4, 3, 4);
+            lnameTextBox.Location = new Point(58, 134);
             lnameTextBox.Name = "lnameTextBox";
-            lnameTextBox.Size = new Size(231, 34);
+            lnameTextBox.Size = new Size(203, 29);
             lnameTextBox.TabIndex = 2;
             lnameTextBox.Text = "Last Name";
             lnameTextBox.TextChanged += lnameTextBox_TextChanged;
@@ -81,10 +79,9 @@
             usernameTextBox.BackColor = SystemColors.ActiveCaptionText;
             usernameTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             usernameTextBox.ForeColor = SystemColors.ControlLight;
-            usernameTextBox.Location = new Point(66, 249);
-            usernameTextBox.Margin = new Padding(3, 4, 3, 4);
+            usernameTextBox.Location = new Point(58, 187);
             usernameTextBox.Name = "usernameTextBox";
-            usernameTextBox.Size = new Size(231, 34);
+            usernameTextBox.Size = new Size(203, 29);
             usernameTextBox.TabIndex = 3;
             usernameTextBox.Text = "Username";
             usernameTextBox.TextChanged += usernameTextBox_TextChanged;
@@ -94,10 +91,9 @@
             passwordTextBox.BackColor = SystemColors.ActiveCaptionText;
             passwordTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             passwordTextBox.ForeColor = SystemColors.ControlLight;
-            passwordTextBox.Location = new Point(66, 315);
-            passwordTextBox.Margin = new Padding(3, 4, 3, 4);
+            passwordTextBox.Location = new Point(58, 236);
             passwordTextBox.Name = "passwordTextBox";
-            passwordTextBox.Size = new Size(231, 34);
+            passwordTextBox.Size = new Size(203, 29);
             passwordTextBox.TabIndex = 4;
             passwordTextBox.Text = "Password";
             passwordTextBox.TextChanged += passwordTextBox_TextChanged;
@@ -108,10 +104,9 @@
             createAccountButton.BackColor = SystemColors.ActiveCaptionText;
             createAccountButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             createAccountButton.ForeColor = SystemColors.ControlLightLight;
-            createAccountButton.Location = new Point(225, 416);
-            createAccountButton.Margin = new Padding(3, 4, 3, 4);
+            createAccountButton.Location = new Point(162, 302);
             createAccountButton.Name = "createAccountButton";
-            createAccountButton.Size = new Size(177, 51);
+            createAccountButton.Size = new Size(155, 38);
             createAccountButton.TabIndex = 5;
             createAccountButton.Text = "Create Account";
             createAccountButton.UseVisualStyleBackColor = false;
@@ -123,10 +118,9 @@
             cancelCreateButton.BackColor = SystemColors.ActiveCaptionText;
             cancelCreateButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cancelCreateButton.ForeColor = SystemColors.ControlLightLight;
-            cancelCreateButton.Location = new Point(0, 416);
-            cancelCreateButton.Margin = new Padding(3, 4, 3, 4);
+            cancelCreateButton.Location = new Point(0, 302);
             cancelCreateButton.Name = "cancelCreateButton";
-            cancelCreateButton.Size = new Size(143, 51);
+            cancelCreateButton.Size = new Size(125, 38);
             cancelCreateButton.TabIndex = 6;
             cancelCreateButton.Text = "Cancel";
             cancelCreateButton.UseVisualStyleBackColor = false;
@@ -134,6 +128,7 @@
             // 
             // createAccountPanel
             // 
+            createAccountPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             createAccountPanel.Controls.Add(cancelCreateButton);
             createAccountPanel.Controls.Add(createAccountButton);
             createAccountPanel.Controls.Add(passwordTextBox);
@@ -143,20 +138,18 @@
             createAccountPanel.Controls.Add(createAccountLabel);
             createAccountPanel.Dock = DockStyle.Fill;
             createAccountPanel.Location = new Point(0, 0);
-            createAccountPanel.Margin = new Padding(3, 4, 3, 4);
             createAccountPanel.Name = "createAccountPanel";
-            createAccountPanel.Size = new Size(403, 471);
+            createAccountPanel.Size = new Size(322, 343);
             createAccountPanel.TabIndex = 7;
             // 
             // CreateAccountControl
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
             Controls.Add(createAccountPanel);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "CreateAccountControl";
-            Size = new Size(403, 471);
+            Size = new Size(322, 343);
             Load += CreateAccountControl_Load;
             createAccountPanel.ResumeLayout(false);
             createAccountPanel.PerformLayout();
