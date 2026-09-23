@@ -81,5 +81,11 @@ namespace HomeMaintenanceApp
         {
             return $"{task.GetName()}: {task.GetDescription()}. Due: {task.GetDate()}";
         }
+
+        // Return name of task at specified index. For creation of task name drop downs.
+        public Tasks GetTaskAt(int idx)
+        {
+            return m_taskList[idx];
+        }
     }
 }

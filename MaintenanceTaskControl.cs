@@ -24,6 +24,13 @@ namespace HomeMaintenanceApp
             m_profile = profile;
         }
 
+        private void ShowPage(UserControl page)
+        {
+            maintenanceTaskPanel.Controls.Clear();
+            page.Dock = DockStyle.Fill;
+            maintenanceTaskPanel.Controls.Add(page);
+        }
+
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -86,7 +93,7 @@ namespace HomeMaintenanceApp
 
         private void closeButton_Click(object sender, EventArgs e)
         {
-            
+            ShowPage(new TasksControl(m_profile));
         }
     }
 }

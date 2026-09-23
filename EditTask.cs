@@ -13,6 +13,7 @@ namespace HomeMaintenanceApp
     public partial class EditTask : UserControl
     {
         private Profile? m_profile;
+        private List<string> taskName = new List<string>();
         public EditTask()
         {
             InitializeComponent();
@@ -21,10 +22,30 @@ namespace HomeMaintenanceApp
         public EditTask(Profile profile) : this()
         {
             m_profile = profile;
+
+            // Initialize list of task names to be used as data source for combo box
+            for (int i = 0; i < m_profile.GetTaskList().Count; i++)
+            {
+                if (m_profile.GetTaskAt(i).GetStatus() != Status.Complete)
+                {
+                    taskName.Add(m_profile.GetTaskAt(i).GetName());
+                }
+            }
+
+            // Setting data source for combo box
+            TaskNameDropdown.DataSource = taskName;
+
             dateTimePicker1.Enabled = false;
             descriptionBox.Enabled = false;
             taskTypeBox.Enabled = false;
             doneTaskButton.Enabled = false;
+        }
+
+        private void ShowPage(UserControl page)
+        {
+            EditTaskPanel.Controls.Clear();
+            page.Dock = DockStyle.Fill;
+            EditTaskPanel.Controls.Add(page);
         }
 
         private void taskTypeLabel_Click(object sender, EventArgs e) // Ignore this
@@ -35,11 +56,6 @@ namespace HomeMaintenanceApp
         private void doneTaskButton_Click(object sender, EventArgs e)
         {
             // Input validation
-            if (taskTitleBox.Text == "")
-            {
-                MessageBox.Show("Name cannot be empty.");
-                return;
-            }
 
             if (descriptionBox.Text == "")
             {
@@ -60,17 +76,15 @@ namespace HomeMaintenanceApp
                 return;
             }
 
-            string name = taskTitleBox.Text;
             string desc = descriptionBox.Text;
             string type = taskTypeBox.Text;
             DateTime date = selectedDate;
 
             // Edit task
-            m_profile.EditTask(name, desc, type, selectedDate);
+            m_profile.EditTask(TaskNameDropdown.SelectedValue.ToString(), desc, type, selectedDate);
             MessageBox.Show("Task edited successfully!");
 
             // Reset fields to default
-            taskTitleBox.Text = "";
             descriptionBox.Text = "";
             taskTypeBox.Text = "";
             dateTimePicker1.Value = DateTime.Today;
@@ -78,27 +92,36 @@ namespace HomeMaintenanceApp
 
         private void CheckIfValid_Click(object sender, EventArgs e)
         {
-            bool isValid = false;
-            foreach (var task in m_profile.GetTaskList())
+            // Name of task to edit
+            string toEdit = TaskNameDropdown.SelectedValue.ToString();
+
+            if (!string.IsNullOrEmpty(toEdit))
             {
-                if (task.GetName().ToLower().Trim() == taskTitleBox.Text.ToLower().Trim())
+                // Find task in list and populate fields to be edited
+                foreach (var task in m_profile.GetTaskList())
                 {
-                    isValid = true;
+                    if (task.GetName() == toEdit)
+                    {
+                        descriptionBox.Text = task.GetDescription();
+                        taskTypeBox.Text = task.GetTaskType();
+                        dateTimePicker1.Value = task.GetDate();
+
+                        dateTimePicker1.Enabled = true;
+                        descriptionBox.Enabled = true;
+                        taskTypeBox.Enabled = true;
+                        doneTaskButton.Enabled = true;
+
+                        MessageBox.Show("Proceed to edit.");
+
+                        break;
+                    }
                 }
             }
+        }
 
-            if (isValid)
-            {
-                dateTimePicker1.Enabled = true;
-                descriptionBox.Enabled = true;
-                taskTypeBox.Enabled = true;
-                doneTaskButton.Enabled = true;
-                MessageBox.Show("Task found! Continue to edit.");
-            }
-            else
-            {
-                MessageBox.Show("No task with that name in profile!");
-            }
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            ShowPage(new TasksControl(m_profile));
         }
     }
 }

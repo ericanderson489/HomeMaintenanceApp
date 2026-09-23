@@ -32,13 +32,15 @@
             closeButton = new Button();
             taskTypeBox = new TextBox();
             taskTitleLabel = new Label();
-            taskTitleBox = new TextBox();
             dueDateLabel = new Label();
             dateTimePicker1 = new DateTimePicker();
             descriptionLabel = new Label();
             descriptionBox = new TextBox();
             taskTypeLabel = new Label();
             CheckIfValid = new Button();
+            EditTaskPanel = new Panel();
+            TaskNameDropdown = new ComboBox();
+            EditTaskPanel.SuspendLayout();
             SuspendLayout();
             // 
             // doneTaskButton
@@ -71,6 +73,7 @@
             closeButton.TabIndex = 8;
             closeButton.Text = "Close";
             closeButton.UseVisualStyleBackColor = false;
+            closeButton.Click += closeButton_Click;
             // 
             // taskTypeBox
             // 
@@ -90,17 +93,6 @@
             taskTitleLabel.Size = new Size(111, 32);
             taskTitleLabel.TabIndex = 11;
             taskTitleLabel.Text = "Task Title";
-            // 
-            // taskTitleBox
-            // 
-            taskTitleBox.BackColor = SystemColors.ActiveCaptionText;
-            taskTitleBox.Font = new Font("Segoe UI Light", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            taskTitleBox.ForeColor = SystemColors.ControlLightLight;
-            taskTitleBox.Location = new Point(4, 54);
-            taskTitleBox.Margin = new Padding(4);
-            taskTitleBox.Name = "taskTitleBox";
-            taskTitleBox.Size = new Size(518, 39);
-            taskTitleBox.TabIndex = 12;
             // 
             // dueDateLabel
             // 
@@ -169,7 +161,7 @@
             // 
             CheckIfValid.BackColor = SystemColors.ActiveCaptionText;
             CheckIfValid.ForeColor = SystemColors.ButtonHighlight;
-            CheckIfValid.Location = new Point(529, 54);
+            CheckIfValid.Location = new Point(192, 54);
             CheckIfValid.Name = "CheckIfValid";
             CheckIfValid.Size = new Size(116, 39);
             CheckIfValid.TabIndex = 18;
@@ -177,26 +169,43 @@
             CheckIfValid.UseVisualStyleBackColor = false;
             CheckIfValid.Click += CheckIfValid_Click;
             // 
+            // EditTaskPanel
+            // 
+            EditTaskPanel.Controls.Add(TaskNameDropdown);
+            EditTaskPanel.Controls.Add(doneTaskButton);
+            EditTaskPanel.Controls.Add(closeButton);
+            EditTaskPanel.Controls.Add(taskTypeBox);
+            EditTaskPanel.Controls.Add(taskTitleLabel);
+            EditTaskPanel.Controls.Add(dueDateLabel);
+            EditTaskPanel.Controls.Add(dateTimePicker1);
+            EditTaskPanel.Controls.Add(descriptionLabel);
+            EditTaskPanel.Controls.Add(descriptionBox);
+            EditTaskPanel.Controls.Add(taskTypeLabel);
+            EditTaskPanel.Controls.Add(CheckIfValid);
+            EditTaskPanel.Location = new Point(0, 0);
+            EditTaskPanel.Name = "EditTaskPanel";
+            EditTaskPanel.Size = new Size(839, 562);
+            EditTaskPanel.TabIndex = 19;
+            // 
+            // TaskNameDropdown
+            // 
+            TaskNameDropdown.FormattingEnabled = true;
+            TaskNameDropdown.Location = new Point(4, 58);
+            TaskNameDropdown.Name = "TaskNameDropdown";
+            TaskNameDropdown.Size = new Size(182, 33);
+            TaskNameDropdown.TabIndex = 19;
+            // 
             // EditTask
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
-            Controls.Add(CheckIfValid);
-            Controls.Add(taskTypeLabel);
-            Controls.Add(descriptionBox);
-            Controls.Add(descriptionLabel);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(dueDateLabel);
-            Controls.Add(taskTitleBox);
-            Controls.Add(taskTitleLabel);
-            Controls.Add(taskTypeBox);
-            Controls.Add(closeButton);
-            Controls.Add(doneTaskButton);
+            Controls.Add(EditTaskPanel);
             Name = "EditTask";
             Size = new Size(839, 562);
+            EditTaskPanel.ResumeLayout(false);
+            EditTaskPanel.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -205,12 +214,13 @@
         private Button closeButton;
         private TextBox taskTypeBox;
         private Label taskTitleLabel;
-        private TextBox taskTitleBox;
         private Label dueDateLabel;
         private DateTimePicker dateTimePicker1;
         private Label descriptionLabel;
         private TextBox descriptionBox;
         private Label taskTypeLabel;
         private Button CheckIfValid;
+        private Panel EditTaskPanel;
+        private ComboBox TaskNameDropdown;
     }
 }

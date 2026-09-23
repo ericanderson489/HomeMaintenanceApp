@@ -28,17 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            taskNameBox = new TextBox();
             taskTitleLabel = new Label();
             CheckIfValid = new Button();
+            CompleteTaskPanel = new Panel();
+            TaskNameDropdown = new ComboBox();
+            closeButton = new Button();
+            CompleteTaskPanel.SuspendLayout();
             SuspendLayout();
-            // 
-            // taskNameBox
-            // 
-            taskNameBox.Location = new Point(3, 71);
-            taskNameBox.Name = "taskNameBox";
-            taskNameBox.Size = new Size(150, 31);
-            taskNameBox.TabIndex = 0;
             // 
             // taskTitleLabel
             // 
@@ -56,32 +52,68 @@
             // 
             CheckIfValid.BackColor = SystemColors.ActiveCaptionText;
             CheckIfValid.ForeColor = SystemColors.ButtonHighlight;
-            CheckIfValid.Location = new Point(172, 67);
+            CheckIfValid.Location = new Point(192, 67);
             CheckIfValid.Name = "CheckIfValid";
             CheckIfValid.Size = new Size(116, 39);
             CheckIfValid.TabIndex = 19;
-            CheckIfValid.Text = "Check";
+            CheckIfValid.Text = "Complete";
             CheckIfValid.UseVisualStyleBackColor = false;
             CheckIfValid.Click += CheckIfValid_Click;
+            // 
+            // CompleteTaskPanel
+            // 
+            CompleteTaskPanel.Controls.Add(TaskNameDropdown);
+            CompleteTaskPanel.Controls.Add(closeButton);
+            CompleteTaskPanel.Controls.Add(taskTitleLabel);
+            CompleteTaskPanel.Controls.Add(CheckIfValid);
+            CompleteTaskPanel.Location = new Point(0, 0);
+            CompleteTaskPanel.Name = "CompleteTaskPanel";
+            CompleteTaskPanel.Size = new Size(839, 562);
+            CompleteTaskPanel.TabIndex = 20;
+            CompleteTaskPanel.Paint += panel1_Paint;
+            // 
+            // TaskNameDropdown
+            // 
+            TaskNameDropdown.FormattingEnabled = true;
+            TaskNameDropdown.Location = new Point(4, 71);
+            TaskNameDropdown.Name = "TaskNameDropdown";
+            TaskNameDropdown.Size = new Size(182, 33);
+            TaskNameDropdown.TabIndex = 21;
+            // 
+            // closeButton
+            // 
+            closeButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            closeButton.AutoSize = true;
+            closeButton.BackColor = SystemColors.ActiveCaptionText;
+            closeButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            closeButton.ForeColor = SystemColors.ButtonHighlight;
+            closeButton.Location = new Point(4, 506);
+            closeButton.Margin = new Padding(4);
+            closeButton.Name = "closeButton";
+            closeButton.Size = new Size(118, 52);
+            closeButton.TabIndex = 20;
+            closeButton.Text = "Close";
+            closeButton.UseVisualStyleBackColor = false;
+            closeButton.Click += closeButton_Click;
             // 
             // CompleteTaskControl
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
-            Controls.Add(CheckIfValid);
-            Controls.Add(taskTitleLabel);
-            Controls.Add(taskNameBox);
+            Controls.Add(CompleteTaskPanel);
             Name = "CompleteTaskControl";
             Size = new Size(839, 562);
+            CompleteTaskPanel.ResumeLayout(false);
+            CompleteTaskPanel.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private TextBox taskNameBox;
         private Label taskTitleLabel;
         private Button CheckIfValid;
+        private Panel CompleteTaskPanel;
+        private Button closeButton;
+        private ComboBox TaskNameDropdown;
     }
 }
