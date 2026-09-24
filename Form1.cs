@@ -50,6 +50,7 @@ namespace HomeMaintenanceApp
                 ShowPage(new TasksControl(currentAccount));
             }
         }
+        // Clean up later, no touch
         private void goalsButton_Click(object sender, EventArgs e){ShowPage(new GoalsControl());}
         private void calendarButton_Click(object sender, EventArgs e){ShowPage(new CalendarControl());}
         private void historyButton_Click(object sender, EventArgs e){ShowPage(new HistoryControl());}

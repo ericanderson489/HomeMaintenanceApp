@@ -68,7 +68,7 @@ namespace HomeMaintenanceApp
             MessageBox.Show("Mission Failed!!! We'll get'em next time"); // all is lost
         }
         private void cancelButton_Click(object sender, EventArgs e){Application.Exit();} 
-        // Clean up later
+        // Clean up later, no touch
         private void usernameTextBox_TextChanged(object sender, EventArgs e){}
         private void passwordTextextBox_TextChanged(object sender, EventArgs e){}
     }

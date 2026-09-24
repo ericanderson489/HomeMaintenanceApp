@@ -38,7 +38,7 @@ namespace HomeMaintenanceApp
             ShowPage(addTask);
         }
         private void editTaskButton_Click(object sender, EventArgs e)
-        {
+        {// This creates a new edit tasks object passing the account through as an argument 
             if (m_account == null) { return; }
 
             EditTask editTask = new EditTask(m_account);
@@ -48,7 +48,7 @@ namespace HomeMaintenanceApp
             ShowPage(editTask);
         }
         private void ReturnToTasks(object? sender, EventArgs e)
-        {
+        {// Event handler to return to Tasks page
             if (sender is UserControl page)
             {
                 tasksControlPanel.Controls.Remove(page);
@@ -65,11 +65,11 @@ namespace HomeMaintenanceApp
             {
                 if (task.GetStatus() == Status.Complete) { continue; }
                 // Creates a small panel for each task
-                Panel taskPanel = new Panel();
+                Panel taskPanel = new Panel(); // new panels are created so size is adjusted automatically for each new task
                 taskPanel.Width = flowPanelPriorityTasks.ClientSize.Width - 25;
                 taskPanel.Height = 55;
                 // Shows task name
-                Label nameLabel = new Label();
+                Label nameLabel = new Label(); 
                 nameLabel.Text = task.GetName();
                 nameLabel.AutoSize = true;
                 nameLabel.Location = new Point(10, 8);
@@ -83,6 +83,7 @@ namespace HomeMaintenanceApp
                 flowPanelPriorityTasks.Controls.Add(taskPanel);
             }
         }
+        // Clean up later, no touch
         private void tasksControlPanel_Paint(object sender, PaintEventArgs e){}
     }
 }

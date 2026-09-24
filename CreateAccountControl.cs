@@ -51,7 +51,7 @@ namespace HomeMaintenanceApp
         {// Brings you back to the log in page
             AccountCanceled?.Invoke(this, EventArgs.Empty);
         }
-        // Everything below this line can be ignored for now
+        // Everything below this line can be ignored for now, no touch
         private void CreateAccountControl_Load(object sender, EventArgs e){}
         private void fnameTextBox_TextChanged(object sender, EventArgs e){}
         private void lnameTextBox_TextChanged(object sender, EventArgs e){}

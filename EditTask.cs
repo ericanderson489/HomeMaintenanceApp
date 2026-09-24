@@ -80,6 +80,7 @@
             }
         }
         private void closeEditButton_Click(object sender, EventArgs e) { EditClosed?.Invoke(this, EventArgs.Empty); }
+        // Clean up later, no worries, no touch
         private void editCalendar_ValueChanged(object sender, EventArgs e){}
         private void taskCheckBox_CheckedChanged(object sender, EventArgs e){}
         private void editTaskTitleLabel_Click(object sender, EventArgs e) { }

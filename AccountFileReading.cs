@@ -19,7 +19,7 @@ namespace HomeMaintenanceApp
             }
             List<string> fileLines = new List<string>();
             fileLines = File.ReadAllLines(path).ToList(); // Reads each saved account from the file
-            //Iterates through the account file and contructs a list of each account contained within. - EA
+            // Iterates through the account file and contructs a list of each account contained within. - EA
             foreach (string line in fileLines) 
             {
                 string[] accountPart = line.Split(' ');
@@ -37,13 +37,13 @@ namespace HomeMaintenanceApp
             SaveAccount();
         }
         public void SaveAccount()
-        {
+        {// This creates the new file, writes everything and then closes it 
             List<string> lines = new List<string>();
 
             foreach (Account account in accountsInFile)
             {
                 lines.Add(account.GiveFileString());
-            }// This creates the new file, writes everything and then closes it 
+            }
             File.WriteAllLines(path, lines);
         }
         void FullRewrite(List<Account> accounts) //Rewrites the file containing all saved accounts 
