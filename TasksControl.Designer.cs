@@ -35,7 +35,6 @@
             recurringTasksPanel = new FlowLayoutPanel();
             tasksControlPanel = new Panel();
             editTaskButton = new Button();
-            completeTaskButton = new Button();
             tasksControlPanel.SuspendLayout();
             SuspendLayout();
             // 
@@ -97,7 +96,6 @@
             // tasksControlPanel
             // 
             tasksControlPanel.Controls.Add(editTaskButton);
-            tasksControlPanel.Controls.Add(completeTaskButton);
             tasksControlPanel.Controls.Add(flowPanelPriorityTasks);
             tasksControlPanel.Controls.Add(recurringTasksLabel);
             tasksControlPanel.Controls.Add(priorityTasksLabel);
@@ -128,23 +126,6 @@
             editTaskButton.UseVisualStyleBackColor = false;
             editTaskButton.Click += editTaskButton_Click;
             // 
-            // completeTaskButton
-            // 
-            completeTaskButton.Anchor = AnchorStyles.Right;
-            completeTaskButton.AutoSize = true;
-            completeTaskButton.BackColor = SystemColors.ActiveCaptionText;
-            completeTaskButton.FlatStyle = FlatStyle.Popup;
-            completeTaskButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            completeTaskButton.ForeColor = SystemColors.ButtonHighlight;
-            completeTaskButton.Location = new Point(464, 70);
-            completeTaskButton.Margin = new Padding(3, 2, 3, 2);
-            completeTaskButton.Name = "completeTaskButton";
-            completeTaskButton.Size = new Size(120, 31);
-            completeTaskButton.TabIndex = 5;
-            completeTaskButton.Text = "Complete Task";
-            completeTaskButton.UseVisualStyleBackColor = false;
-            completeTaskButton.Click += completeTaskButton_Click;
-            // 
             // TasksControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -168,6 +149,5 @@
         private FlowLayoutPanel recurringTasksPanel;
         private Panel tasksControlPanel;
         private Button editTaskButton;
-        private Button completeTaskButton;
     }
 }

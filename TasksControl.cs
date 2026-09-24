@@ -13,7 +13,6 @@ namespace HomeMaintenanceApp
     internal partial class TasksControl : UserControl
     {
         private Account? m_account;
-
         public TasksControl()
         {
             InitializeComponent();
@@ -31,37 +30,22 @@ namespace HomeMaintenanceApp
         }
         private void addTaskButton_Click(object sender, EventArgs e)
         {
-            if (m_account == null)
-            {
-                return;
-            }
+            if (m_account == null) { return; }
 
-            MaintenanceTaskControl addTask =
-                new MaintenanceTaskControl(m_account);
-
+            MaintenanceTaskControl addTask = new MaintenanceTaskControl(m_account);
             addTask.TaskAdded += ReturnToTasks;
             addTask.AddTaskClosed += ReturnToTasks;
-
             ShowPage(addTask);
         }
         private void editTaskButton_Click(object sender, EventArgs e)
         {
-            if (m_account == null)
-            {
-                return;
-            }
+            if (m_account == null) { return; }
+
             EditTask editTask = new EditTask(m_account);
+
+            editTask.EditClosed += ReturnToTasks;
+
             ShowPage(editTask);
-        }
-        private void completeTaskButton_Click(object sender, EventArgs e)
-        {
-            if (m_account == null)
-            {
-                return;
-            }
-            CompletedTasksControl1 completeTask =
-                new CompletedTasksControl1(m_account);
-            ShowPage(completeTask);
         }
         private void ReturnToTasks(object? sender, EventArgs e)
         {
@@ -74,17 +58,12 @@ namespace HomeMaintenanceApp
         }
         private void DisplayTasks()
         {
-            if (m_account == null)
-            {
-                return;
-            }       
+            if (m_account == null) { return; } 
+            
             flowPanelPriorityTasks.Controls.Clear();
             foreach (Tasks task in m_account.GetTaskList())
             {
-                if (task.GetStatus() == Status.Complete)
-                {
-                    continue;
-                }
+                if (task.GetStatus() == Status.Complete) { continue; }
                 // Creates a small panel for each task
                 Panel taskPanel = new Panel();
                 taskPanel.Width = flowPanelPriorityTasks.ClientSize.Width - 25;
