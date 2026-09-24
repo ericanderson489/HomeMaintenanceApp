@@ -10,11 +10,14 @@ using System.Windows.Forms;
 
 namespace HomeMaintenanceApp
 {
-    public partial class DashboardControl : UserControl
+    internal partial class DashboardControl : UserControl
     {
-        public DashboardControl()
+        internal Account account;
+        public DashboardControl(Account account)
         {
             InitializeComponent();
-        }
+            this.account = account;
+            greetingLabel.Text = $"Hello {account.GetAccountFirstName()}";
+        } 
     }
 }
