@@ -11,10 +11,7 @@ namespace HomeMaintenanceApp
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-
-            var testProfile = new Profile("test", "1234");
-
-            Application.Run(new MainForm(testProfile));
+            Application.Run(new MainForm()); 
         }
     }
 }

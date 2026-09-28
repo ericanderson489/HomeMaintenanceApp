@@ -1,42 +1,25 @@
-﻿/* Task Class
- * Kiefer
- * Enables creation of tasks, helper functions, etc.
- */
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HomeMaintenanceApp
+﻿namespace HomeMaintenanceApp
 {
-    // Status of task. Is it pending, in progress or done?
-    public enum Status
+    internal enum Status
     {
         Pending,
         Complete
     }
-
-    // Frequency for recurring tasks
-    public enum Frequency
+    internal enum Frequency
     {
         Weekly,
         Monthly,
         Quarterly,
-        Annually,
+        Annually
     }
-    public class Tasks
+    internal class Tasks
     {
         private string m_name;
         private string m_description;
         private string m_type;
-        // To be implemented in a future build when UI is established
-        // private Frequency m_frequency;
         private Status m_status;
         private DateTime m_dueDate;
-
-        public Tasks (string name, string description, string type, DateTime dueDate)
+        public Tasks(string name, string description, string type, DateTime dueDate)
         {
             m_name = name;
             m_description = description;
@@ -44,25 +27,14 @@ namespace HomeMaintenanceApp
             m_dueDate = dueDate;
             m_status = Status.Pending;
         }
-
-        // Set and Get methods for Tasks objects
         public string GetName() { return m_name; }
         public void SetName(string name) { m_name = name; }
-
         public string GetDescription() { return m_description; }
         public void SetDescription(string description) { m_description = description; }
-
         public string GetTaskType() { return m_type; }
         public void SetType(string type) { m_type = type; }
-
-        public DateTime GetDate() {  return m_dueDate; }
+        public DateTime GetDate() { return m_dueDate; }
         public void SetDate(DateTime date) { m_dueDate = date; }
-
-        // To be implemented in future build
-
-        //public Frequency GetFrequency() { return m_frequency; }
-        //public void SetFrequency(Frequency frequency) { m_frequency = frequency; }
-
         public Status GetStatus() { return m_status; }
         public void SetStatus(Status status) { m_status = status; }
     }

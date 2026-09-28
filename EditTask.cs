@@ -1,127 +1,92 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace HomeMaintenanceApp
+﻿namespace HomeMaintenanceApp
 {
-    public partial class EditTask : UserControl
+    internal partial class EditTask : UserControl
     {
-        private Profile? m_profile;
-        private List<string> taskName = new List<string>();
+        internal event EventHandler? EditClosed;
+        private Account? m_account;
+        private List<string> taskNames = new List<string>();
+
         public EditTask()
         {
             InitializeComponent();
         }
-
-        public EditTask(Profile profile) : this()
+        internal EditTask(Account account) : this()
         {
-            m_profile = profile;
-
-            // Initialize list of task names to be used as data source for combo box
-            for (int i = 0; i < m_profile.GetTaskList().Count; i++)
-            {
-                if (m_profile.GetTaskAt(i).GetStatus() != Status.Complete)
+            m_account = account;
+            foreach (Tasks task in m_account.GetTaskList())
+            {// Add all incomplete tasks to the dropdown
+                if (task.GetStatus() != Status.Complete)
                 {
-                    taskName.Add(m_profile.GetTaskAt(i).GetName());
+                    taskNames.Add(task.GetName());
                 }
             }
-
-            // Setting data source for combo box
-            TaskNameDropdown.DataSource = taskName;
-
-            dateTimePicker1.Enabled = false;
-            descriptionBox.Enabled = false;
-            taskTypeBox.Enabled = false;
-            doneTaskButton.Enabled = false;
+            TaskNameDropdown.DataSource = taskNames;
         }
-
-        private void ShowPage(UserControl page)
+        private void TaskNameDropdown_SelectedIndexChanged(
+            object sender, EventArgs e)
         {
-            EditTaskPanel.Controls.Clear();
-            page.Dock = DockStyle.Fill;
-            EditTaskPanel.Controls.Add(page);
-        }
+            if (m_account == null || TaskNameDropdown.SelectedItem == null) { return; }
 
-        private void taskTypeLabel_Click(object sender, EventArgs e) // Ignore this
-        {
-
-        }
-
-        private void doneTaskButton_Click(object sender, EventArgs e)
-        {
-            // Input validation
-
-            if (descriptionBox.Text == "")
-            {
-                MessageBox.Show("Description cannot be empty.");
-                return;
-            }
-
-            if (taskTypeBox.Text == "")
-            {
-                MessageBox.Show("Task type cannot be empty.");
-                return;
-            }
-
-            DateTime selectedDate = dateTimePicker1.Value;
-            if (selectedDate < DateTime.Today)
-            {
-                MessageBox.Show("Due date cannot be in the past.");
-                return;
-            }
-
-            string desc = descriptionBox.Text;
-            string type = taskTypeBox.Text;
-            DateTime date = selectedDate;
-
-            // Edit task
-            m_profile.EditTask(TaskNameDropdown.SelectedValue.ToString(), desc, type, selectedDate);
-            MessageBox.Show("Task edited successfully!");
-
-            // Reset fields to default
-            descriptionBox.Text = "";
-            taskTypeBox.Text = "";
-            dateTimePicker1.Value = DateTime.Today;
-        }
-
-        private void CheckIfValid_Click(object sender, EventArgs e)
-        {
-            // Name of task to edit
-            string toEdit = TaskNameDropdown.SelectedValue.ToString();
-
-            if (!string.IsNullOrEmpty(toEdit))
-            {
-                // Find task in list and populate fields to be edited
-                foreach (var task in m_profile.GetTaskList())
+            string selectedTask = TaskNameDropdown.SelectedItem.ToString()!;
+            foreach (Tasks task in m_account.GetTaskList())
+            {// Find the selected task and display its information
+                if (task.GetName() == selectedTask)
                 {
-                    if (task.GetName() == toEdit)
+                    editTextBox.Text = task.GetDescription();
+                    taskTypeComboBox.SelectedItem = task.GetTaskType();
+                    editCalendar.Value = task.GetDate();
+
+                    taskCheckBox.Checked = task.GetStatus() == Status.Complete;
+                    return;
+                }
+            }
+        }
+        private void editTaskButton_Click(object sender, EventArgs e)
+        {
+            if (m_account == null || TaskNameDropdown.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a task");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(editTextBox.Text) ||
+                taskTypeComboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Please fill out all fields");
+                return;
+            }
+            if (editCalendar.Value.Date < DateTime.Today)
+            {
+                MessageBox.Show("Due date cannot be in the past");
+                return;
+            }
+            string selectedTask = TaskNameDropdown.SelectedItem.ToString()!;
+            foreach (Tasks task in m_account.GetTaskList())
+            {// Finds selected task and saves changes
+                if (task.GetName() == selectedTask)
+                {
+                    task.SetDescription(editTextBox.Text);
+                    task.SetType(taskTypeComboBox.SelectedItem.ToString()!);
+                    task.SetDate(editCalendar.Value);
+                    // Mark task complete if checked
+                    if (taskCheckBox.Checked)
                     {
-                        descriptionBox.Text = task.GetDescription();
-                        taskTypeBox.Text = task.GetTaskType();
-                        dateTimePicker1.Value = task.GetDate();
-
-                        dateTimePicker1.Enabled = true;
-                        descriptionBox.Enabled = true;
-                        taskTypeBox.Enabled = true;
-                        doneTaskButton.Enabled = true;
-
-                        MessageBox.Show("Proceed to edit.");
-
-                        break;
+                        task.SetStatus(Status.Complete);
                     }
+                    MessageBox.Show("Task updated");
+                    // Tells task control that edit is done
+                    EditClosed?.Invoke(this, EventArgs.Empty);
+                    return;
                 }
             }
         }
-
-        private void closeButton_Click(object sender, EventArgs e)
-        {
-            ShowPage(new TasksControl(m_profile));
-        }
+        private void closeEditButton_Click(object sender, EventArgs e) { EditClosed?.Invoke(this, EventArgs.Empty); }
+        // Clean up later, no worries, no touch
+        private void editCalendar_ValueChanged(object sender, EventArgs e){}
+        private void taskCheckBox_CheckedChanged(object sender, EventArgs e){}
+        private void editTaskTitleLabel_Click(object sender, EventArgs e) { }
+        private void editTitleBox_TextChanged(object sender, EventArgs e) { }
+        private void editDueDateLabel_Click(object sender, EventArgs e) { }
+        private void editTextBox_TextChanged(object sender, EventArgs e) { }
+        private void descriptionLabel_Click(object sender, EventArgs e) { }   
     }
 }

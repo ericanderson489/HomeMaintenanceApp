@@ -33,9 +33,9 @@
             dueDateLabel = new Label();
             taskTitleBox = new TextBox();
             dateTimePicker1 = new DateTimePicker();
-            descriptionBox = new TextBox();
+            textBox1 = new TextBox();
             maintenanceTaskPanel = new Panel();
-            taskTypeBox = new TextBox();
+            addTaskTypeComboBox = new ComboBox();
             taskTypeLabel = new Label();
             closeButton = new Button();
             doneTaskButton = new Button();
@@ -47,48 +47,46 @@
             taskTitleLabel.AutoSize = true;
             taskTitleLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             taskTitleLabel.ForeColor = SystemColors.ButtonHighlight;
-            taskTitleLabel.Location = new Point(0, 15);
-            taskTitleLabel.Margin = new Padding(4, 0, 4, 0);
+            taskTitleLabel.Location = new Point(0, 33);
             taskTitleLabel.Name = "taskTitleLabel";
-            taskTitleLabel.Size = new Size(111, 32);
+            taskTitleLabel.Size = new Size(75, 21);
             taskTitleLabel.TabIndex = 0;
-            taskTitleLabel.Text = "Task Title";
+            taskTitleLabel.Text = "Task Title:";
             // 
             // descriptionLabel
             // 
             descriptionLabel.AutoSize = true;
             descriptionLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             descriptionLabel.ForeColor = SystemColors.ButtonHighlight;
-            descriptionLabel.Location = new Point(4, 202);
-            descriptionLabel.Margin = new Padding(4, 0, 4, 0);
+            descriptionLabel.Location = new Point(3, 145);
             descriptionLabel.Name = "descriptionLabel";
-            descriptionLabel.Size = new Size(135, 32);
+            descriptionLabel.Size = new Size(92, 21);
             descriptionLabel.TabIndex = 1;
-            descriptionLabel.Text = "Description";
-            descriptionLabel.Click += label2_Click;
+            descriptionLabel.Text = "Description:";
             // 
             // dueDateLabel
             // 
             dueDateLabel.AutoSize = true;
             dueDateLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dueDateLabel.ForeColor = SystemColors.ButtonHighlight;
-            dueDateLabel.Location = new Point(0, 114);
-            dueDateLabel.Margin = new Padding(4, 0, 4, 0);
+            dueDateLabel.Location = new Point(0, 88);
             dueDateLabel.Name = "dueDateLabel";
-            dueDateLabel.Size = new Size(115, 32);
+            dueDateLabel.Size = new Size(77, 21);
             dueDateLabel.TabIndex = 2;
-            dueDateLabel.Text = "Due Date";
+            dueDateLabel.Text = "Due Date:";
             // 
             // taskTitleBox
             // 
             taskTitleBox.BackColor = SystemColors.ActiveCaptionText;
             taskTitleBox.Font = new Font("Segoe UI Light", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
             taskTitleBox.ForeColor = SystemColors.ControlLightLight;
-            taskTitleBox.Location = new Point(4, 54);
-            taskTitleBox.Margin = new Padding(4);
+            taskTitleBox.Location = new Point(101, 33);
+            taskTitleBox.Margin = new Padding(3, 2, 3, 2);
             taskTitleBox.Name = "taskTitleBox";
-            taskTitleBox.Size = new Size(518, 39);
+            taskTitleBox.Size = new Size(364, 29);
             taskTitleBox.TabIndex = 3;
+            taskTitleBox.Text = "<Type Task Title Here>";
+            taskTitleBox.TextChanged += taskTitleBox_TextChanged;
             // 
             // dateTimePicker1
             // 
@@ -98,33 +96,33 @@
             dateTimePicker1.CalendarTitleBackColor = SystemColors.ActiveCaptionText;
             dateTimePicker1.CalendarTitleForeColor = SystemColors.ControlLightLight;
             dateTimePicker1.CalendarTrailingForeColor = SystemColors.ControlLightLight;
-            dateTimePicker1.Location = new Point(4, 152);
-            dateTimePicker1.Margin = new Padding(4);
+            dateTimePicker1.Location = new Point(101, 88);
+            dateTimePicker1.Margin = new Padding(3, 2, 3, 2);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(312, 31);
+            dateTimePicker1.Size = new Size(219, 23);
             dateTimePicker1.TabIndex = 4;
             dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
-            // descriptionBox
+            // textBox1
             // 
-            descriptionBox.BackColor = SystemColors.ActiveCaptionText;
-            descriptionBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            descriptionBox.ForeColor = SystemColors.ControlLightLight;
-            descriptionBox.Location = new Point(4, 241);
-            descriptionBox.Margin = new Padding(4);
-            descriptionBox.Multiline = true;
-            descriptionBox.Name = "descriptionBox";
-            descriptionBox.Size = new Size(518, 134);
-            descriptionBox.TabIndex = 5;
-            descriptionBox.TextChanged += textBox1_TextChanged;
+            textBox1.BackColor = SystemColors.ActiveCaptionText;
+            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.ForeColor = SystemColors.ControlLightLight;
+            textBox1.Location = new Point(101, 145);
+            textBox1.Margin = new Padding(3, 2, 3, 2);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(364, 55);
+            textBox1.TabIndex = 5;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // maintenanceTaskPanel
             // 
-            maintenanceTaskPanel.Controls.Add(taskTypeBox);
+            maintenanceTaskPanel.Controls.Add(addTaskTypeComboBox);
             maintenanceTaskPanel.Controls.Add(taskTypeLabel);
             maintenanceTaskPanel.Controls.Add(closeButton);
             maintenanceTaskPanel.Controls.Add(doneTaskButton);
-            maintenanceTaskPanel.Controls.Add(descriptionBox);
+            maintenanceTaskPanel.Controls.Add(textBox1);
             maintenanceTaskPanel.Controls.Add(dateTimePicker1);
             maintenanceTaskPanel.Controls.Add(taskTitleBox);
             maintenanceTaskPanel.Controls.Add(dueDateLabel);
@@ -132,29 +130,32 @@
             maintenanceTaskPanel.Controls.Add(taskTitleLabel);
             maintenanceTaskPanel.Dock = DockStyle.Fill;
             maintenanceTaskPanel.Location = new Point(0, 0);
-            maintenanceTaskPanel.Margin = new Padding(4);
+            maintenanceTaskPanel.Margin = new Padding(3, 2, 3, 2);
             maintenanceTaskPanel.Name = "maintenanceTaskPanel";
-            maintenanceTaskPanel.Size = new Size(839, 562);
+            maintenanceTaskPanel.Size = new Size(587, 338);
             maintenanceTaskPanel.TabIndex = 6;
             // 
-            // taskTypeBox
+            // addTaskTypeComboBox
             // 
-            taskTypeBox.Location = new Point(4, 431);
-            taskTypeBox.Name = "taskTypeBox";
-            taskTypeBox.Size = new Size(312, 31);
-            taskTypeBox.TabIndex = 9;
+            addTaskTypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            addTaskTypeComboBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            addTaskTypeComboBox.FormattingEnabled = true;
+            addTaskTypeComboBox.Items.AddRange(new object[] { "Priority", "Recurring" });
+            addTaskTypeComboBox.Location = new Point(101, 224);
+            addTaskTypeComboBox.Name = "addTaskTypeComboBox";
+            addTaskTypeComboBox.Size = new Size(121, 29);
+            addTaskTypeComboBox.TabIndex = 10;
             // 
             // taskTypeLabel
             // 
             taskTypeLabel.AutoSize = true;
             taskTypeLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             taskTypeLabel.ForeColor = SystemColors.ButtonHighlight;
-            taskTypeLabel.Location = new Point(4, 396);
-            taskTypeLabel.Margin = new Padding(4, 0, 4, 0);
+            taskTypeLabel.Location = new Point(3, 224);
             taskTypeLabel.Name = "taskTypeLabel";
-            taskTypeLabel.Size = new Size(116, 32);
+            taskTypeLabel.Size = new Size(78, 21);
             taskTypeLabel.TabIndex = 8;
-            taskTypeLabel.Text = "Task Type";
+            taskTypeLabel.Text = "Task Type:";
             // 
             // closeButton
             // 
@@ -163,12 +164,12 @@
             closeButton.BackColor = SystemColors.ActiveCaptionText;
             closeButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             closeButton.ForeColor = SystemColors.ButtonHighlight;
-            closeButton.Location = new Point(4, 510);
-            closeButton.Margin = new Padding(4);
+            closeButton.Location = new Point(3, 307);
+            closeButton.Margin = new Padding(3, 2, 3, 2);
             closeButton.Name = "closeButton";
-            closeButton.Size = new Size(118, 52);
+            closeButton.Size = new Size(82, 31);
             closeButton.TabIndex = 7;
-            closeButton.Text = "Close";
+            closeButton.Text = "Cancel";
             closeButton.UseVisualStyleBackColor = false;
             closeButton.Click += closeButton_Click;
             // 
@@ -179,24 +180,24 @@
             doneTaskButton.BackColor = SystemColors.ActiveCaptionText;
             doneTaskButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             doneTaskButton.ForeColor = SystemColors.ButtonHighlight;
-            doneTaskButton.Location = new Point(718, 506);
-            doneTaskButton.Margin = new Padding(4);
+            doneTaskButton.Location = new Point(505, 307);
+            doneTaskButton.Margin = new Padding(3, 2, 3, 2);
             doneTaskButton.Name = "doneTaskButton";
-            doneTaskButton.Size = new Size(118, 52);
+            doneTaskButton.Size = new Size(82, 31);
             doneTaskButton.TabIndex = 6;
-            doneTaskButton.Text = "Done";
+            doneTaskButton.Text = "Add Task";
             doneTaskButton.UseVisualStyleBackColor = false;
             doneTaskButton.Click += doneTaskButton_Click;
             // 
             // MaintenanceTaskControl
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
             Controls.Add(maintenanceTaskPanel);
-            Margin = new Padding(4);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "MaintenanceTaskControl";
-            Size = new Size(839, 562);
+            Size = new Size(587, 338);
             maintenanceTaskPanel.ResumeLayout(false);
             maintenanceTaskPanel.PerformLayout();
             ResumeLayout(false);
@@ -209,11 +210,11 @@
         private Label dueDateLabel;
         private TextBox taskTitleBox;
         private DateTimePicker dateTimePicker1;
-        private TextBox descriptionBox;
+        private TextBox textBox1;
         private Panel maintenanceTaskPanel;
         private Button doneTaskButton;
         private Button closeButton;
         private Label taskTypeLabel;
-        private TextBox taskTypeBox;
+        private ComboBox addTaskTypeComboBox;
     }
 }
