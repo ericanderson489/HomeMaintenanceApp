@@ -15,7 +15,7 @@ internal sealed class TaskDetailsControl : UserControl
         for (int i = 0; i < 5; i++) body.RowStyles.Add(new RowStyle(i == 3 ? SizeType.Percent : SizeType.AutoSize, i == 3 ? 100 : 0));
         body.Controls.Add(WorkshopStyle.Button("Back", back), 0, 0);
         body.Controls.Add(new TextBox { Text = task.Title, ReadOnly = true, Multiline = true, Height = 65, Dock = DockStyle.Fill, BorderStyle = BorderStyle.None, BackColor = WorkshopStyle.Paper, ForeColor = WorkshopStyle.Navy, Font = new Font("Segoe UI", 17, FontStyle.Bold), AccessibleName = "Task title" }, 0, 1);
-        body.Controls.Add(WorkshopStyle.Label($"Due: {task.DueDate:MMM d, yyyy}    •    Status: {(task.IsComplete ? "Completed" : "To do")}"), 0, 2);
+        body.Controls.Add(WorkshopStyle.Label($"Due: {task.DueDate:MMM d, yyyy}\nType: {task.TaskType}    •    Status: {(task.IsComplete ? "Completed" : "To do")}"), 0, 2);
         body.Controls.Add(new TextBox { Text = string.IsNullOrEmpty(task.Notes) ? "No notes added." : task.Notes, ReadOnly = true, Multiline = true, ScrollBars = ScrollBars.Vertical, Dock = DockStyle.Fill, BackColor = WorkshopStyle.Paper, BorderStyle = BorderStyle.None, AccessibleName = "Description or notes" }, 0, 3);
         var actions = new FlowLayoutPanel { Dock = DockStyle.Fill, AutoSize = true };
         actions.Controls.Add(WorkshopStyle.Button("Edit task", edit));

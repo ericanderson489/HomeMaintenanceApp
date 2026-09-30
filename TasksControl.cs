@@ -10,25 +10,80 @@ using System.Windows.Forms;
 
 namespace HomeMaintenanceApp
 {
-    public partial class TasksControl : UserControl
+    internal partial class TasksControl : UserControl
     {
+        private Account? m_account;
         public TasksControl()
         {
             InitializeComponent();
         }
-
-
-        public TasksControl(IReadOnlyList<UI.TaskViewData> tasks, Action add, Action<UI.TaskViewData> details)
+        internal TasksControl(Account account) : this()
         {
-            Font = new Font("Segoe UI", 11);
-            var page = UI.WorkshopStyle.Page(this, "YOUR MAINTENANCE TASKS", "All the jobs around your home, in one place.");
-            var body = new TableLayoutPanel { Dock = DockStyle.Fill, ColumnCount = 1, RowCount = 2 };
-            body.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
-            body.RowStyles.Add(new RowStyle(SizeType.AutoSize));
-            body.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
-            body.Controls.Add(UI.WorkshopStyle.Button("+ Add Task", add, true), 0, 0);
-            body.Controls.Add(UI.WorkshopStyle.TaskList(tasks, details), 0, 1);
-            page.Controls.Add(body, 0, 2);
+            m_account = account;
+            DisplayTasks();
         }
+        private void ShowPage(UserControl page)
+        {
+            page.Dock = DockStyle.Fill;
+            tasksControlPanel.Controls.Add(page);
+            page.BringToFront();
+        }
+        private void addTaskButton_Click(object sender, EventArgs e)
+        {
+            if (m_account == null) { return; }
+
+            MaintenanceTaskControl addTask = new MaintenanceTaskControl(m_account);
+            addTask.TaskAdded += ReturnToTasks;
+            addTask.AddTaskClosed += ReturnToTasks;
+            ShowPage(addTask);
+        }
+        private void editTaskButton_Click(object sender, EventArgs e)
+        {// This creates a new edit tasks object passing the account through as an argument 
+            if (m_account == null) { return; }
+
+            EditTask editTask = new EditTask(m_account);
+
+            editTask.EditClosed += ReturnToTasks;
+
+            ShowPage(editTask);
+        }
+        private void ReturnToTasks(object? sender, EventArgs e)
+        {// Event handler to return to Tasks page
+            if (sender is UserControl page)
+            {
+                tasksControlPanel.Controls.Remove(page);
+                page.Dispose();
+            }
+            DisplayTasks();
+        }
+        private void DisplayTasks()
+        {
+            if (m_account == null) { return; } 
+            
+            flowPanelPriorityTasks.Controls.Clear();
+            foreach (Tasks task in m_account.GetTaskList())
+            {
+                if (task.GetStatus() == Status.Complete) { continue; }
+                // Creates a small panel for each task
+                Panel taskPanel = new Panel(); // new panels are created so size is adjusted automatically for each new task
+                taskPanel.Width = flowPanelPriorityTasks.ClientSize.Width - 25;
+                taskPanel.Height = 55;
+                // Shows task name
+                Label nameLabel = new Label(); 
+                nameLabel.Text = task.GetName();
+                nameLabel.AutoSize = true;
+                nameLabel.Location = new Point(10, 8);
+                // Displays due date
+                Label dateLabel = new Label();
+                dateLabel.Text = $"Due: {task.GetDate():MM/dd/yyyy}";
+                dateLabel.AutoSize = true;
+                dateLabel.Location = new Point(10, 30);
+                taskPanel.Controls.Add(nameLabel);
+                taskPanel.Controls.Add(dateLabel);
+                flowPanelPriorityTasks.Controls.Add(taskPanel);
+            }
+        }
+        // Clean up later, no touch
+        private void tasksControlPanel_Paint(object sender, PaintEventArgs e){}
     }
 }

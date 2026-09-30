@@ -1,13 +1,12 @@
-// Program: UI data contract and temporary sample data for the workshop preview.
+// Program: Connect the workshop UI to durable account tasks.
 // Author: Murdock MacAskill
-// Date: 09/16/2026
+// Date: 09/29/2026
 namespace HomeMaintenanceApp.UI;
 
-public sealed record TaskViewData(Guid Id, string Title, string Notes, DateTime DueDate, bool IsComplete);
-public sealed record TaskFormData(string Title, string Notes, DateTime DueDate);
+public sealed record TaskViewData(Guid Id, string Title, string Notes, DateTime DueDate, bool IsComplete, string TaskType);
+public sealed record TaskFormData(string Title, string Notes, DateTime DueDate, string TaskType);
 
-/// <summary>UI boundary for the team's task service. Writes must return only after success.
-/// Implementations report failures by throwing an exception; the UI retains unsaved form data.</summary>
+/// <summary>Writes return only after success; failures leave unsaved fields in the editor.</summary>
 public interface ITaskPresentationSource
 {
     bool IsPreview { get; }
@@ -16,38 +15,20 @@ public interface ITaskPresentationSource
     void Complete(Guid id);
 }
 
-/// <summary>Session-only sample data for UI demonstrations; no files or database are written.</summary>
-public sealed class PreviewTaskSource : ITaskPresentationSource
+internal sealed class AccountTaskSource : ITaskPresentationSource
 {
-    private readonly List<TaskViewData> tasks = new()
-    {
-        new(Guid.NewGuid(), "Replace HVAC filter", "Check the size on the existing filter before buying a replacement.", DateTime.Today.AddDays(2), false),
-        new(Guid.NewGuid(), "Test smoke detectors", "Test each detector using its test button.", DateTime.Today.AddDays(3), false),
-        new(Guid.NewGuid(), "Clean the gutters", "Clear leaves and check the downspouts.", DateTime.Today.AddDays(7), false),
-        new(Guid.NewGuid(), "Inspect water heater", "Checked the surrounding area for visible leaks.", DateTime.Today.AddDays(-1), true)
-    };
+    private readonly Account account;
+    internal AccountTaskSource(Account account) => this.account = account;
+    public bool IsPreview => false;
+    public IReadOnlyList<TaskViewData> GetTasks() => account.GetTaskList().Select(t =>
+        new TaskViewData(t.Id, t.GetName(), t.GetDescription(), t.GetDate(),
+            t.GetStatus() == Status.Complete, t.GetTaskType())).ToArray();
 
-    public bool IsPreview => true;
-    public IReadOnlyList<TaskViewData> GetTasks() => tasks.ToArray();
-
-    /// <summary>Updates sample fields or adds a sample task. Unknown edit IDs are rejected.</summary>
     public void Save(Guid? id, TaskFormData fields)
     {
-        if (id is null)
-        {
-            tasks.Add(new(Guid.NewGuid(), fields.Title, fields.Notes, fields.DueDate.Date, false));
-            return;
-        }
-        int index = tasks.FindIndex(task => task.Id == id);
-        if (index < 0) throw new InvalidOperationException("Task no longer exists.");
-        tasks[index] = tasks[index] with { Title = fields.Title, Notes = fields.Notes, DueDate = fields.DueDate.Date };
+        if (id is null) account.AddTask(fields.Title, fields.Notes, fields.TaskType, fields.DueDate);
+        else account.UpdateTask(id.Value, fields.Title, fields.Notes, fields.TaskType, fields.DueDate);
     }
 
-    /// <summary>Marks a sample task complete. Unknown IDs are rejected.</summary>
-    public void Complete(Guid id)
-    {
-        int index = tasks.FindIndex(task => task.Id == id);
-        if (index < 0) throw new InvalidOperationException("Task no longer exists.");
-        tasks[index] = tasks[index] with { IsComplete = true };
-    }
+    public void Complete(Guid id) => account.CompleteTask(id);
 }

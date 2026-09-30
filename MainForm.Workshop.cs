@@ -1,11 +1,14 @@
-
+// Program: Workshop UI navigation and task-service integration boundary.
+// Author: Murdock MacAskill
+// Date: 09/16/2026
+// Extends the existing MainForm.
 using HomeMaintenanceApp.UI;
 
 namespace HomeMaintenanceApp;
 
-public partial class MainForm
+internal partial class MainForm
 {
-    private readonly ITaskPresentationSource taskSource;
+    private ITaskPresentationSource? taskSource;
     private bool homeSelected = true;
 
     /// <summary>Styles the existing shell and hides future screens only from Sprint 1 navigation.</summary>
@@ -13,7 +16,7 @@ public partial class MainForm
     {
         SuspendLayout();
         Font = new Font("Segoe UI", 11);
-        Text = "Home Maintenance Manager" + (taskSource.IsPreview ? " — UI Preview" : "");
+        Text = "Home Maintenance Manager — Workshop";
         ClientSize = new Size(1100, 760);
         MinimumSize = new Size(900, 680);
         sidePanel.Width = 215;
@@ -51,9 +54,9 @@ public partial class MainForm
         footer.Dock = DockStyle.Bottom;
         footer.ForeColor = WorkshopStyle.Paper;
         sidePanel.Controls.Add(footer);
-        if (taskSource.IsPreview)
+        // Task operations return successfully only after their account file has been saved.
         {
-            var preview = WorkshopStyle.Label("UI PREVIEW — sample data only. Changes reset when you close the app.", 10);
+            var preview = WorkshopStyle.Label("Account and task changes are saved on this computer.", 10);
             preview.AutoSize = false;
             preview.Height = 32;
             preview.Dock = DockStyle.Bottom;
@@ -68,12 +71,13 @@ public partial class MainForm
     /// <summary>Loads before replacing a screen; failure preserves the current screen.</summary>
     private void Navigate(bool home)
     {
+        if (taskSource is null) return;
         try
         {
             var tasks = taskSource.GetTasks();
             UserControl page = home
-                ? new DashboardControl(tasks, () => EditTask(null), () => Navigate(false), ShowDetails)
-                : new TasksControl(tasks, () => EditTask(null), ShowDetails);
+                ? new WorkshopDashboardControl(tasks, () => EditTask(null), () => Navigate(false), ShowDetails)
+                : new WorkshopTasksControl(tasks, () => EditTask(null), ShowDetails);
             homeSelected = home;
             ShowPage(page);
             dashBoardButton.BackColor = home ? Color.FromArgb(191, 73, 55) : WorkshopStyle.Red;
@@ -88,12 +92,14 @@ public partial class MainForm
     /// <summary>Edits copied fields. Successful saves refresh the list; cancellation changes nothing.</summary>
     private void EditTask(TaskViewData? task)
     {
+        if (taskSource is null) return;
         using var editor = new TaskEditorForm(task, fields => taskSource.Save(task?.Id, fields));
         if (editor.ShowDialog(this) == DialogResult.OK) Navigate(false);
     }
 
     private void CompleteTask(TaskViewData task)
     {
+        if (taskSource is null) return;
         try
         {
             taskSource.Complete(task.Id);

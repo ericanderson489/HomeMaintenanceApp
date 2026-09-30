@@ -38,21 +38,22 @@
             addGoalsButton.FlatStyle = FlatStyle.Popup;
             addGoalsButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             addGoalsButton.ForeColor = SystemColors.ButtonHighlight;
-            addGoalsButton.Location = new Point(326, 1);
+            addGoalsButton.Location = new Point(490, 3);
             addGoalsButton.Name = "addGoalsButton";
-            addGoalsButton.Size = new Size(107, 40);
+            addGoalsButton.Size = new Size(94, 31);
             addGoalsButton.TabIndex = 0;
             addGoalsButton.Text = "Add Goal";
             addGoalsButton.UseVisualStyleBackColor = false;
             // 
             // GoalsControl
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
             Controls.Add(addGoalsButton);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "GoalsControl";
-            Size = new Size(432, 450);
+            Size = new Size(587, 338);
             ResumeLayout(false);
             PerformLayout();
         }
