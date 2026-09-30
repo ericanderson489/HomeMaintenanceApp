@@ -14,6 +14,24 @@
     }
     internal class Tasks
     {
+        public Guid Id { get; private set; } = Guid.NewGuid();
+        internal TaskRecord Snapshot() => new(Id, m_name, m_description, m_type, m_dueDate, m_status);
+        internal static Tasks Restore(TaskRecord record)
+        {
+            var task = new Tasks(record.Name, record.Description, record.Type, record.DueDate);
+            task.Apply(record);
+            return task;
+        }
+        internal void Apply(TaskRecord record)
+        {
+            Id = record.Id;
+            m_name = record.Name;
+            m_description = record.Description;
+            m_type = record.Type;
+            m_dueDate = record.DueDate;
+            m_status = record.Status;
+        }
+        public override string ToString() => m_name;
         private string m_name;
         private string m_description;
         private string m_type;

@@ -7,6 +7,7 @@ namespace HomeMaintenanceApp
         public MainForm()
         {
             InitializeComponent(); // The component is initialized
+            ApplyWorkshopStyle(); // workshop shell around the team's account flow.
             mainWindowSize = ClientSize; // this is where the client size window is saved
             ShowLogin(); // login window is shown on start up
         }
@@ -14,16 +15,18 @@ namespace HomeMaintenanceApp
         { // The reason i do not use ShowPage() here is because the client window size is different
             sidePanel.Visible = false; // Side panel is hidden, the log in page is docked to the main panel
             LoginControl login = new LoginControl(); // New page created
-            ClientSize = login.Size; // Starts client window to login window size
+            ClientSize = mainWindowSize; // Keep the responsive workshop sign-in layout.
             login.Dock = DockStyle.Fill; // This is where it is docked
 
             login.LoginSuccessful += Login_LoginSuccessful; // Adds event login successful
-            mainPanel.Controls.Clear(); // Clears the main panel
-            mainPanel.Controls.Add(login); // Login page is added
+            taskSource = null;
+            currentAccount = null;
+            ShowPage(login);
         }
         private void Login_LoginSuccessful(object? sender, LoginControl.LoginEventArgs e)
         {
             currentAccount = e.Account; // The account is passed through and saved here
+            taskSource = new UI.AccountTaskSource(currentAccount);
             sidePanel.Visible = true; // once login is clicked the sidepanel returns
             ClientSize = mainWindowSize; // client size window returns to normal
             ShowDashboard(); // dashboard is shown in the main panel
@@ -32,13 +35,18 @@ namespace HomeMaintenanceApp
         {
             if (currentAccount != null)
             {
-                DashboardControl dashboard = new DashboardControl(currentAccount);
-                ShowPage(dashboard);
+                Navigate(true);
             }
         }
         private void ShowPage(UserControl page) // function for loading each page onto the main panel
         {
-            mainPanel.Controls.Clear(); // Clears the new panel
+            // release outgoing controls instead of leaving detached pages alive.
+            while (mainPanel.Controls.Count > 0)
+            {
+                var previous = mainPanel.Controls[0];
+                mainPanel.Controls.Remove(previous);
+                previous.Dispose();
+            }
             page.Dock = DockStyle.Fill; // It docks the new page to the panel
             mainPanel.Controls.Add(page);
         }
@@ -47,7 +55,7 @@ namespace HomeMaintenanceApp
         private void tasksButton_Click(object sender, EventArgs e){
             if (currentAccount != null)
             {// Brings account info over to tasks, may have to do this for the rest of them. or just use JSON. He's a good guy
-                ShowPage(new TasksControl(currentAccount));
+                Navigate(false);
             }
         }
         // Clean up later, no touch

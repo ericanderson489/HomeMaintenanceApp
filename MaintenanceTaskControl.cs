@@ -1,51 +1,35 @@
-﻿namespace HomeMaintenanceApp
+namespace HomeMaintenanceApp
 {
     internal partial class MaintenanceTaskControl : UserControl
     {
         private Account? m_account;
-        // Notify the Tasks page when this page is finished
         internal event EventHandler? TaskAdded;
         internal event EventHandler? AddTaskClosed;
         public MaintenanceTaskControl()
         {
             InitializeComponent();
+            addTaskTypeComboBox.Items.Clear();
+            addTaskTypeComboBox.Items.AddRange(TaskRules.Types.Cast<object>().ToArray());
         }
-        internal MaintenanceTaskControl(Account account) : this()
-        {
-            m_account = account;
-        }
+        internal MaintenanceTaskControl(Account account) : this() { m_account = account; }
         private void doneTaskButton_Click(object sender, EventArgs e)
         {
-            if (m_account == null) { return; }
-            // Make sure all fields are filled out
-            if (string.IsNullOrWhiteSpace(taskTitleBox.Text) ||
-                string.IsNullOrWhiteSpace(textBox1.Text) ||
-                addTaskTypeComboBox.SelectedItem == null)
+            if (m_account is null) return;
+            try
             {
-                MessageBox.Show("Please fill out all task fields.");
+                m_account.AddTask(taskTitleBox.Text, textBox1.Text,
+                    addTaskTypeComboBox.SelectedItem as string ?? "", dateTimePicker1.Value);
+            }
+            catch (ArgumentException ex) { MessageBox.Show(ex.Message); return; }
+            catch (Exception ex) when (ex is IOException or InvalidDataException or UnauthorizedAccessException)
+            {
+                MessageBox.Show("The task could not be saved. Your entries are still here. Check storage or reopen the app if another session changed this account.");
                 return;
             }
-            DateTime dueDate = dateTimePicker1.Value;
-            if (dueDate < DateTime.Today)
-            {
-                MessageBox.Show("Due date cannot be in the past.");
-                return;
-            }
-            // Add the new task to the loggedin account
-            m_account.AddTask(
-                taskTitleBox.Text,
-                textBox1.Text,
-                addTaskTypeComboBox.SelectedItem.ToString()!,
-                dueDate);
             MessageBox.Show("Task added!");
-            // Tell the Tasks page that a task was successfully created
             TaskAdded?.Invoke(this, EventArgs.Empty);
         }
-        private void closeButton_Click(object sender, EventArgs e)
-        {
-            // Return to the Tasks page without adding a task
-            AddTaskClosed?.Invoke(this, EventArgs.Empty);
-        }
+        private void closeButton_Click(object sender, EventArgs e) => AddTaskClosed?.Invoke(this, EventArgs.Empty);
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e) { }
         private void textBox1_TextChanged(object sender, EventArgs e) { }
         private void taskTitleBox_TextChanged(object sender, EventArgs e) { }
