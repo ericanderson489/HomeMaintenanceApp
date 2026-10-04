@@ -12,21 +12,21 @@ namespace HomeMaintenanceApp
 {
     public partial class CompleteTaskControl : UserControl
     {
-        private Profile? m_profile;
+        private Account? m_account;
         private List<string> taskName = new List<string>();
         public CompleteTaskControl()
         {
             InitializeComponent();  
         }
 
-        public CompleteTaskControl(Profile profile) : this()
+        public CompleteTaskControl(Account account) : this()
         {
-            m_profile = profile;
+            m_account = account;
 
             // Initialize list of task names for combo box
-            for (int i = 0; i < m_profile.GetTaskList().Count; i++)
+            for (int i = 0; i < m_account.GetTaskList().Count; i++)
             {
-                taskName.Add(m_profile.GetTaskAt(i).GetName());
+                taskName.Add(m_account.GetTaskAt(i).GetName());
             }
 
             // Set combo box data source to task names
@@ -47,7 +47,7 @@ namespace HomeMaintenanceApp
             
             if (!string.IsNullOrEmpty(toComplete))
             {
-                foreach (var task in m_profile.GetTaskList())
+                foreach (var task in m_account.GetTaskList())
                 {
                     if (task.GetName() == toComplete)
                     {
@@ -75,7 +75,7 @@ namespace HomeMaintenanceApp
 
         private void closeButton_Click(object sender, EventArgs e)
         {
-            ShowPage(new TasksControl(m_profile));
+            ShowPage(new TasksControl(m_account));
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e) // Ignore this

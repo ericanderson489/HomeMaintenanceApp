@@ -13,6 +13,7 @@
         internal MaintenanceTaskControl(Account account) : this()
         {
             m_account = account;
+            TaskCategoryCombo.DataSource = Enum.GetValues(typeof(Category));
         }
         private void doneTaskButton_Click(object sender, EventArgs e)
         {
@@ -20,7 +21,8 @@
             // Make sure all fields are filled out
             if (string.IsNullOrWhiteSpace(taskTitleBox.Text) ||
                 string.IsNullOrWhiteSpace(textBox1.Text) ||
-                addTaskTypeComboBox.SelectedItem == null)
+                addTaskTypeComboBox.SelectedItem == null ||
+                TaskCategoryCombo.SelectedItem == null)
             {
                 MessageBox.Show("Please fill out all task fields.");
                 return;
@@ -36,7 +38,8 @@
                 taskTitleBox.Text,
                 textBox1.Text,
                 addTaskTypeComboBox.SelectedItem.ToString()!,
-                dueDate);
+                dueDate,
+                (Category)TaskCategoryCombo.SelectedItem);
             MessageBox.Show("Task added!");
             // Tell the Tasks page that a task was successfully created
             TaskAdded?.Invoke(this, EventArgs.Empty);
@@ -49,5 +52,6 @@
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e) { }
         private void textBox1_TextChanged(object sender, EventArgs e) { }
         private void taskTitleBox_TextChanged(object sender, EventArgs e) { }
+        private void dueDateLabel_Click(object sender, EventArgs e) { }
     }
 }

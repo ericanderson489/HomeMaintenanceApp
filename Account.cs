@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HomeMaintenanceApp
 {
-    internal class Account
+    public class Account
     {
         //List<Tasks> tasks = new List<Tasks>(); //Just in case we have a list of tasks tied to each account
         private string m_firstName, m_lastName, m_userName;
@@ -56,10 +56,45 @@ namespace HomeMaintenanceApp
             string name,
             string description,
             string type,
-            DateTime dueDate)
+            DateTime dueDate,
+            Category category)
         {
-            Tasks newTask = new Tasks(name, description, type, dueDate);
+            Tasks newTask = new Tasks(name, description, type, dueDate, category);
             m_taskList.Add(newTask);
+        }
+
+        // Return task at specified index. For creation of task name drop downs.
+        public Tasks GetTaskAt(int idx)
+        {
+            return m_taskList[idx];
+        }
+
+        // Edit Tasks. 
+        public void EditTask(string name, string description, string type, DateTime time, Category category)
+        {
+            foreach (var task in GetTaskList())
+            {
+                if (name.ToLower().Trim() == task.GetName().ToLower().Trim())
+                {
+                    task.SetName(name);
+                    task.SetDescription(description);
+                    task.SetType(type);
+                    task.SetDate(time);
+                    task.SetCategory(category);
+                }
+            }
+        }
+
+        // Delete Tasks. 
+        public void DeleteTask(string taskName)
+        {
+            foreach (var task in GetTaskList().ToList())
+            {
+                if (taskName.ToLower().TrimEnd() == task.GetName().ToLower().TrimEnd())
+                {
+                    GetTaskList().Remove(task);
+                }
+            }
         }
     }
 }

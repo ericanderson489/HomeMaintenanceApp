@@ -32,12 +32,6 @@ namespace HomeMaintenanceApp
         public void SetTaskList(List<Tasks> taskList) {  m_taskList = taskList; }
 
         // Add Tasks. 
-        public void AddTask(string name, string description, string type, DateTime time)
-        {
-            Tasks newTask = new Tasks(name, description, type, time);
-            m_taskList.Add(newTask);
-        }
-
         public void AddTask(Tasks newTask)
         {
             m_taskList.Add(newTask);
