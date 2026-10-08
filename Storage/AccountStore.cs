@@ -8,7 +8,9 @@ using System.Text.Json;
 namespace HomeMaintenanceApp;
 
 internal sealed record PasswordRecord(string Salt, string Hash, int Iterations);
-internal sealed record TaskRecord(Guid Id, string Name, string Description, string Type, DateTime DueDate, Status Status);
+internal sealed record TaskRecord(Guid Id, string Name, string Description, string Type, DateTime DueDate, Status Status,
+    RepeatSchedule Repeat = RepeatSchedule.None, DateTime? ScheduleAnchor = null, int Occurrence = 0,
+    Guid? PreviousOccurrenceId = null, DateTime? CompletedAt = null, bool IsArchived = false);
 internal sealed record AccountRecord(int Schema, int Revision, string UserName, string FirstName,
     string LastName, PasswordRecord Password, List<TaskRecord> Tasks);
 
@@ -117,13 +119,22 @@ internal sealed class AccountStore
 
     private static void Validate(AccountRecord record)
     {
-        if (record.Schema != 1 || record.Revision < 1 || string.IsNullOrWhiteSpace(record.UserName)
+        if (record.Schema is not (1 or 2 or 3) || record.Revision < 1 || string.IsNullOrWhiteSpace(record.UserName)
             || string.IsNullOrWhiteSpace(record.FirstName) || string.IsNullOrWhiteSpace(record.LastName)
             || !PasswordSecurity.IsValid(record.Password) || record.Tasks is null
             || record.Tasks.Any(t => t is null || t.Id == Guid.Empty || string.IsNullOrWhiteSpace(t.Name)
                 || string.IsNullOrWhiteSpace(t.Description) || !TaskRules.Types.Contains(t.Type)
-                || !Enum.IsDefined(t.Status) || t.DueDate < new DateTime(1753, 1, 1) || t.DueDate > new DateTime(9998, 12, 31))
+                || !Enum.IsDefined(t.Status) || t.DueDate < new DateTime(1753, 1, 1) || t.DueDate > new DateTime(9998, 12, 31)
+                || !Recurrence.IsValid(t) || (record.Schema < 3 && t.IsArchived)
+                || (record.Schema == 1 && (t.Repeat != RepeatSchedule.None || t.PreviousOccurrenceId is not null)))
             || record.Tasks.Select(t => t.Id).Distinct().Count() != record.Tasks.Count)
             throw new InvalidDataException("An account file contains invalid or unsupported data. Existing files have not been changed.");
+        var byId = record.Tasks.ToDictionary(t => t.Id);
+        var successors = record.Tasks.Where(t => t.PreviousOccurrenceId is not null).ToArray();
+        if (successors.Select(t => t.PreviousOccurrenceId).Distinct().Count() != successors.Length
+            || successors.Any(t => t.PreviousOccurrenceId == t.Id
+                || !byId.TryGetValue(t.PreviousOccurrenceId!.Value, out var previous)
+                || previous.Status != Status.Complete))
+            throw new InvalidDataException("An account contains invalid repeat history. Existing files have not been changed.");
     }
 }

@@ -71,16 +71,95 @@ GetTaskList now returns a read-only list. The old SaveAccount/FullRewrite routin
 were replaced by account operations that persist each change. These API changes
 should be considered when merging the team's next branch updates.
 
-Priority and Recurring remain the team's existing type labels. Automatic recurring
-work, reminders, calendar functionality, and a notebook theme are future work.
+Priority and Recurring remain the team's existing type labels. The Repeat field
+now stores scheduling independently, so priority tasks can also repeat. Reminders,
+calendar functionality, and a notebook theme are future work.
+
+## Recurring tasks (SCRUM-8)
+
+In Add task or Edit task, select Weekly, Monthly, Every 3 months, or Yearly from
+Repeat. New tasks labeled Recurring require an interval. Choosing an interval
+does not remove Priority from a priority task. The schedule appears in the job
+sheet and task-list text. To stop future repeats, edit the open occurrence and
+choose Does not repeat; the old task type remains a classification only.
+
+Mark complete saves the completed occurrence and exactly one next occurrence
+in the same atomic account write. The next job has a new ID, the same title,
+notes, type, and repeat interval, and a link to the completed job. The finished
+job retains its due date and a UTC completion timestamp (displayed in local time).
+Completed jobs stay in the Tasks list. Repeated completion calls are no-ops;
+stale sessions cannot add a second successor.
+
+Dates follow the original scheduled date, not the date the button was clicked.
+January 31 monthly becomes February's last day, then March 31. A yearly February
+29 schedule returns to February 29 in the next leap year. Late completion creates
+one next scheduled job even if it is overdue; it does not silently skip missed
+work. Editing notes or type preserves the schedule's anchor. Explicitly changing
+the due date or interval on an open occurrence establishes a new anchor.
+Completed dates and intervals cannot be edited; change the next open job instead.
+
+Storage schema 2 introduced repeat interval, anchor, occurrence number, predecessor ID,
+and completion timestamp. The current schema 3 also stores archive state. Schema 1
+and 2 JSON accounts load with their jobs unarchived and upgrade on their next
+successful save. No interval is invented for old Recurring labels. Older app
+versions reject schema 3 instead of silently dropping new data. Unknown
+intervals and inconsistent metadata are rejected without overwriting the file.
+If a repeat exceeds the supported calendar range, completion fails without
+changing history or creating a next job; change the open job's date or stop its
+repeat before completing it.
+
+For a sprint demonstration: create a monthly job due October 1, complete it,
+verify the completed October 1 job and open November 1 job, then restart and
+verify both remain. Completing the October job again must not add another job.
+
+## Filters, archive, and save feedback
+
+The Tasks screen's Show jobs selector offers All jobs (the default), All active,
+Overdue, Due soon, Completed, and Archived. All jobs excludes archived entries.
+Due soon includes today through six days ahead; Overdue includes unfinished jobs
+before today. Completed jobs never appear as overdue. Filters survive navigation
+between Home and Tasks and reset on sign-out. Empty filters show a clear message.
+
+An unfinished repeating job's sheet previews its next occurrence using the same
+anchored calendar calculation as completion. Previewing does not save or create
+a job. If the schedule exceeds the supported date range, the sheet explains that
+the schedule must be edited before completion. Nonrepeating, completed, and
+archived jobs do not show a pending-completion preview.
+
+Archive hides one occurrence without deleting it, marking it complete, or creating
+a successor. Open the Archived filter, select the job, and choose Restore to return
+it with the same ID, date, status, and schedule. Archived jobs must be restored
+before editing or completing. Restoring a past-due job leaves it overdue; restoring
+completed history leaves it completed. Archiving a completed occurrence does not
+archive its already-created successor. To stop future repetitions, edit the pending
+occurrence's repeat schedule or archive that pending occurrence.
+
+The dashboard excludes archived jobs from counts and upcoming work. Original team
+screens using Account.GetTaskList also exclude archives; the workshop adapter uses
+GetAllTasks to include them in the dedicated archive view. SetArchived performs one
+atomic save and rejects stale sessions before changing live state. Repeating the
+same archive/restore action is a no-op. Saved, completed, archived, and restored
+actions show confirmation on the Tasks screen only after persistence succeeds.
+Failed saves retain the current state and provide an error instead.
+
+In compact layouts the job sheet scrolls within its allotted space, keeping the
+task-list header visible even with expanded notes. Double-click and Enter navigation
+from the dashboard are deferred until the native list event finishes, preventing
+access to a list that was disposed during its own mouse event.
 
 ## Verification
 
-The application and test project build with zero warnings and errors. The final
-run passed 50 integration assertions, including account creation through its button,
+The application builds with zero warnings and errors. The current checks cover
+account creation through its button,
 incorrect/correct login, required fields, add/edit/cancel/complete, persisted field
 and ID equality, stale-session rejection, damaged JSON, failed-save retention,
-account isolation, and narrow/scaled account layouts. Rendered screens were checked.
+account isolation, and narrow/scaled account layouts. Recurrence checks additionally
+cover all four intervals, month ends, leap years, restarting, UI edits and cancel,
+stopping repeats, failed atomic saves, duplicate/stale completion, old JSON accounts,
+invalid intervals, and calendar limits. Additional checks cover filter boundaries,
+archive/restore persistence and failed writes, schema 2 migration, completed repeat
+history, next-date previews, confirmation messages, compact scrolling, and native
+dashboard double-click/Enter activation. Rendered screens were checked.
 
 Run Tests/Run-IntegrationChecks.ps1 from PowerShell on Windows. It creates a unique
 TestResults output folder and records checks.log and errors.log. It never opens the

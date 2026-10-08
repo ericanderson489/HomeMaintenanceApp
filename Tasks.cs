@@ -15,7 +15,14 @@
     internal class Tasks
     {
         public Guid Id { get; private set; } = Guid.NewGuid();
-        internal TaskRecord Snapshot() => new(Id, m_name, m_description, m_type, m_dueDate, m_status);
+        internal RepeatSchedule Repeat { get; private set; }
+        private DateTime? scheduleAnchor;
+        private int occurrence;
+        internal Guid? PreviousOccurrenceId { get; private set; }
+        internal DateTime? CompletedAt { get; private set; }
+        internal bool IsArchived { get; private set; }
+        internal TaskRecord Snapshot() => new(Id, m_name, m_description, m_type, m_dueDate, m_status,
+            Repeat, scheduleAnchor, occurrence, PreviousOccurrenceId, CompletedAt, IsArchived);
         internal static Tasks Restore(TaskRecord record)
         {
             var task = new Tasks(record.Name, record.Description, record.Type, record.DueDate);
@@ -30,6 +37,12 @@
             m_type = record.Type;
             m_dueDate = record.DueDate;
             m_status = record.Status;
+            Repeat = record.Repeat;
+            scheduleAnchor = record.ScheduleAnchor;
+            occurrence = record.Occurrence;
+            PreviousOccurrenceId = record.PreviousOccurrenceId;
+            CompletedAt = record.CompletedAt;
+            IsArchived = record.IsArchived;
         }
         public override string ToString() => m_name;
         private string m_name;

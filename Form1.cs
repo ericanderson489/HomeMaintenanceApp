@@ -20,6 +20,7 @@ namespace HomeMaintenanceApp
 
             login.LoginSuccessful += Login_LoginSuccessful; // Adds event login successful
             taskSource = null;
+            taskFilter = UI.TaskFilter.All;
             currentAccount = null;
             ShowPage(login);
         }

@@ -11,7 +11,7 @@ internal partial class LoginControl
         passwordTextextBox.UseSystemPasswordChar = true;
         loginButton.Text = "Sign in";
         createAccountButton.Text = "Create account";
-        UI.AccountLayout.Apply(mainPanelLogin, "Welcome to your workshop.",
+        UI.AccountLayout.Apply(mainPanelLogin, "Welcome back.",
             new[] { ("Username", usernameTextBox), ("Password", passwordTextextBox) },
             feedback, loginButton, createAccountButton, cancelButton);
     }

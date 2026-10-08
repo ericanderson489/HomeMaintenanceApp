@@ -11,6 +11,7 @@
   <!-- Integration verification is a separate executable, not part of the app. -->
   <ItemGroup>
     <Compile Remove="Tests/**/*.cs" />
+    <EmbeddedResource Include="UI/Assets/WorkshopIllustration.png" LogicalName="HomeMaintenanceApp.WorkshopIllustration.png" />
   </ItemGroup>
 
 </Project>
