@@ -37,6 +37,11 @@ internal class Account
     public bool VerifyPassword(string candidate) => PasswordSecurity.Verify(candidate, password);
     public override string ToString() => GetAccountFullName();
     public IReadOnlyList<Tasks> GetTaskList() => m_taskList.Where(t => !t.IsArchived).ToList().AsReadOnly();
+
+    public List<Tasks> GetListOfTasks()
+    {
+        return m_taskList;
+    }
     internal IReadOnlyList<Tasks> GetAllTasks() => m_taskList.AsReadOnly();
 
     private AccountRecord Snapshot(IEnumerable<Tasks> tasks) =>

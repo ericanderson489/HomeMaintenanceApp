@@ -5,7 +5,11 @@ namespace HomeMaintenanceApp
         internal class LoginEventArgs : EventArgs
         {
             public Account Account { get; }
-            public LoginEventArgs(Account account) => Account = account;
+            public LoginEventArgs(Account account)
+            {
+                Account = account;
+				Reminder.ShowSoonToDo(account);
+			}
         }
         internal event EventHandler<LoginEventArgs>? LoginSuccessful;
         private readonly AccountFileReading accountFile = new();
