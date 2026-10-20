@@ -1,0 +1,127 @@
+--- a/HomeMaintenanceApp/Form1.cs
++++ b/HomeMaintenanceApp/Form1.cs
+@@ -31,6 +31,7 @@
+             sidePanel.Visible = true; // once login is clicked the sidepanel returns
+             ClientSize = mainWindowSize; // client size window returns to normal
+             ShowDashboard(); // dashboard is shown in the main panel
++            Reminder.ShowSoonToDo(e.Account); // notify only after successful login
+         }
+         private void ShowDashboard()
+         {
+--- a/HomeMaintenanceApp/HomeMaintenanceApp.csproj
++++ b/HomeMaintenanceApp/HomeMaintenanceApp.csproj
+@@ -8,6 +8,10 @@
+     <ImplicitUsings>enable</ImplicitUsings>
+   </PropertyGroup>
+ 
++  <ItemGroup>
++    <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications" Version="7.1.3" />
++  </ItemGroup>
++
+   <!-- Integration verification is a separate executable, not part of the app. -->
+   <ItemGroup>
+     <Compile Remove="Tests/**/*.cs" />
+--- a/HomeMaintenanceApp/LoginControl.cs
++++ b/HomeMaintenanceApp/LoginControl.cs
+@@ -8,7 +8,6 @@
+             public LoginEventArgs(Account account)
+             {
+                 Account = account;
+-				Reminder.ShowSoonToDo(account);
+ 			}
+         }
+         internal event EventHandler<LoginEventArgs>? LoginSuccessful;
+--- a/HomeMaintenanceApp/Reminder.cs
++++ b/HomeMaintenanceApp/Reminder.cs
+@@ -1,46 +1,55 @@
+-using System;
+-using System.Collections.Generic;
+-using System.Linq;
+-using System.Text;
+-using System.Threading.Tasks;
+-using Microsoft.VisualBasic;
+-
+-//The class is deticated to giving the user reminders of their task's upcoming due dates.
++using CommunityToolkit.WinUI.Notifications;
++using System.Diagnostics;
+ 
+ namespace HomeMaintenanceApp
+ {
+-	static class Reminder
+-	{
+-		public static void ShowSoonToDo(Account account)
+-		{
+-			List<Tasks> taskList = account.GetListOfTasks();
++    // Shows a Windows reminder for unfinished, unarchived tasks that are overdue
++    // or due within the next seven calendar days.
++    static class Reminder
++    {
++        public static void ShowSoonToDo(Account account)
++        {
++            DateTime today = DateTime.Today;
+ 
+-			List<Tasks> dueList = new List<Tasks>();
++            var dueTasks = account.GetTaskList()
++                .Where(task => task.GetStatus() != Status.Complete)
++                .Select(task => new
++                {
++                    Name = task.GetName(),
++                    DaysRemaining = (task.GetDate().Date - today).Days
++                })
++                .Where(task => task.DaysRemaining <= 7)
++                .OrderBy(task => task.DaysRemaining)
++                .ToList();
+ 
+-			DateTime currDate = DateTime.Now;
++            // Don't notify for completed/archived tasks or deadlines more than a week away.
++            if (dueTasks.Count == 0) return;
+ 
+-			string message = "";
++            string summary = dueTasks.Count == 1
++                ? "1 maintenance task needs attention"
++                : $"{dueTasks.Count} maintenance tasks need attention";
+ 
+-			for (int i = 0; i < taskList.Count; i++)
+-			{
+-				int daysRemaining = (taskList[i].GetDate() - currDate).Days;
++            string details = string.Join("; ", dueTasks.Take(2).Select(task =>
++                task.DaysRemaining < 0 ? $"{task.Name}: overdue" :
++                task.DaysRemaining == 0 ? $"{task.Name}: due today" :
++                $"{task.Name}: due in {task.DaysRemaining} day{(task.DaysRemaining == 1 ? "" : "s")}"));
+ 
+-				if (daysRemaining <= 7 && daysRemaining > 0)
+-				{
+-					message = message + taskList[i].GetName() + " is due in " + daysRemaining + "!\n";
+-				}
+-				else if (daysRemaining == 0)
+-				{
+-					message = message + taskList[i].GetName() + " is due today!" + '\n';
+-				}
+-				else 
+-				{
+-					message = message + taskList[i].GetName() + " is over do!" + '\n';
+-				}
+-			}
++            if (dueTasks.Count > 2)
++                details += $"; and {dueTasks.Count - 2} more";
+ 
+-			MessageBox.Show(message);
+-
+-		}
+-	}
++            // A notification failure should not prevent a successful login.
++            try
++            {
++                new ToastContentBuilder()
++                    .AddText("Home Maintenance Reminder")
++                    .AddText(summary)
++                    .AddText(details)
++                    .Show();
++            }
++            catch (Exception ex)
++            {
++                Trace.TraceWarning("Could not show task reminder: {0}", ex);
++            }
++        }
++    }
+ }
