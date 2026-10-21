@@ -5,6 +5,7 @@ internal class Account
     private readonly string m_firstName, m_lastName, m_userName;
     private readonly PasswordRecord password;
     private readonly List<Tasks> m_taskList = new();
+    private readonly List<Appliance> m_applianceList = new();
     private AccountStore? store;
     private int revision;
 
@@ -134,7 +135,11 @@ internal class Account
         Persist(m_taskList.Select(t => t.Id == original.Id ? Tasks.Restore(updated) : t));
         original.Apply(updated);
     }
-
+    public void AddAppliance(string name, string desc, string manufacturer, string modelNumber, ApplianceStatus status)
+    {
+        Appliance newApp = new Appliance(name, desc, manufacturer, modelNumber, status);
+        m_applianceList.Add(newApp);
+    }
     private Tasks FindTask(Guid id) => m_taskList.SingleOrDefault(t => t.Id == id)
         ?? throw new ArgumentException("Task no longer exists.");
 }
