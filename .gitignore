@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+# Local account data and isolated integration-check output
+SavedAccounts.txt
+TestResults/
